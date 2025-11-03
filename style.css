@@ -509,6 +509,7 @@ a:hover {
   cursor: pointer;
 }
 
+
 /* Fade-in animation */
 .fade-in {
   opacity: 0;
@@ -519,6 +520,38 @@ a:hover {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.testimonial-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  height: 180px;
+}
+
+.testimonial {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+
+.testimonial.active {
+  opacity: 1;
+}
+
+.testimonial p {
+  font-style: italic;
+  color: var(--secondary);
+  margin-bottom: 10px;
+}
+
+.testimonial span {
+  color: var(--primary);
 }
 
 
