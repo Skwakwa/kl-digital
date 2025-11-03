@@ -6,85 +6,7 @@
   <title>KL Digital — Modern Tech & Web</title>
   <meta name="description" content="KL Digital — Website creation, analytics engineering, laptop repairs and practical tech solutions." />
   <link rel="icon" href="logo.png" />
-  <style>
-    /* Base palette */
-    :root{
-      --bg: #f7fbff; /* very light blue */
-      --card: #ffffff;
-      --text: #0b1a2b;
-      --muted: #506070;
-      --accent: #ffd700; /* neon gold */
-      --primary: #1e90ff; /* light blue accent */
-      --glass: rgba(255,255,255,0.6);
-      --radius: 14px;
-      --shadow: 0 8px 30px rgba(15,30,60,0.08);
-      font-synthesis: none;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(180deg,var(--bg),#eef8ff 60%);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-      padding:40px 20px;
-    }
-
-    .container{max-width:1100px;margin:0 auto}
-
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;background:transparent}
-    .brand{display:flex;gap:12px;align-items:center}
-    .brand img{width:56px;height:56px;border-radius:12px;object-fit:cover;box-shadow:var(--shadow)}
-    .brand h1{font-size:20px;margin:0}
-    .brand h1 small{display:block;font-size:11px;color:var(--muted);font-weight:600}
-
-    .cta{display:flex;gap:10px}
-    .btn{background:var(--accent);color:#072034;padding:10px 14px;border-radius:10px;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(255,215,0,0.15);}
-    .btn.secondary{background:transparent;border:1px solid rgba(15,30,60,0.06);color:var(--text);font-weight:600}
-
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:34px;align-items:center;margin-top:18px}
-    .hero-card{background:var(--card);border-radius:var(--radius);padding:36px;box-shadow:var(--shadow)}
-    .hero h2{font-size:34px;margin:0 0 8px}
-    .hero p.lead{color:var(--muted);margin:0 0 18px}
-
-    .features{display:flex;flex-direction:column;gap:12px}
-    .feature{display:flex;gap:12px;align-items:flex-start}
-    .feature .dot{width:10px;height:10px;border-radius:50%;background:var(--primary);margin-top:6px}
-
-    .card-right{padding:26px;background:linear-gradient(180deg,rgba(255,255,255,0.9),#fff);border-radius:12px}
-    .logo-preview{display:flex;gap:12px;align-items:center}
-
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
-    .service{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow)}
-    .service h3{margin:0 0 8px}
-    .service p{margin:0;color:var(--muted)}
-
-    .about{margin-top:34px;padding:22px;background:var(--card);border-radius:12px;box-shadow:var(--shadow)}
-    .about h3{margin-top:0}
-
-    .portfolio{margin-top:26px;display:flex;flex-direction:column;gap:12px}
-    .portfolio a{display:flex;align-items:center;justify-content:space-between;padding:14px;border-radius:10px;background:linear-gradient(90deg,#fff,#fbfdff);text-decoration:none;color:var(--text);box-shadow:var(--shadow)}
-
-    .contact{margin-top:22px;display:flex;gap:18px;align-items:center}
-    .contact .mail{padding:12px 16px;border-radius:10px;background:var(--card);box-shadow:var(--shadow)}
-
-    footer{margin-top:36px;text-align:center;color:var(--muted);font-size:13px}
-
-    /* Responsive */
-    @media (max-width:920px){
-      .hero{grid-template-columns:1fr;}
-      .services{grid-template-columns:1fr}
-    }
-
-    /* Micro animations */
-    .logo-glow{filter:drop-shadow(0 6px 18px rgba(255,215,0,0.25));}
-    .btn:hover{transform:translateY(-3px);transition:all 220ms cubic-bezier(.2,.9,.3,1)}
-
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
@@ -107,37 +29,36 @@
         <p class="lead">Professional websites, analytics engineering and laptop repairs. Practical solutions that scale your business and keep your tech working.</p>
 
         <div class="features">
-          <div class="feature"><div class="dot"></div><div><strong>Website creation</strong><div style="color:var(--muted);font-size:14px">Modern responsive sites, fast and SEO-ready.</div></div></div>
-          <div class="feature"><div class="dot"></div><div><strong>Analytics engineering</strong><div style="color:var(--muted);font-size:14px">Data-driven decisions, tracking, dashboards.</div></div></div>
-          <div class="feature"><div class="dot"></div><div><strong>Laptop & PC repairs</strong><div style="color:var(--muted);font-size:14px">Hardware troubleshooting, malware removal, performance tune-ups.</div></div></div>
+          <div class="feature"><div class="dot"></div><div><strong>Website creation</strong><div style="color:#506070;font-size:14px">Modern responsive sites, fast and SEO-ready.</div></div></div>
+          <div class="feature"><div class="dot"></div><div><strong>Analytics engineering</strong><div style="color:#506070;font-size:14px">Data-driven decisions, tracking, dashboards.</div></div></div>
+          <div class="feature"><div class="dot"></div><div><strong>Laptop & PC repairs</strong><div style="color:#506070;font-size:14px">Hardware troubleshooting, malware removal, performance tune-ups.</div></div></div>
         </div>
 
         <div style="margin-top:18px;display:flex;gap:10px">
           <a class="btn" href="#contact">Book a Fix — WhatsApp</a>
           <a class="btn secondary" href="#services">See Services</a>
         </div>
-
       </section>
 
       <aside class="card-right">
         <div class="logo-preview">
-          <img src="logo.png" alt="logo" width="86" height="86" class="logo-glow" style="border-radius:12px;object-fit:cover"/>
+          <img src="logo.png" alt="logo" class="logo-glow" />
           <div>
             <strong>Kwena Mokoti</strong>
-            <div style="color:var(--muted);font-size:13px">Founder & Lead Technician</div>
+            <div style="color:#506070;font-size:13px">Founder & Lead Technician</div>
           </div>
         </div>
 
-        <div style="margin-top:16px;font-size:13px;color:var(--muted)">Quick contact</div>
+        <div style="margin-top:16px;font-size:13px;color:#506070">Quick contact</div>
         <div style="margin-top:8px;display:flex;gap:8px">
           <a class="btn" href="https://wa.me/27658772518" target="_blank">WhatsApp</a>
           <div class="btn secondary mail">Email: coming soon</div>
         </div>
 
         <div style="margin-top:18px;padding:12px;background:linear-gradient(180deg,#fff,#fbfdff);border-radius:10px;">
-          <div style="font-size:13px;color:var(--muted)">Trusted work</div>
+          <div style="font-size:13px;color:#506070">Trusted work</div>
           <div style="font-weight:700;margin-top:6px">Live site example</div>
-          <a href="https://kandlfoundation.com/" target="_blank" style="display:block;margin-top:8px;color:var(--primary);text-decoration:none">kandlfoundation.com — view site</a>
+          <a href="https://kandlfoundation.com/" target="_blank" class="view-link">kandlfoundation.com — view site</a>
         </div>
       </aside>
     </main>
@@ -167,24 +88,22 @@
       <a href="https://kandlfoundation.com/" target="_blank">
         <div>
           <strong>K&L Foundation Site</strong>
-          <div style="color:var(--muted);font-size:13px">Website built and deployed — example of live work</div>
+          <div style="color:#506070;font-size:13px">Website built and deployed — example of live work</div>
         </div>
-        <div style="font-weight:700;color:var(--primary)">View</div>
+        <div class="view-link">View</div>
       </a>
-
-      <div style="font-size:13px;color:var(--muted)">You can add more project links by updating the <code>index.html</code> file and pushing to GitHub.</div>
     </section>
 
     <section id="contact" class="contact">
       <div class="mail">
         <div style="font-weight:700">Contact</div>
-        <div style="color:var(--muted);font-size:13px;margin-top:6px">WhatsApp: <a href="https://wa.me/27658772518" target="_blank">+27 65 877 2518</a></div>
-        <div style="color:var(--muted);font-size:13px;margin-top:6px">Email: coming soon</div>
+        <div style="color:#506070;font-size:13px;margin-top:6px">WhatsApp: <a href="https://wa.me/27658772518" target="_blank">+27 65 877 2518</a></div>
+        <div style="color:#506070;font-size:13px;margin-top:6px">Email: coming soon</div>
       </div>
 
-      <div style="flex:1;padding:14px;border-radius:12px;background:var(--card);box-shadow:var(--shadow)">
+      <div style="flex:1;padding:14px;border-radius:12px;background:#ffffff;box-shadow:0 8px 30px rgba(15,30,60,0.08);">
         <div style="font-weight:700;margin-bottom:8px">Request a quote</div>
-        <div style="color:var(--muted);font-size:13px">Send a WhatsApp message with: <em>service, short description, and location</em>. I'll reply with availability and a rough cost.</div>
+        <div style="color:#506070;font-size:13px">Send a WhatsApp message with: <em>service, short description, and location</em>. I'll reply with availability and a rough cost.</div>
       </div>
     </section>
 
@@ -194,4 +113,3 @@
   </div>
 </body>
 </html>
-
