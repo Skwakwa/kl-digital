@@ -579,3 +579,25 @@ a:hover {
   resize: none;
 }
 
+
+.logo-container {
+  text-align: center;
+  margin-top: 100px;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: reveal 1.2s ease-out forwards;
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.brand-title {
+  color: white;
+  text-shadow: 0 0 15px white;
+  font-size: 2rem;
+  margin-top: 10px;
+}
