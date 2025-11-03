@@ -18,13 +18,12 @@
 <body>
 
 <div class="container">
+
   <!-- Navbar -->
   <nav class="nav">
     <div class="brand">
-      <img src="logo.png" alt="KL Digital logo">
-      <div>
-        <h1>KL Digital <small>Digital Agency</small></h1>
-      </div>
+      <img src="logo.png" alt="KL Digital logo" class="nav-logo">
+      <h1>KL Digital <small>Digital Agency</small></h1>
     </div>
     <div class="cta">
       <a class="btn" href="#contact">Get Help</a>
@@ -32,94 +31,94 @@
     </div>
   </nav>
 
-  <!-- Hero -->
-  <main class="hero">
-    <section class="hero-card">
-      <h2>KL Digital — Fixing Tech, Building Futures.</h2>
-      <p class="lead">Professional websites, analytics engineering, and laptop repairs. Practical solutions that scale your business and keep your tech working.</p>
-      <div class="features">
-        <div class="feature"><div class="dot"></div><div><strong>Website creation</strong><div class="feature-desc">Modern responsive sites, fast and SEO-ready.</div></div></div>
-        <div class="feature"><div class="dot"></div><div><strong>Analytics engineering</strong><div class="feature-desc">Data-driven decisions, tracking, dashboards.</div></div></div>
-        <div class="feature"><div class="dot"></div><div><strong>Laptop & PC repairs</strong><div class="feature-desc">Hardware troubleshooting, malware removal, performance tune-ups.</div></div></div>
-      </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h2 id="animated-tagline">Website Creation</h2>
+      <p class="lead">Professional websites, analytics engineering, and laptop repairs. Practical solutions that scale your business.</p>
       <div class="buttons">
-        <a class="btn" href="#contact">Book a Fix — WhatsApp</a>
-        <a class="btn secondary" href="#services">See Services</a>
+        <a class="btn" href="#contact">Book Now</a>
+        <a class="btn secondary" href="#services">See Portfolio</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <aside class="card-right">
-          <strong>Kwena Mokoti</strong>
-          <div class="small-text">Founder & Lead Technician</div>
-        </div>
-      </div>
-      <div class="quick-contact">
-        <a class="btn" href="https://wa.me/27658772518" target="_blank">WhatsApp</a>
-        <div class="btn secondary mail">Email: coming soon</div>
-      </div>
-      <div class="trusted-work">
-        <div class="small-text">Trusted work</div>
-        <div class="bold-text">Live site example</div>
-        <a href="https://kandlfoundation.com/" target="_blank" class="view-link">kandlfoundation.com — view site</a>
-      </div>
-    </aside>
-  </main>
-
-  <!-- Services -->
+  <!-- Services Section -->
   <section id="services" class="services">
     <div class="service">
+      <img src="icons/web.svg" alt="Web icon">
       <h3>Website Creation</h3>
-      <p>Landing pages, business sites, portfolios — responsive, fast, and easy to update. I set it up on GitHub Pages or connect your domain.</p>
+      <p>Landing pages, business sites, portfolios — responsive, fast, and easy to update.</p>
     </div>
     <div class="service">
+      <img src="icons/analytics.svg" alt="Analytics icon">
       <h3>Analytics Engineer</h3>
-      <p>Tracking, dashboards, conversion setup and performance analysis so you can make decisions backed by data.</p>
+      <p>Tracking, dashboards, conversion setup and performance analysis backed by data.</p>
     </div>
     <div class="service">
+      <img src="icons/laptop.svg" alt="Laptop icon">
       <h3>Laptop & PC Repairs</h3>
-      <p>Hardware diagnostics, OS tuning, virus removal, data recovery and general maintenance for any laptop problem.</p>
+      <p>Hardware diagnostics, OS tuning, virus removal, and general maintenance.</p>
     </div>
   </section>
 
-  <!-- About -->
+  <!-- About Section -->
   <section class="about">
     <h3>About KL Digital</h3>
-    <p><strong>Made by Kwena Mokoti.</strong> I built this agency after a period of unemployment and deep self-reflection. I discovered my strengths with laptops, PCs, and internet-connected devices — and I decided to put those skills to work solving people’s real problems. Whether it's a small issue or a major technical fault, I fix it. I also build websites and help businesses scale. Stop struggling alone — let KL Digital handle the tech so you can focus on what matters.</p>
+    <div class="about-content">
+      <img src="yourphoto.jpg" alt="Kwena Mokoti">
+      <p><strong>Made by Kwena Mokoti.</strong> I built this agency after unemployment and self-reflection. I specialize in laptops, PCs, and internet-connected devices — solving tech problems and building websites that scale businesses.</p>
+    </div>
   </section>
 
-  <!-- Portfolio -->
+  <!-- Portfolio Section -->
   <section id="portfolio" class="portfolio">
     <h3>Portfolio</h3>
-    <a href="https://kandlfoundation.com/" target="_blank">
-      <div>
-        <strong>K&L Foundation Site</strong>
-        <div class="small-text">Website built and deployed — example of live work</div>
-      </div>
-      <div class="view-link">View</div>
-    </a>
+    <div class="portfolio-grid">
+      <a href="https://kandlfoundation.com/" target="_blank">
+        <img src="portfolio1.png" alt="K&L Foundation Site">
+        <div class="overlay">
+          <div class="text">K&L Foundation Site</div>
+        </div>
+      </a>
+    </div>
   </section>
 
-  <!-- Contact -->
+  <!-- Contact Section -->
   <section id="contact" class="contact">
-    <div class="mail">
-      <div class="bold-text">Contact</div>
-      <div class="small-text">WhatsApp: <a href="https://wa.me/27658772518" target="_blank">+27 65 877 2518</a></div>
-      <div class="small-text">Email: coming soon</div>
-    </div>
-    <div class="request-quote">
-      <div class="bold-text">Request a quote</div>
-      <div class="small-text">Send a WhatsApp message with: <em>service, short description, and location</em>. I'll reply with availability and a rough cost.</div>
+    <h3>Contact</h3>
+    <div class="contact-content">
+      <div class="contact-info">
+        <p>WhatsApp: <a href="https://wa.me/27658772518" target="_blank">+27 65 877 2518</a></p>
+        <p>Email: coming soon</p>
+      </div>
+      <div class="request-quote">
+        <p>Send a WhatsApp message with: <em>service, short description, and location</em>. I'll reply with availability and a rough cost.</p>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    Built by Kwena Mokoti • KL Digital — Fixing Tech, Building Futures.
+    <div>Quick Links: <a href="#services">Services</a> | <a href="#portfolio">Portfolio</a> | <a href="#contact">Contact</a></div>
+    <div>&copy; 2025 KL Digital • Built by Kwena Mokoti</div>
   </footer>
 </div>
 
 <!-- Floating WhatsApp Button -->
 <a id="whatsapp-btn" href="https://wa.me/27658772518" target="_blank">📱</a>
+
+<script>
+// Animated tagline
+const taglines = ["Website Creation", "Analytics Engineer", "Laptop & PC Repairs"];
+let i = 0;
+const taglineEl = document.getElementById('animated-tagline');
+setInterval(()=>{
+  i = (i+1) % taglines.length;
+  taglineEl.textContent = taglines[i];
+}, 2500);
+</script>
 
 </body>
 </html>
