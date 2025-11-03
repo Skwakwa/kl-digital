@@ -1,3 +1,26 @@
+.nav-links {
+  display: none; /* hide by default */
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+.nav-links.active {
+  display: flex; /* shows when menu is toggled */
+}
+
+/* optional: style for bigger screens */
+@media(min-width: 768px) {
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    gap: 20px;
+  }
+  .menu-toggle {
+    display: none;
+  }
+}
+
 /* ===== Navigation Bar ===== */
 .navbar {
   display: flex;
