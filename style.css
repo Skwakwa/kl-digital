@@ -304,3 +304,47 @@ footer {
     font-size: 16px;
   }
 }
+
+/* Style for all service links and general <a> links */
+a {
+  color: #ffffff;               /* White text */
+  text-decoration: none;        /* Remove underline */
+  transition: all 0.3s ease;   /* Smooth transition for hover effects */
+  text-shadow: 0 0 4px #ffffff; /* Soft white glow */
+}
+
+a:hover {
+  text-shadow: 0 0 8px #ffffff, 0 0 12px #ffffff; /* Stronger glow on hover */
+  color: #fffacd;               /* Slight goldish accent on hover */
+  transform: scale(1.05);       /* Slight zoom effect */
+}
+
+/* Service boxes hover effect */
+.service {
+  background: rgba(255, 255, 255, 0.05); /* Slight transparent background for dark theme */
+  padding: 20px;
+  border-radius: 12px;
+  margin: 15px 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* subtle shadow by default */
+}
+
+.service:hover {
+  box-shadow: 0 0 20px #ffffff, 0 0 30px #ffffff80; /* Glow effect on hover */
+  transform: translateY(-5px); /* Slight lift */
+  cursor: pointer;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px); /* starts slightly lower */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
