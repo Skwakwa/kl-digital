@@ -104,43 +104,24 @@
   </p>
 </div>
       
-<section id="pricing" class="fade-in">
-  <h2 class="section-title">Our Packages</h2>
-  <div class="pricing-container">
-    <div class="card">
-      <h3>Starter</h3>
-      <p class="price">R499</p>
-      <ul>
-        <li>1-Page Website</li>
-        <li>Basic SEO</li>
-        <li>3-Day Delivery</li>
-      </ul>
-      <a href="#contact" class="btn">Get Started</a>
+      <section id="testimonials" class="fade-in">
+  <h2 class="section-title">What Clients Say</h2>
+  <div class="testimonial-slider">
+    <div class="testimonial">
+      <p>“KL Digital built my portfolio in 3 days — super clean and professional!”</p>
+      <span>— Thabo M., Artist</span>
     </div>
-
-    <div class="card highlight">
-      <h3>Professional</h3>
-      <p class="price">R999</p>
-      <ul>
-        <li>3-Page Website</li>
-        <li>SEO + Mobile Optimization</li>
-        <li>7-Day Delivery</li>
-      </ul>
-      <a href="#contact" class="btn">Select Plan</a>
+    <div class="testimonial">
+      <p>“My business got real leads after the SEO upgrade.”</p>
+      <span>— Kagiso P., Entrepreneur</span>
     </div>
-
-    <div class="card">
-      <h3>Elite</h3>
-      <p class="price">R1499</p>
-      <ul>
-        <li>5 + Pages</li>
-        <li>Advanced Design & Security</li>
-        <li>Custom Brand Setup</li>
-      </ul>
-      <a href="#contact" class="btn">Choose Plan</a>
+    <div class="testimonial">
+      <p>“They treat your brand like it’s their own.”</p>
+      <span>— Lerato S., Designer</span>
     </div>
   </div>
-    </section>
+</section>
+
 <!-- Footer -->
     <footer class="fade-in">
       <div>Quick Links: <a href="#services">Services</a> | <a href="#portfolio">Portfolio</a> | <a href="#contact">Contact</a></div>
@@ -214,7 +195,19 @@
   menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
   });
-</script>  
+</script> 
+
+      <script>
+  // simple auto-carousel
+  const slides = document.querySelectorAll('.testimonial');
+  let current = 0;
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 4000);
+</script>
+
 </body>
 </html>
 
