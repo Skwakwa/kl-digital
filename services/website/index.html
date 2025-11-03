@@ -1,1 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Creation — KL Digital</title>
+  <link rel="icon" href="../../logo.png">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <div class="brand">
+        <img src="../../logo.png" alt="KL Digital logo" class="nav-logo">
+        <h1>KL Digital <small>Digital Agency</small></h1>
+      </div>
+      <div class="cta">
+        <a class="btn" href="../../index.html">Home</a>
+        <a class="btn secondary" href="../../index.html#portfolio">Portfolio</a>
+      </div>
+    </nav>
+
+    <main class="hero">
+      <div class="overlay"></div>
+      <div class="hero-content fade-in">
+        <h2>Website Creation</h2>
+        <p class="lead">We build modern, responsive, and SEO-ready websites that represent your business professionally.</p>
+        <a class="btn" href="https://wa.me/27658772518" target="_blank">Book Now — WhatsApp</a>
+      </div>
+    </main>
+
+    <section class="services fade-in" style="margin-top:50px;">
+      <h3 style="text-align:center; margin-bottom:30px;">Our Website Creation Packages</h3>
+
+      <div class="service">
+        <h4>Basic</h4>
+        <p>Landing page or simple website, mobile-friendly, up to 3 pages. Perfect for small businesses starting online.</p>
+      </div>
+
+      <div class="service">
+        <h4>Middle</h4>
+        <p>Full business website, 5–10 pages, responsive design, basic SEO setup, contact form integration.</p>
+      </div>
+
+      <div class="service">
+        <h4>Premium</h4>
+        <p>Advanced website with blog, analytics integration, SEO optimization, multiple pages, and optional e-commerce setup.</p>
+      </div>
+    </section>
+
+    <footer>
+      Built by Kwena Mokoti • KL Digital — Fixing Tech, Building Futures.
+    </footer>
+  </div>
+
+  <a id="whatsapp-btn" href="https://wa.me/27658772518" target="_blank">📱</a>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        appearOnScroll.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => { appearOnScroll.observe(fader); });
+  </script>
+</body>
+</html>
 
