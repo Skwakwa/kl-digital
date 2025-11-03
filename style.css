@@ -1,4 +1,19 @@
-/* Navbar Base */
+/* === GLOBAL RESET === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #0b1c3a url('background.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* === NAVIGATION === */
 .nav {
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(6px);
@@ -9,9 +24,9 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
 }
 
-/* Logo */
 .nav .logo {
   display: flex;
   align-items: center;
@@ -26,7 +41,7 @@
   height: 35px;
 }
 
-/* Links */
+/* --- NAV LINKS --- */
 .nav-links {
   list-style: none;
   display: flex;
@@ -45,14 +60,28 @@
   transform: scale(1.05);
 }
 
-/* Mobile Menu with Animation */
+/* --- MOBILE MENU --- */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle div {
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 4px;
+  transition: all 0.3s ease;
+}
+
 @media (max-width: 768px) {
   .nav-links {
     position: absolute;
     top: 70px;
     right: 0;
     background: rgba(0, 0, 0, 0.9);
-    width: 200px;
+    width: 220px;
     flex-direction: column;
     align-items: flex-start;
     padding: 15px;
@@ -60,18 +89,7 @@
     opacity: 0;
     transform: translateX(100%);
     transition: all 0.3s ease;
-    display: flex; /* keep in flow for animation */
   }
-  .nav-links li {
-  opacity: 0;
-  transform: translateX(20px);
-  transition: all 0.3s ease;
-}
-
-.nav-links.active li {
-  opacity: 1;
-  transform: translateX(0);
-}
 
   .nav-links.active {
     transform: translateX(0);
@@ -79,182 +97,11 @@
   }
 
   .menu-toggle {
-    display: block;
-  }
-}
-
-
-/* RESPONSIVE MENU */
-@media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background: rgba(0, 0, 0, 0.9);
-    width: 200px;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px;
-    gap: 15px;
-    display: none;
-  }
-
-  .nav-links.active {
     display: flex;
   }
-
-  .menu-toggle {
-    display: block;
-  }
 }
 
-/* ===== Navigation Bar ===== */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(0, 0, 20, 0.9);
-  padding: 12px 24px;
-  box-shadow: 0 2px 20px rgba(255, 215, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.nav-logo {
-  height: 40px;
-  border-radius: 8px;
-}
-
-.nav-brand {
-  font-weight: bold;
-  color: gold;
-  font-size: 1.1rem;
-  text-shadow: 0 0 8px gold;
-}
-
-.nav-links a {
-  color: white;
-  margin-left: 16px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.nav-links a:hover {
-  color: gold;
-  text-shadow: 0 0 8px gold;
-}
-
-/* ===== Footer ===== */
-.site-footer {
-  background: rgba(0, 0, 20, 0.95);
-  color: white;
-  padding: 30px 10px;
-  margin-top: 60px;
-  text-align: center;
-  border-top: 1px solid rgba(255, 215, 0, 0.3);
-}
-
-.site-footer a {
-  color: gold;
-  text-decoration: none;
-  margin: 0 6px;
-  transition: 0.3s;
-}
-
-.site-footer a:hover {
-  text-shadow: 0 0 6px gold;
-}
-
-/* Reset */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-body {
-  background: #0b1c3a url('background.png') no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
-  line-height: 1.6;
-}
-
-/* Container */
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 20px;
-}
-
-/* Navbar */
-.nav {
-  position: sticky;
-  top: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 20px;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 999;
-  border-bottom: 1px solid #333;
-}
-
-.nav-logo {
-  width: 50px;
-  height: auto;
-  margin-right: 10px;
-}
-
-.nav h1 {
-  font-size: 20px;
-}
-
-.nav small {
-  font-size: 12px;
-  color: #ffd700;
-}
-
-.cta a {
-  margin-left: 10px;
-}
-
-/* Buttons */
-.btn, .btn.secondary {
-  padding: 10px 18px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  display: inline-block;
-}
-
-.btn {
-  background: #ffd700;
-  color: #0b1c3a;
-}
-
-.btn:hover {
-  transform: scale(1.05);
-}
-
-.btn.secondary {
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-}
-
-.btn.secondary:hover {
-  transform: scale(1.05);
-}
-
-/* Hero Section */
+/* === HERO SECTION === */
 .hero {
   position: relative;
   height: 90vh;
@@ -292,23 +139,24 @@ body {
   margin: 0 5px;
 }
 
-/* Services Section */
+/* === SERVICES === */
 .services {
   display: flex;
-  justify-content: space-between;
-  margin: 60px 0;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 25px;
+  margin: 60px 0;
 }
 
 .service {
   flex: 1;
   min-width: 220px;
+  max-width: 300px;
   background: rgba(255, 255, 255, 0.05);
   padding: 20px;
-  border-radius: 10px;
-  transition: all 0.3s ease;
+  border-radius: 12px;
   text-align: center;
+  transition: all 0.3s ease;
 }
 
 .service img {
@@ -317,61 +165,29 @@ body {
 }
 
 .service:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #ffffff, 0 0 30px #ffffff80;
+  cursor: pointer;
 }
 
-/* About Section */
-.about {
-  margin: 60px 0;
-  text-align: center;
-}
-
-.about-content {
-  max-width: 700px;
-  margin: auto;
-  font-size: 16px;
-}
-
-/* Portfolio Section */
+/* === PORTFOLIO === */
 .portfolio {
   margin: 60px 0;
+  text-align: center;
 }
 
 .portfolio h3 {
-  text-align: center;
   margin-bottom: 20px;
-}
-
-.portfolio-filters {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.portfolio-filters button {
-  background: rgba(255,255,255,0.2);
-  border: none;
-  color: #fff;
-  padding: 8px 15px;
-  margin: 5px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.portfolio-filters button.active, .portfolio-filters button:hover {
-  background: #ffd700;
-  color: #0b1c3a;
+  color: gold;
 }
 
 .portfolio-links {
   list-style: none;
-  text-align: center;
+  padding: 0;
 }
 
 .portfolio-links li {
   margin: 10px 0;
-  font-size: 16px;
 }
 
 .portfolio-links li a {
@@ -382,21 +198,38 @@ body {
 
 .portfolio-links li a:hover {
   text-decoration: underline;
+  text-shadow: 0 0 10px gold;
 }
 
-/* Contact Section */
+/* === CONTACT === */
 .contact {
   margin: 60px 0;
   text-align: center;
 }
 
-.contact input[type="text"] {
-  padding: 10px;
-  width: 70%;
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 80%;
   max-width: 400px;
+  margin: 0 auto 30px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
   border-radius: 6px;
-  border: none;
-  margin-bottom: 10px;
+  border: 1px solid gold;
+  background: rgba(255,255,255,0.05);
+  color: white;
+}
+
+.contact-form textarea {
+  height: 100px;
+  resize: none;
 }
 
 .contact button {
@@ -411,18 +244,21 @@ body {
 
 .contact button:hover {
   transform: scale(1.05);
+  background: white;
+  color: black;
 }
 
-/* Footer */
+/* === FOOTER === */
 footer {
-  background: rgba(0,0,0,0.6);
-  padding: 20px;
+  background: rgba(0,0,0,0.8);
+  padding: 25px;
   text-align: center;
   color: #fff;
   font-size: 14px;
+  border-top: 1px solid rgba(255, 215, 0, 0.3);
 }
 
-/* Floating WhatsApp Button */
+/* === WHATSAPP BUTTON === */
 #whatsapp-btn {
   position: fixed;
   bottom: 20px;
@@ -442,7 +278,7 @@ footer {
   box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
-/* Fade-in animations */
+/* === FADE-IN EFFECT === */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -454,20 +290,11 @@ footer {
   transform: translateY(0);
 }
 
-/* Responsive */
+/* === RESPONSIVE === */
 @media screen and (max-width: 768px) {
   .services {
     flex-direction: column;
     align-items: center;
-  }
-
-  .nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .cta a {
-    margin: 5px 0;
   }
 
   .hero h2 {
@@ -477,127 +304,4 @@ footer {
   .hero .lead {
     font-size: 16px;
   }
-}
-
-/* Style for all service links and general <a> links */
-a {
-  color: #ffffff;               /* White text */
-  text-decoration: none;        /* Remove underline */
-  transition: all 0.3s ease;   /* Smooth transition for hover effects */
-  text-shadow: 0 0 4px #ffffff; /* Soft white glow */
-}
-
-a:hover {
-  text-shadow: 0 0 8px #ffffff, 0 0 12px #ffffff; /* Stronger glow on hover */
-  color: #fffacd;               /* Slight goldish accent on hover */
-  transform: scale(1.05);       /* Slight zoom effect */
-}
-
-/* Service boxes hover effect */
-.service {
-  background: rgba(255, 255, 255, 0.05); /* Slight transparent background for dark theme */
-  padding: 20px;
-  border-radius: 12px;
-  margin: 15px 0;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* subtle shadow by default */
-}
-
-.service:hover {
-  box-shadow: 0 0 20px #ffffff, 0 0 30px #ffffff80; /* Glow effect on hover */
-  transform: translateY(-5px); /* Slight lift */
-  cursor: pointer;
-}
-
-
-/* Fade-in animation */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px); /* starts slightly lower */
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.testimonial-slider {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  height: 180px;
-}
-
-.testimonial {
-  position: absolute;
-  opacity: 0;
-  transition: opacity 1s;
-  text-align: center;
-  width: 80%;
-  margin: auto;
-}
-
-.testimonial.active {
-  opacity: 1;
-}
-
-.testimonial p {
-  font-style: italic;
-  color: var(--secondary);
-  margin-bottom: 10px;
-}
-
-.testimonial span {
-  color: var(--primary);
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  width: 80%;
-  max-width: 400px;
-  margin: 0 auto 30px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid var(--primary);
-  background: rgba(255,255,255,0.05);
-  color: var(--secondary);
-}
-
-.contact-form textarea {
-  height: 100px;
-  resize: none;
-}
-
-
-.logo-container {
-  text-align: center;
-  margin-top: 100px;
-  opacity: 0;
-  transform: translateY(50px);
-  animation: reveal 1.2s ease-out forwards;
-}
-
-@keyframes reveal {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.brand-title {
-  color: white;
-  text-shadow: 0 0 15px white;
-  font-size: 2rem;
-  margin-top: 10px;
 }
