@@ -58,8 +58,8 @@
         Includes monthly maintenance support.
       </p>
     </div>
+    
   </section>
-
   <section class="contact">
     <h2>Need Help Fast?</h2>
     <p>WhatsApp us now and describe your issue. We’ll diagnose remotely or prepare for a full system check.</p>
@@ -83,6 +83,20 @@
     navLinks.classList.toggle('active');
   });
 </script>
+
+  <script>
+const faders = document.querySelectorAll('.fade-in');
+const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+  entries.forEach(entry => {
+    if(!entry.isIntersecting) return;
+    entry.target.classList.add('visible');
+    appearOnScroll.unobserve(entry.target);
+  });
+}, appearOptions);
+faders.forEach(fader => appearOnScroll.observe(fader));
+</script>
+
 </body>
 </html>
 
