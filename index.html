@@ -34,7 +34,7 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="overlay"></div>
-    <div class="hero-content">
+    <div class="hero-content fade-in">
       <h2 id="animated-tagline">Website Creation</h2>
       <p class="lead">Professional websites, analytics engineering, and laptop repairs. Practical solutions that scale your business.</p>
       <div class="buttons">
@@ -45,7 +45,7 @@
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="services">
+  <section id="services" class="services fade-in">
     <div class="service">
       <img src="icons/web.svg" alt="Web icon">
       <h3>Website Creation</h3>
@@ -64,43 +64,41 @@
   </section>
 
   <!-- About Section -->
-  <section class="about">
+  <section class="about fade-in">
     <h3>About KL Digital</h3>
     <div class="about-content">
-      <img src="yourphoto.jpg" alt="Kwena Mokoti">
       <p><strong>Made by Kwena Mokoti.</strong> I built this agency after unemployment and self-reflection. I specialize in laptops, PCs, and internet-connected devices — solving tech problems and building websites that scale businesses.</p>
     </div>
   </section>
 
   <!-- Portfolio Section -->
-  <section id="portfolio" class="portfolio">
+  <section id="portfolio" class="portfolio fade-in">
     <h3>Portfolio</h3>
     <div class="portfolio-grid">
-      <a href="https://kandlfoundation.com/" target="_blank">
-        <img src="portfolio1.png" alt="K&L Foundation Site">
+      <a href="portfolio/kandlfoundation.png" target="_blank">
+        <img src="portfolio/kandlfoundation.png" alt="K&L Foundation Site">
         <div class="overlay">
           <div class="text">K&L Foundation Site</div>
         </div>
       </a>
+      <!-- More portfolio items can be added here later -->
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="contact">
+  <section id="contact" class="contact fade-in">
     <h3>Contact</h3>
     <div class="contact-content">
-      <div class="contact-info">
-        <p>WhatsApp: <a href="https://wa.me/27658772518" target="_blank">+27 65 877 2518</a></p>
-        <p>Email: coming soon</p>
-      </div>
-      <div class="request-quote">
-        <p>Send a WhatsApp message with: <em>service, short description, and location</em>. I'll reply with availability and a rough cost.</p>
-      </div>
+      <form action="https://api.whatsapp.com/send" method="get" target="_blank">
+        <input type="hidden" name="phone" value="27658772518">
+        <input type="text" name="text" placeholder="Your message here..." required>
+        <button type="submit" class="btn">Send WhatsApp</button>
+      </form>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
+  <footer class="fade-in">
     <div>Quick Links: <a href="#services">Services</a> | <a href="#portfolio">Portfolio</a> | <a href="#contact">Contact</a></div>
     <div>&copy; 2025 KL Digital • Built by Kwena Mokoti</div>
   </footer>
@@ -118,6 +116,18 @@ setInterval(()=>{
   i = (i+1) % taglines.length;
   taglineEl.textContent = taglines[i];
 }, 2500);
+
+// Fade-in on scroll
+const faders = document.querySelectorAll('.fade-in');
+const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
+  entries.forEach(entry => {
+    if(!entry.isIntersecting) return;
+    entry.target.classList.add('visible');
+    appearOnScroll.unobserve(entry.target);
+  });
+}, appearOptions);
+faders.forEach(fader => appearOnScroll.observe(fader));
 </script>
 
 </body>
