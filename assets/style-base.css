@@ -1,0 +1,185 @@
+/* ===== KL Digital Base Theme ===== */
+
+/* ---- Variables ---- */
+:root {
+  --primary: #f5c542;      /* gold */
+  --secondary: #ffffff;    /* white */
+  --bg-dark: #06121e;
+  --text-light: #eaeaea;
+  --accent: #1e90ff;       /* soft blue glow */
+  --transition: 0.3s ease;
+  --font: 'Poppins', sans-serif;
+}
+
+/* ---- Reset ---- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  font-family: var(--font);
+  overflow-x: hidden;
+}
+
+/* ---- Navbar ---- */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 8%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav .logo img {
+  height: 40px;
+  width: 40px;
+  filter: drop-shadow(0 0 5px var(--accent));
+}
+
+.nav .logo span {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: var(--secondary);
+  text-decoration: none;
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+  text-shadow: 0 0 8px var(--primary);
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: var(--primary);
+}
+
+/* ---- Hero ---- */
+.hero {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: url('../background.png') center/cover no-repeat;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  animation: fadeIn 2s ease forwards;
+}
+
+.hero-content h2 {
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-shadow: 0 0 8px var(--primary);
+}
+
+.hero-content p {
+  font-size: 1rem;
+  color: var(--secondary);
+}
+
+/* ---- Buttons ---- */
+.btn {
+  background: var(--primary);
+  color: var(--bg-dark);
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 8px;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background: var(--secondary);
+  color: var(--primary);
+  box-shadow: 0 0 10px var(--primary);
+}
+
+.btn.secondary {
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+/* ---- Fade Animation ---- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* ---- Footer ---- */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0,0,0,0.8);
+  color: var(--secondary);
+  margin-top: 60px;
+  font-size: 0.9rem;
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(0,0,0,0.9);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 20px;
+  }
+  .nav-links.active { display: flex; }
+  .menu-toggle { display: block; }
+}
