@@ -165,6 +165,16 @@
   faders.forEach(fader => { appearOnScroll.observe(fader); });
 </script>
   
+  <script>
+  const menuToggle = document.getElementById('mobile-menu');
+  const navLinks = document.querySelector('.nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+
+  
 </body>
 </html>
 
