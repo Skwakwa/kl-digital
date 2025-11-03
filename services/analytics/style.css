@@ -1,15 +1,16 @@
+/* NAVIGATION */
 .nav-links {
-  display: none; /* hide by default */
+  display: none;
   flex-direction: column;
   gap: 10px;
   list-style: none;
 }
 
 .nav-links.active {
-  display: flex; /* shows when menu is toggled */
+  display: flex;
 }
 
-/* optional: style for bigger screens */
+/* For larger screens */
 @media(min-width: 768px) {
   .nav-links {
     display: flex !important;
@@ -21,7 +22,6 @@
   }
 }
 
-/* ===== Navigation Bar ===== */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -64,8 +64,79 @@
   text-shadow: 0 0 8px gold;
 }
 
-/* ===== Footer ===== */
-.site-footer {
+/* BODY */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #000814, #001f3f);
+  color: white;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* HEADER */
+header {
+  padding: 80px 20px 40px;
+}
+
+h1 {
+  font-size: 2.8rem;
+  color: gold;
+  text-shadow: 0 0 20px gold, 0 0 40px #ffd70040;
+}
+
+h2 {
+  margin-top: 30px;
+  color: #ffd700;
+}
+
+p {
+  color: #d6e0f0;
+  line-height: 1.6;
+}
+
+/* CARDS */
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px gold;
+}
+
+.premium {
+  border: 1px solid gold;
+  background: rgba(255, 215, 0, 0.1);
+}
+
+/* WHATSAPP CTA BUTTON */
+.whatsapp-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 30px;
+  background: gold;
+  color: #000;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  background: white;
+  transform: scale(1.05);
+}
+
+/* FOOTER */
+footer, .site-footer {
   background: rgba(0, 0, 20, 0.95);
   color: white;
   padding: 30px 10px;
@@ -85,55 +156,11 @@
   text-shadow: 0 0 6px gold;
 }
 
-body {
-  font-family: "Poppins", sans-serif;
-  background: radial-gradient(circle, #001f3f, #000);
-  color: #fff;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  animation: fadeIn 1.5s ease;
-}
-
-header {
-  padding: 80px 20px 40px;
-}
-
-h1 {
-  font-size: 2.8rem;
-  text-shadow: 0 0 15px gold;
-}
-
-h2 {
-  color: gold;
-  margin-top: 40px;
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  margin: 20px auto;
-  max-width: 500px;
-  padding: 20px;
-  box-shadow: 0 0 10px #111;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px gold;
-}
-
-.premium {
-  border: 1px solid gold;
-  background: rgba(255, 215, 0, 0.1);
-}
-
+/* BACK LINKS */
 .back {
-  display: inline-block;
-  margin: 40px 0;
   color: gold;
   text-decoration: none;
+  font-weight: bold;
   text-shadow: 0 0 5px white;
   transition: 0.3s;
 }
@@ -143,6 +170,19 @@ h2 {
   text-shadow: 0 0 10px gold;
 }
 
+/* FADE IN */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ANIMATION */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
