@@ -1,27 +1,6 @@
-.nav-links {
-  display: none; /* hide by default */
-  flex-direction: column;
-  gap: 10px;
-  list-style: none;
-}
-
-.nav-links.active {
-  display: flex; /* shows when menu is toggled */
-}
-
-/* optional: style for bigger screens */
-@media(min-width: 768px) {
-  .nav-links {
-    display: flex !important;
-    flex-direction: row;
-    gap: 20px;
-  }
-  .menu-toggle {
-    display: none;
-  }
-}
-
-/* ===== Navigation Bar ===== */
+/* =======================
+   NAVIGATION
+======================= */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -48,15 +27,27 @@
 .nav-brand {
   font-weight: bold;
   color: gold;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   text-shadow: 0 0 8px gold;
+}
+
+.nav-links {
+  display: none; /* hidden by default */
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+.nav-links.active {
+  display: flex;
 }
 
 .nav-links a {
   color: white;
-  margin-left: 16px;
   text-decoration: none;
-  transition: 0.3s;
+  margin-left: 0;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .nav-links a:hover {
@@ -64,27 +55,27 @@
   text-shadow: 0 0 8px gold;
 }
 
-/* ===== Footer ===== */
-.site-footer {
-  background: rgba(0, 0, 20, 0.95);
+.menu-toggle {
+  cursor: pointer;
+  font-size: 1.5rem;
   color: white;
-  padding: 30px 10px;
-  margin-top: 60px;
-  text-align: center;
-  border-top: 1px solid rgba(255, 215, 0, 0.3);
 }
 
-.site-footer a {
-  color: gold;
-  text-decoration: none;
-  margin: 0 6px;
-  transition: 0.3s;
+/* Larger screens */
+@media(min-width: 768px) {
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    gap: 20px;
+  }
+  .menu-toggle {
+    display: none;
+  }
 }
 
-.site-footer a:hover {
-  text-shadow: 0 0 6px gold;
-}
-
+/* =======================
+   BODY & GENERAL
+======================= */
 body {
   font-family: "Poppins", sans-serif;
   background: linear-gradient(180deg, #000814, #001f3f);
@@ -95,6 +86,9 @@ body {
   animation: fadeIn 1.5s ease-in-out;
 }
 
+/* =======================
+   HEADINGS & TEXT
+======================= */
 header {
   padding: 80px 20px 40px;
 }
@@ -115,6 +109,9 @@ p {
   line-height: 1.6;
 }
 
+/* =======================
+   CARDS / PACKAGES
+======================= */
 .card {
   background: rgba(255, 255, 255, 0.08);
   border-radius: 14px;
@@ -135,6 +132,9 @@ p {
   background: rgba(255, 215, 0, 0.1);
 }
 
+/* =======================
+   CTA / BUTTONS
+======================= */
 .whatsapp-btn {
   display: inline-block;
   margin-top: 30px;
@@ -152,10 +152,6 @@ p {
   transform: scale(1.05);
 }
 
-footer {
-  margin: 40px 0;
-}
-
 .back {
   color: gold;
   text-decoration: none;
@@ -169,6 +165,18 @@ footer {
   text-shadow: 0 0 10px gold;
 }
 
+/* =======================
+   FOOTER
+======================= */
+footer {
+  margin: 40px 0;
+  color: white;
+  font-size: 14px;
+}
+
+/* =======================
+   ANIMATIONS
+======================= */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
