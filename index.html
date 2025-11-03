@@ -8,112 +8,137 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-  <!-- Navbar -->
-  <nav class="nav">
-    <div class="brand">
-      <img src="logo.png" alt="KL Digital logo" class="nav-logo">
-      <h1>KL Digital <small>Digital Agency</small></h1>
-    </div>
-    <div class="cta">
-      <a class="btn" href="#contact">Get Help</a>
-      <a class="btn secondary" href="#portfolio">Portfolio</a>
-    </div>
-  </nav>
+  <div class="container">
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content fade-in">
-      <h2 id="animated-tagline">Website Creation</h2>
-      <p class="lead">Professional websites, analytics engineering, and laptop repairs. Practical solutions that scale your business.</p>
-      <div class="buttons">
-        <a class="btn" href="#contact">Book Now</a>
-        <a class="btn secondary" href="#services">See Portfolio</a>
+    <!-- Sticky Navbar -->
+    <nav class="nav">
+      <div class="brand">
+        <img src="logo.png" alt="KL Digital logo" class="nav-logo">
+        <h1>KL Digital <small>Digital Agency</small></h1>
       </div>
-    </div>
-  </section>
+      <div class="cta">
+        <a class="btn" href="#contact">Get Help</a>
+        <a class="btn secondary" href="#portfolio">Portfolio</a>
+      </div>
+    </nav>
 
-  <!-- Services Section -->
-  <section id="services" class="services fade-in">
-    <div class="service">
-      <img src="icons/web.svg" alt="Web icon">
-      <h3>Website Creation</h3>
-      <p>Landing pages, business sites, portfolios — responsive, fast, and easy to update.</p>
-    </div>
-    <div class="service">
-      <img src="icons/analytics.svg" alt="Analytics icon">
-      <h3>Analytics Engineer</h3>
-      <p>Tracking, dashboards, conversion setup and performance analysis backed by data.</p>
-    </div>
-    <div class="service">
-      <img src="icons/laptop.svg" alt="Laptop icon">
-      <h3>Laptop & PC Repairs</h3>
-      <p>Hardware diagnostics, OS tuning, virus removal, and general maintenance.</p>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="overlay"></div>
+      <div class="hero-content fade-in">
+        <h2 id="animated-tagline">Website Creation</h2>
+        <p class="lead">Professional websites, analytics engineering, and laptop repairs. Practical solutions that scale your business.</p>
+        <div class="buttons">
+          <a class="btn" href="#contact">Book Now</a>
+          <a class="btn secondary" href="#services">See Portfolio</a>
+        </div>
+      </div>
+    </section>
 
-  <!-- About Section -->
-  <section class="about fade-in">
-    <h3>About KL Digital</h3>
-    <div class="about-content">
-      <p><strong>Made by Kwena Mokoti.</strong> I built this agency after unemployment and self-reflection. I specialize in laptops, PCs, and internet-connected devices — solving tech problems and building websites that scale businesses.</p>
-    </div>
-  </section>
+    <!-- Services Section -->
+    <section id="services" class="services fade-in">
+      <div class="service">
+        <img src="icons/web.svg" alt="Web icon">
+        <h3>Website Creation</h3>
+        <p>Landing pages, business sites, portfolios — responsive, fast, and easy to update.</p>
+      </div>
+      <div class="service">
+        <img src="icons/analytics.svg" alt="Analytics icon">
+        <h3>Analytics Engineer</h3>
+        <p>Tracking, dashboards, conversion setup, and performance analysis backed by data.</p>
+      </div>
+      <div class="service">
+        <img src="icons/laptop.svg" alt="Laptop icon">
+        <h3>Laptop & PC Repairs</h3>
+        <p>Hardware diagnostics, OS tuning, virus removal, and general maintenance.</p>
+      </div>
+    </section>
 
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="portfolio fade-in">
-    <h3>Portfolio</h3>
-    <ul>
-      <li><a href="https://kandlfoundation.com/" target="_blank">K&L Foundation Site</a></li>
-      <!-- Add more portfolio links here -->
-    </ul>
-  </section>
+    <!-- About Section -->
+    <section class="about fade-in">
+      <h3>About KL Digital</h3>
+      <div class="about-content">
+        <p><strong>Made by Kwena Mokoti.</strong> I built this agency after unemployment and self-reflection. I specialize in laptops, PCs, and internet-connected devices — solving tech problems and building websites that scale businesses.</p>
+      </div>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact fade-in">
-    <h3>Contact</h3>
-    <div class="contact-content">
-      <form action="https://api.whatsapp.com/send" method="get" target="_blank">
-        <input type="hidden" name="phone" value="27658772518">
-        <input type="text" name="text" placeholder="Your message here..." required>
-        <button type="submit" class="btn">Send WhatsApp</button>
-      </form>
-    </div>
-  </section>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio fade-in">
+      <h3>Portfolio</h3>
+      <div class="portfolio-filters">
+        <button data-filter="all" class="active">All</button>
+        <button data-filter="web">Web</button>
+        <button data-filter="analytics">Analytics</button>
+        <button data-filter="repairs">Repairs</button>
+      </div>
+      <ul class="portfolio-links">
+        <li data-type="web"><a href="https://kandlfoundation.com/" target="_blank">K&L Foundation Site</a></li>
+        <!-- Add more portfolio links here -->
+      </ul>
+    </section>
 
-  <!-- Footer -->
-  <footer class="fade-in">
-    <div>Quick Links: <a href="#services">Services</a> | <a href="#portfolio">Portfolio</a> | <a href="#contact">Contact</a></div>
-    <div>&copy; 2025 KL Digital • Built by Kwena Mokoti</div>
-  </footer>
-</div>
+    <!-- Contact Section -->
+    <section id="contact" class="contact fade-in">
+      <h3>Contact</h3>
+      <div class="contact-content">
+        <form action="https://api.whatsapp.com/send" method="get" target="_blank">
+          <input type="hidden" name="phone" value="27658772518">
+          <input type="text" name="text" placeholder="Your message here..." required>
+          <button type="submit" class="btn">Send WhatsApp</button>
+        </form>
+      </div>
+    </section>
 
-<!-- Floating WhatsApp Button -->
-<a id="whatsapp-btn" href="https://wa.me/27658772518" target="_blank">📱</a>
+    <!-- Footer -->
+    <footer class="fade-in">
+      <div>Quick Links: <a href="#services">Services</a> | <a href="#portfolio">Portfolio</a> | <a href="#contact">Contact</a></div>
+      <div>&copy; 2025 KL Digital • Built by Kwena Mokoti</div>
+    </footer>
 
-<script>
-// Animated tagline
-const taglines = ["Website Creation", "Analytics Engineer", "Laptop & PC Repairs"];
-let i = 0;
-const taglineEl = document.getElementById('animated-tagline');
-setInterval(()=>{
-  i = (i+1) % taglines.length;
-  taglineEl.textContent = taglines[i];
-}, 2500);
+  </div>
 
-// Fade-in on scroll
-const faders = document.querySelectorAll('.fade-in');
-const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
-const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
-  entries.forEach(entry => {
-    if(!entry.isIntersecting) return;
-    entry.target.classList.add('visible');
-    appearOnScroll.unobserve(entry.target);
-  });
-}, appearOptions);
-faders.forEach(fader => appearOnScroll.observe(fader));
-</script>
+  <!-- Floating WhatsApp Button -->
+  <a id="whatsapp-btn" href="https://wa.me/27658772518" target="_blank">📱</a>
 
+  <script>
+    // Animated tagline
+    const taglines = ["Website Creation", "Analytics Engineer", "Laptop & PC Repairs"];
+    let i = 0;
+    const taglineEl = document.getElementById('animated-tagline');
+    setInterval(() => {
+      i = (i + 1) % taglines.length;
+      taglineEl.textContent = taglines[i];
+    }, 2500);
+
+    // Fade-in on scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if(!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        appearOnScroll.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+
+    // Portfolio filtering
+    const filterBtns = document.querySelectorAll('.portfolio-filters button');
+    const portfolioItems = document.querySelectorAll('.portfolio-links li');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+        portfolioItems.forEach(item => {
+          if(filter === 'all' || item.dataset.type === filter){
+            item.style.display = 'list-item';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
