@@ -107,6 +107,20 @@
         <li data-type="web"><a href="https://kandlfoundation.com/" target="_blank">K&L Foundation Site</a></li>
         <!-- Add more portfolio links here -->
       </ul>
+        <ul id="portfolio-list"></ul>
+
+<script>
+fetch('projects.json')
+  .then(response => response.json())
+  .then(data => {
+    const list = document.getElementById('portfolio-list');
+    data.forEach(item => {
+      const li = document.createElement('li');
+      li.innerHTML = `<a href="${item.url}" target="_blank">${item.name}</a>`;
+      list.appendChild(li);
+    });
+  });
+</script>
     </section>
 
 <!-- Contact Section -->
