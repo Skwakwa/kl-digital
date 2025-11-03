@@ -49,6 +49,22 @@
     <p>See the digital work we’ve built — websites, analytics setups, and repair services that drive real results.</p>
   </header>
 
+    <ul id="portfolio-list"></ul>
+
+<script>
+fetch('projects.json')
+  .then(response => response.json())
+  .then(data => {
+    const list = document.getElementById('portfolio-list');
+    data.forEach(item => {
+      const li = document.createElement('li');
+      li.innerHTML = `<a href="${item.url}" target="_blank">${item.name}</a>`;
+      list.appendChild(li);
+    });
+  });
+</script>
+
+  
   <!-- Portfolio Grid -->
   <section class="portfolio-section">
     <div class="portfolio-grid">
@@ -74,6 +90,7 @@
       </div>
     </div>
   </section>
+
 
   <!-- Footer -->
   <footer class="site-footer">
