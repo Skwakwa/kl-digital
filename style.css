@@ -3,7 +3,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
 }
 
 body {
@@ -11,34 +11,38 @@ body {
   background-size: cover;
   color: #fff;
   line-height: 1.6;
+  overflow-x: hidden;
+  transition: background 0.5s ease;
 }
 
 /* === NAVIGATION === */
 .nav {
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 25px;
+  padding: 15px 30px;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
 
 .nav .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 700;
   color: gold;
-  font-size: 20px;
-  font-weight: bold;
+  text-shadow: 0 0 10px gold;
 }
 
 .nav .logo img {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
 }
 
 /* --- NAV LINKS --- */
@@ -51,13 +55,29 @@ body {
 .nav-links li a {
   text-decoration: none;
   color: white;
-  font-weight: 500;
+  font-weight: 600;
   transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: gold;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
 }
 
 .nav-links li a:hover {
-  text-shadow: 0 0 10px gold, 0 0 20px white;
-  transform: scale(1.05);
+  text-shadow: 0 0 12px gold, 0 0 20px white;
+  transform: scale(1.07);
 }
 
 /* --- MOBILE MENU --- */
@@ -65,13 +85,15 @@ body {
   display: none;
   flex-direction: column;
   cursor: pointer;
+  z-index: 1010;
 }
 
 .menu-toggle div {
-  width: 25px;
+  width: 28px;
   height: 3px;
   background: white;
   margin: 4px;
+  border-radius: 2px;
   transition: all 0.3s ease;
 }
 
@@ -80,11 +102,11 @@ body {
     position: absolute;
     top: 70px;
     right: 0;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.95);
     width: 220px;
     flex-direction: column;
     align-items: flex-start;
-    padding: 15px;
+    padding: 20px;
     gap: 15px;
     opacity: 0;
     transform: translateX(100%);
@@ -109,6 +131,16 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  overflow: hidden;
+}
+
+#particles-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
 .hero .overlay {
@@ -121,22 +153,53 @@ body {
 .hero-content {
   position: relative;
   z-index: 2;
+  animation: heroFade 2s ease-in-out;
 }
 
 .hero h2 {
-  font-size: 36px;
-  margin-bottom: 12px;
+  font-size: 40px;
+  margin-bottom: 15px;
   color: #ffd700;
+  text-shadow: 0 0 20px #ffd700, 0 0 40px #fff;
+  animation: glow 2s infinite alternate;
 }
 
 .hero .lead {
   font-size: 18px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   color: #fff;
+  text-shadow: 0 0 6px rgba(255,255,255,0.5);
 }
 
 .hero .buttons a {
-  margin: 0 5px;
+  margin: 0 8px;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.hero .btn {
+  background: gold;
+  color: #0b1c3a;
+  box-shadow: 0 0 10px gold;
+}
+
+.hero .btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px gold, 0 0 40px white;
+}
+
+/* Glow Animations */
+@keyframes glow {
+  0% { text-shadow: 0 0 10px #ffd700, 0 0 20px #fff; }
+  50% { text-shadow: 0 0 25px #ffd700, 0 0 50px #fff; }
+  100% { text-shadow: 0 0 10px #ffd700, 0 0 20px #fff; }
+}
+
+@keyframes heroFade {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 /* === SERVICES === */
@@ -144,7 +207,7 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 25px;
+  gap: 30px;
   margin: 60px 0;
 }
 
@@ -153,21 +216,32 @@ body {
   min-width: 220px;
   max-width: 300px;
   background: rgba(255, 255, 255, 0.05);
-  padding: 20px;
-  border-radius: 12px;
+  padding: 25px;
+  border-radius: 15px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .service img {
-  width: 50px;
-  margin-bottom: 10px;
+  width: 60px;
+  margin-bottom: 12px;
+  transition: transform 0.4s ease;
+}
+
+.service h4 {
+  color: gold;
+  margin-bottom: 12px;
+  text-shadow: 0 0 6px gold;
 }
 
 .service:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px #ffffff, 0 0 30px #ffffff80;
+  transform: translateY(-10px) rotateZ(-1deg);
+  box-shadow: 0 0 25px #ffffff, 0 0 40px #ffd70080;
   cursor: pointer;
+}
+
+.service:hover img {
+  transform: scale(1.15);
 }
 
 /* === PORTFOLIO === */
@@ -177,81 +251,91 @@ body {
 }
 
 .portfolio h3 {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   color: gold;
+  text-shadow: 0 0 12px gold;
 }
 
-.portfolio-links {
+.portfolio-list {
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
-.portfolio-links li {
-  margin: 10px 0;
-}
-
-.portfolio-links li a {
-  color: #ffd700;
-  text-decoration: none;
+.portfolio-list li {
+  width: 220px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  overflow: hidden;
   transition: all 0.3s ease;
+  position: relative;
 }
 
-.portfolio-links li a:hover {
-  text-decoration: underline;
+.portfolio-list li img {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.portfolio-list li:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+.portfolio-list li span {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  color: gold;
+  text-align: center;
+  font-weight: 600;
   text-shadow: 0 0 10px gold;
+  padding: 5px 0;
+  background: rgba(0,0,0,0.4);
 }
 
 /* === CONTACT === */
-.contact {
-  margin: 60px 0;
-  text-align: center;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  width: 80%;
-  max-width: 400px;
-  margin: 0 auto 30px;
-}
-
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 10px;
-  border-radius: 6px;
+  padding: 12px;
+  border-radius: 8px;
   border: 1px solid gold;
   background: rgba(255,255,255,0.05);
   color: white;
-}
-
-.contact-form textarea {
-  height: 100px;
-  resize: none;
-}
-
-.contact button {
-  padding: 10px 20px;
-  border-radius: 6px;
-  border: none;
-  background: #ffd700;
-  color: #0b1c3a;
-  cursor: pointer;
   transition: all 0.3s ease;
 }
 
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #ffd700;
+  box-shadow: 0 0 15px #ffd700;
+  outline: none;
+}
+
+.contact button {
+  background: gold;
+  color: #0b1c3a;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px gold;
+}
+
 .contact button:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
   background: white;
   color: black;
+  box-shadow: 0 0 25px #ffd700;
 }
 
 /* === FOOTER === */
 footer {
-  background: rgba(0,0,0,0.8);
-  padding: 25px;
+  background: rgba(0,0,0,0.85);
+  padding: 30px;
   text-align: center;
   color: #fff;
   font-size: 14px;
@@ -269,13 +353,13 @@ footer {
   border-radius: 50%;
   padding: 12px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all 0.3s ease;
   z-index: 999;
 }
 
 #whatsapp-btn:hover {
-  transform: scale(1.15);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  transform: scale(1.2);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 /* === FADE-IN EFFECT === */
@@ -297,31 +381,6 @@ footer {
     align-items: center;
   }
 
-  #particles-js {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0; /* behind everything */
-}
-
-.hero .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6); /* keeps text readable */
-  z-index: 1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2; /* always above particles and overlay */
-}
-
-
   .hero h2 {
     font-size: 28px;
   }
@@ -329,4 +388,98 @@ footer {
   .hero .lead {
     font-size: 16px;
   }
+}
+
+/* === HERO TAGLINE ANIMATION === */
+#animated-tagline {
+  font-weight: 700;
+  font-size: 40px;
+  color: #ffd700;
+  text-shadow: 0 0 10px #ffd700, 0 0 20px #fff, 0 0 30px #ffd700, 0 0 40px #fff;
+  animation: neonPulse 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+  0% { text-shadow: 0 0 10px #ffd700, 0 0 20px #fff; }
+  50% { text-shadow: 0 0 25px #ffd700, 0 0 50px #fff, 0 0 60px #ffd700; }
+  100% { text-shadow: 0 0 10px #ffd700, 0 0 20px #fff; }
+}
+
+/* === BUTTONS === */
+.btn, .btn.secondary {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px #fff;
+}
+
+.btn::before, .btn.secondary::before {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: 0;
+  transition: width 0.4s ease;
+}
+
+.btn:hover::before, .btn.secondary:hover::before {
+  width: 100%;
+}
+
+.btn:hover, .btn.secondary:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 25px #ffd700, 0 0 50px #fff;
+  z-index: 1;
+}
+
+/* === PORTFOLIO FILTER BUTTONS === */
+.portfolio-filters button {
+  background: rgba(255, 215, 0, 0.1);
+  color: gold;
+  border: 1px solid gold;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  text-shadow: 0 0 5px gold;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-filters button::before {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: 0;
+  transition: width 0.4s ease;
+}
+
+.portfolio-filters button:hover::before {
+  width: 100%;
+}
+
+.portfolio-filters button.active, 
+.portfolio-filters button:hover {
+  color: #0b1c3a;
+  background: gold;
+  box-shadow: 0 0 20px gold, 0 0 35px #fff;
+}
+
+/* === PORTFOLIO ITEM HOVER GLOW === */
+.portfolio-list li:hover::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 25px gold, 0 0 50px #fff;
+  pointer-events: none;
 }
