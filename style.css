@@ -332,6 +332,162 @@ footer {
   .services { flex-direction:column; align-items:center; }
 }
 
+/* === HERO BUTTON MICRO-INTERACTIONS === */
+.hero .btn, .hero .btn.secondary {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.hero .btn::after, .hero .btn.secondary::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 300%;
+  height: 300%;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+
+.hero .btn:hover::after, .hero .btn.secondary:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.hero .btn:hover, .hero .btn.secondary:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 25px #ffd700, 0 0 50px #fff;
+}
+
+/* === SERVICE MODAL === */
+.service-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.service-modal .modal-content {
+  background: #0b1c3a;
+  border-radius: 12px;
+  padding: 25px;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  animation: fadeInScale 0.4s ease forwards;
+  position: relative;
+}
+
+.service-modal .close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 24px;
+  color: gold;
+  cursor: pointer;
+}
+
+@keyframes fadeInScale {
+  0% { opacity: 0; transform: scale(0.85); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* === PRICING CARDS INSIDE MODAL === */
+.service-modal .pricing-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.service-modal .pricing-card {
+  flex: 1;
+  min-width: 200px;
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-modal .pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px gold, 0 0 40px #fff;
+}
+
+.service-modal .pricing-card h4 {
+  color: gold;
+  margin-bottom: 12px;
+}
+
+.service-modal .pricing-card ul {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.service-modal .pricing-card ul li {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.service-modal .pricing-card .btn {
+  margin-top: 10px;
+}
+
+/* === PORTFOLIO HOVER MICRO-INTERACTIONS === */
+.portfolio-list li:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #ffd700, 0 0 50px #fff;
+}
+
+.portfolio-list li::after {
+  content: "View Project";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  color: #0b1c3a;
+  font-weight: 700;
+  background: gold;
+  padding: 6px 12px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.portfolio-list li:hover::after { opacity: 1; }
+
+/* === TYPED TAGLINE ENHANCEMENT === */
+#animated-tagline {
+  font-weight: 700;
+  font-size: 40px;
+  color: #ffd700;
+  text-shadow: 0 0 10px #ffd700, 0 0 20px #fff, 0 0 30px #ffd700, 0 0 40px #fff;
+  min-height: 50px;
+  display: inline-block;
+  position: relative;
+}
+#animated-tagline::after {
+  content: '|';
+  position: absolute;
+  right: -10px;
+  animation: blink 0.7s step-start infinite;
+}
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+
 @media screen and (max-width:480px){
   .hero h1 { font-size:22px; }
   .hero .lead { font-size:14px; }
