@@ -33,14 +33,19 @@
 <!-- Analytics -->
 <script defer data-domain="kldigital.co.za" src="https://plausible.io/js/script.js"></script>
 </head>
+  
 <body>
-
+  <div id="preloader">
+    <div class="loader-logo">
+      <img src="logo.png" alt="Loading..." />
+      <div class="spinner"></div>
+      <p>Loading...</p>
+    </div>
+  </div>
+  
 <!-- Navigation -->
 <nav class="nav">
-  <div class="logo-container">
-    <img src="logo.png" alt="KL Digital Logo" class="logo">
-    <h1 class="brand-title">KL Digital</h1>
-  </div>
+  <button id="theme-toggle">🌙</button>
   <div class="menu-toggle" id="mobile-menu">☰</div>
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
@@ -155,7 +160,72 @@
 <a id="whatsapp-btn" href="https://wa.me/27658772518" target="_blank" title="Chat on WhatsApp">📱</a>
 
 <!-- Scripts -->
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+
 <script src="assets/js/particles.js"></script>
+<script>
+  particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 80 },
+      "size": { "value": 3 },
+      "color": { "value": "#f5c542" },
+      "line_linked": { "enable": true, "distance": 120, "color": "#f5c542", "opacity": 0.4, "width": 1 },
+      "move": { "speed": 2 }
+    },
+    "interactivity": {
+      "events": { "onhover": { "enable": true, "mode": "repulse" } }
+    }
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+  
+<script src="assets/js/particles.js"></script>
+<script>
+  particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+      "color": { "value": "#f5c542" },
+      "shape": { "type": "circle" },
+      "opacity": { "value": 0.6, "random": true },
+      "size": { "value": 3, "random": true },
+      "line_linked": {
+        "enable": true,
+        "distance": 120,
+        "color": "#f5c542",
+        "opacity": 0.2,
+        "width": 1
+      },
+      "move": { "enable": true, "speed": 2, "direction": "none", "out_mode": "out" }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": { "enable": true, "mode": "grab" },
+        "onclick": { "enable": true, "mode": "push" }
+      },
+      "modes": {
+        "grab": { "distance": 140, "line_linked": { "opacity": 0.3 } },
+        "push": { "particles_nb": 4 }
+      }
+    },
+    "retina_detect": true
+  });
+</script>
+<script src="assets/js/main.js"></script>
 <script>
   // Particles background
   particlesJS("particles-js", {
