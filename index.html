@@ -3,104 +3,135 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Skwakwa Portfolio – Web Developer & Tech Innovator. Modern sites, analytics, repairs, and automation.">
-  <meta name="theme-color" content="#0b1c3a">
-  <link rel="icon" href="logo.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <title>KL Digital — Modern Tech & Web</title>
+
+  <!-- SEO & Social -->
+  <meta name="description" content="KL Digital — Web development, analytics, and tech solutions. Fixing laptops & scaling businesses.">
+  <meta name="keywords" content="web design, analytics, laptop repair, tech solutions, KL Digital">
+  <meta property="og:title" content="KL Digital — Modern Tech & Web">
+  <meta property="og:image" content="logo.png">
+  <meta property="og:description" content="Professional websites, analytics engineering, and laptop repairs.">
+
+  <link rel="icon" href="logo.png">
   <link rel="stylesheet" href="style.css">
-  <title>Skwakwa | Digital Creator</title>
 </head>
 <body>
 
-  <!-- === PRELOADER === -->
+<!-- === PRELOADER === -->
   <div id="preloader">
     <div class="loader-logo">
       <img src="assets/img/logo.png" alt="Loading..." />
       <div class="spinner"></div>
       <p>Loading...</p>
     </div>
-  </div>
+  </div> 
 
-  <!-- === NAVIGATION === -->
+<div class="container">
+
+  <!-- Navbar -->
   <nav class="nav">
-    <div class="logo-container"> <button id="theme-toggle">🌙</button>
-      <img src="assets/img/logo.png" alt="Logo" />
-      <span class="brand-title">K&L Digital</span>
+    <div class="brand">
+      <img src="logo.png" alt="KL Digital logo" class="nav-logo">
+      <h1>KL Digital <small>Digital Agency</small></h1>
     </div>
-    <div class="menu-toggle"><span></span><span></span><span></span></div>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="cta">
+      <a class="btn" href="#contact">Get Help</a>
+      <a class="btn secondary" href="#portfolio">Portfolio</a>
+    </div>
   </nav>
 
-  <!-- === HERO === -->
-  <section id="home" class="hero">
+  <!-- Hero Section -->
+  <section class="hero">
     <div id="particles-js"></div>
     <div class="overlay"></div>
-    <div class="hero-content fade-in">
-      <h1>Hello, I'm <span class="highlight">Skwakwa</span></h1>
-      <p id="animated-tagline">Innovating your digital world...</p>
+    <div class="hero-content">
+      <h2 id="animated-tagline">Website Creation</h2>
+      <p class="lead">Professional websites, analytics engineering, and laptop repairs. Practical solutions that scale your business.</p>
+       <p id="animated-tagline">Innovating your digital world...</p>
       <div class="buttons">
-        <a href="#portfolio" class="btn">View Work</a>
-        <a href="#contact" class="btn secondary">Hire Me</a>
+        <a class="btn" href="#contact">Book Now</a>
+        <a class="btn secondary" href="#services">See Portfolio</a>
       </div>
     </div>
   </section>
 
-  <!-- === SERVICES === -->
-  <section id="services" class="services fade-in">
-    <h3>What I Do</h3>
-    <div class="service-grid">
-      <div class="service">
-        <img src="icons/web.svg" alt="Website Creation">
-        <h4>Website Creation</h4>
-        <p>Responsive, modern, and built for performance.</p>
-      </div>
-      <div class="service">
-        <img src="icons/analytics.svg" alt="Analytics">
-        <h4>Analytics Engineering</h4>
-        <p>Data dashboards and insight pipelines that scale.</p>
-      </div>
-      <div class="service">
-        <img src="icons/repair.svg" alt="Laptop Repairs">
-        <h4>Laptop & PC Repairs</h4>
-        <p>Hardware repairs, upgrades, and optimizations.</p>
-      </div>
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="service">
+      <img src="icons/web.svg" alt="Web icon">
+      <h3>Website Creation</h3>
+      <p>Landing pages, business sites, portfolios — responsive, fast, and easy to update.</p>
+    </div>
+    <div class="service">
+      <img src="icons/analytics.svg" alt="Analytics icon">
+      <h3>Analytics Engineer</h3>
+      <p>Tracking, dashboards, conversion setup and performance analysis backed by data.</p>
+    </div>
+    <div class="service">
+      <img src="icons/laptop.svg" alt="Laptop icon">
+      <h3>Laptop & PC Repairs</h3>
+      <p>Hardware diagnostics, OS tuning, virus removal, and general maintenance.</p>
     </div>
   </section>
 
-  <!-- === PORTFOLIO === -->
-  <section id="portfolio" class="portfolio fade-in">
+  <!-- About Section -->
+  <section class="about">
+    <h3>About KL Digital</h3>
+    <div class="about-content">
+      <img src="yourphoto.jpg" alt="Kwena Mokoti">
+      <p><strong>Made by Kwena Mokoti.</strong> I built this agency after unemployment and self-reflection. I specialize in laptops, PCs, and internet-connected devices — solving tech problems and building websites that scale businesses.</p>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="portfolio">
     <h3>Portfolio</h3>
-    <ul class="portfolio-list">
-      <li><a href="#">Business Website</a></li>
-      <li><a href="#">Data Dashboard</a></li>
-      <li><a href="#">Laptop Optimization</a></li>
-    </ul>
+    <div class="portfolio-grid">
+      <a href="https://kandlfoundation.com/" target="_blank">
+        <img src="portfolio1.png" alt="K&L Foundation Site">
+        <div class="overlay">
+          <div class="text">K&L Foundation Site</div>
+        </div>
+      </a>
+    </div>
   </section>
 
-  <!-- === CONTACT === -->
-  <section id="contact" class="contact fade-in">
-    <h3>Get In Touch</h3>
-    <form action="https://formspree.io/f/xzbnqlpy" method="POST">
-      <input type="text" name="name" placeholder="Your name" required>
-      <input type="email" name="email" placeholder="Your email" required>
-      <textarea name="message" placeholder="Your message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h3>Contact</h3>
+    <div class="contact-content">
+      <div class="contact-info">
+        <p>WhatsApp: <a href="https://wa.me/27658772518" target="_blank">+27 65 877 2518</a></p>
+        <p>Email: coming soon</p>
+      </div>
+      <div class="request-quote">
+        <p>Send a WhatsApp message with: <em>service, short description, and location</em>. I'll reply with availability and a rough cost.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- === FOOTER === -->
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Skwakwa. All Rights Reserved.</p>
+    <div>Quick Links: <a href="#services">Services</a> | <a href="#portfolio">Portfolio</a> | <a href="#contact">Contact</a></div>
+    <div>&copy; 2025 KL Digital • Built by Kwena Mokoti</div>
   </footer>
+</div>
 
-  <!-- === SCRIPTS === -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<!-- Floating WhatsApp Button -->
+<a id="whatsapp-btn" href="https://wa.me/27658772518" target="_blank">📱</a>
+
+<script>
+// Animated tagline
+const taglines = ["Website Creation", "Analytics Engineer", "Laptop & PC Repairs"];
+let i = 0;
+const taglineEl = document.getElementById('animated-tagline');
+setInterval(()=>{
+  i = (i+1) % taglines.length;
+  taglineEl.textContent = taglines[i];
+}, 2500);
+</script>
+
+ <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="assets/js/main.js"></script>
   <script>
     window.addEventListener("load", () => {
@@ -109,5 +140,4 @@
   </script>
 
 </body>
-
 </html>
