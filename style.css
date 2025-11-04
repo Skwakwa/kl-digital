@@ -124,15 +124,7 @@ body {
 }
 
 /* === HERO SECTION === */
-.hero {
-  position: relative;
-  height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
-}
+.hero { position: relative; z-index: 2; }
 
 #particles-js {
   position: absolute;
@@ -485,24 +477,24 @@ footer {
 }
 /* === Preloader === */
 #preloader {
+  z-index: 99999; /* VERY high */
   position: fixed;
   inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: linear-gradient(180deg, #000814, #001f3f);
-  z-index: 9999;
-  padding: 10px;
+  background: #0b1c3a; /* fallback */
 }
 
+
 #preloader .preloader-logo {
-  width: 20vw;         /* responsive width */
-  max-width: 120px;    /* never too big */
+ .preloader-logo {
+  width: 25vw;
+  max-width: 100px;
   height: auto;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 0 12px #ffd700);
 }
+
 
 #preloader .spinner {
   width: 36px;
