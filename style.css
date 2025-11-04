@@ -12,7 +12,7 @@ body {
   color: #fff;
   line-height: 1.6;
   overflow-x: hidden;
-  transition: background 0.5s ease;
+  transition: background 1s ease;
 }
 
 /* === PRELOADER === */
@@ -20,20 +20,20 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 50%;
+  height: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #0b1c3a;
+  background: #0b1c3a url('background.png');
   z-index: 9999;
   padding: 15px;
 }
 
 #preloader img {
   width: 20vw;
-  max-width: 80px;
+  max-width: 40px;
   height: auto;
   margin-bottom: 15px;
 }
@@ -44,7 +44,7 @@ body {
   border: 4px solid #ffd70050;
   border-top: 4px solid gold;
   border-radius: 50%;
-  animation: spin 1s linear infinite;
+  animation: spin 5s linear infinite;
 }
 
 @keyframes spin {
@@ -81,7 +81,7 @@ body {
   text-shadow: 0 0 10px gold;
 }
 
-.nav .logo img {
+.nav .logo .png {
   width: 40px;
   height: 40px;
 }
