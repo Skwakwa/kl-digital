@@ -241,3 +241,42 @@ footer {
 h1, h2, h3, .price, .nav-brand {
   text-shadow: 0 0 6px var(--primary), 0 0 12px rgba(255,215,0,0.3);
 }
+
+/* ---- Particles Container ---- */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* ---- Hero Content Above Particles ---- */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  animation: fadeIn 2s ease forwards;
+  text-shadow: 0 0 20px var(--primary), 0 0 40px #ffd70050;
+}
+
+/* ---- Glowing Buttons ---- */
+.btn {
+  box-shadow: 0 0 8px var(--primary);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--primary);
+}
+
+/* ---- Portfolio Card Hover Glow ---- */
+.project-card {
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px var(--primary);
+}
