@@ -1,0 +1,212 @@
+/* ===== NAVIGATION ===== */
+.nav-links {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+.nav-links.active {
+  display: flex;
+}
+
+@media(min-width: 768px) {
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    gap: 20px;
+  }
+  .menu-toggle {
+    display: none;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 20, 0.9);
+  padding: 12px 24px;
+  box-shadow: 0 2px 20px rgba(255, 215, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo {
+  height: 40px;
+  border-radius: 8px;
+}
+
+.nav-brand {
+  font-weight: bold;
+  color: gold;
+  font-size: 1.1rem;
+  text-shadow: 0 0 8px gold;
+}
+
+.nav-links a {
+  color: white;
+  margin-left: 16px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: gold;
+  text-shadow: 0 0 8px gold;
+}
+
+/* ===== BODY ===== */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #000814, #001f3f);
+  color: white;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* ===== HEADER ===== */
+header {
+  padding: 80px 20px 40px;
+}
+
+h1 {
+  font-size: 2.8rem;
+  color: gold;
+  text-shadow: 0 0 20px gold, 0 0 40px #ffd70040;
+}
+
+h2 {
+  margin-top: 30px;
+  color: #ffd700;
+}
+
+p {
+  color: #d6e0f0;
+  line-height: 1.6;
+}
+
+/* ===== CARDS ===== */
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px gold;
+}
+
+.premium {
+  border: 1px solid gold;
+  background: rgba(255, 215, 0, 0.1);
+}
+
+/* ===== WHATSAPP CTA ===== */
+.whatsapp-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 30px;
+  background: gold;
+  color: #000;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  background: white;
+  transform: scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+footer, .site-footer {
+  background: rgba(0, 0, 20, 0.95);
+  color: white;
+  padding: 30px 10px;
+  margin-top: 60px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.site-footer a {
+  color: gold;
+  text-decoration: none;
+  margin: 0 6px;
+  transition: 0.3s;
+}
+
+.site-footer a:hover {
+  text-shadow: 0 0 6px gold;
+}
+
+/* ===== BACK LINKS ===== */
+.back {
+  color: gold;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 0 0 5px white;
+  transition: 0.3s;
+}
+
+.back:hover {
+  color: white;
+  text-shadow: 0 0 10px gold;
+}
+
+/* ===== FADE-IN ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media screen and (max-width: 768px) {
+  body {
+    text-align: center;
+  }
+
+  header {
+    padding: 60px 15px 30px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .card {
+    max-width: 90%;
+    margin: 15px auto;
+  }
+}
