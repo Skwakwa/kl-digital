@@ -183,3 +183,60 @@ footer {
   .nav-links.active { display: flex; }
   .menu-toggle { display: block; }
 }
+
+.testimonial-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  height: 180px;
+}
+
+.testimonial {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+
+.testimonial.active {
+  opacity: 1;
+}
+
+.testimonial p {
+  font-style: italic;
+  color: var(--secondary);
+  margin-bottom: 10px;
+}
+
+.testimonial span {
+  color: var(--primary);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 80%;
+  max-width: 400px;
+  margin: 0 auto 30px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--primary);
+  background: rgba(255,255,255,0.05);
+  color: var(--secondary);
+}
+
+.contact-form textarea {
+  height: 100px;
+  resize: none;
+}
