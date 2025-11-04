@@ -8,5 +8,11 @@
     "name": "Tech Repair System",
     "url": "https://github.com/Skwakwa/repair-system",
     "type": "repairs"
+  },
+  {
+    "name": "Data Dashboard",
+    "url": "#",
+    "type": "analytics"
   }
 ]
+
