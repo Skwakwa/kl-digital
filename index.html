@@ -11,117 +11,82 @@
   <link rel="stylesheet" href="style.css">
   <title>Skwakwa | Digital Creator</title>
 </head>
-
 <body>
 
   <!-- === PRELOADER === -->
-<div id="preloader">
-  <img src="logo.png" alt="KL Digital Logo">
-</div>
-
+  <div id="preloader">
+    <div class="loader-logo">
+      <img src="assets/img/logo.png" alt="Loading..." />
+      <div class="spinner"></div>
+      <p>Loading...</p>
+    </div>
+  </div>
 
   <!-- === NAVIGATION === -->
   <nav class="nav">
-    <div class="logo">
-      <img src="logo.png" alt="Skwakwa Logo">
-      <span>Skwakwa</span>
+    <div class="logo-container">
+      <img src="assets/img/logo.png" alt="Logo" />
+      <span class="brand-title">K&L Digital</span>
     </div>
+    <div class="menu-toggle"><span></span><span></span><span></span></div>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="menu-toggle">
-      <div></div><div></div><div></div>
-    </div>
   </nav>
 
-  <!-- === HERO SECTION === -->
-  <header id="home" class="hero">
+  <!-- === HERO === -->
+  <section id="home" class="hero">
     <div id="particles-js"></div>
     <div class="overlay"></div>
     <div class="hero-content fade-in">
-      <h2>Hello, I'm <span class="highlight">Skwakwa</span></h2>
+      <h1>Hello, I'm <span class="highlight">Skwakwa</span></h1>
       <p id="animated-tagline">Innovating your digital world...</p>
       <div class="buttons">
         <a href="#portfolio" class="btn">View Work</a>
         <a href="#contact" class="btn secondary">Hire Me</a>
       </div>
     </div>
-  </header>
+  </section>
 
   <!-- === SERVICES === -->
   <section id="services" class="services fade-in">
-    <h3 class="section-title">What I Do</h3>
-    <div class="service">
-      <img src="icons/web.svg" alt="Website Creation">
-      <h4>Website Creation</h4>
-      <p>Responsive, modern, and built for performance.</p>
-    </div>
-    <div class="service">
-      <img src="icons/analytics.svg" alt="Analytics">
-      <h4>Analytics Engineering</h4>
-      <p>Data dashboards and insight pipelines that scale.</p>
-    </div>
-    <div class="service">
-      <img src="icons/repair.svg" alt="Laptop Repairs">
-      <h4>Laptop & PC Repairs</h4>
-      <p>Hardware repairs, upgrades, and optimizations.</p>
+    <h3>What I Do</h3>
+    <div class="service-grid">
+      <div class="service">
+        <img src="icons/web.svg" alt="Website Creation">
+        <h4>Website Creation</h4>
+        <p>Responsive, modern, and built for performance.</p>
+      </div>
+      <div class="service">
+        <img src="icons/analytics.svg" alt="Analytics">
+        <h4>Analytics Engineering</h4>
+        <p>Data dashboards and insight pipelines that scale.</p>
+      </div>
+      <div class="service">
+        <img src="icons/repair.svg" alt="Laptop Repairs">
+        <h4>Laptop & PC Repairs</h4>
+        <p>Hardware repairs, upgrades, and optimizations.</p>
+      </div>
     </div>
   </section>
 
   <!-- === PORTFOLIO === -->
   <section id="portfolio" class="portfolio fade-in">
-    <h3 class="section-title">Portfolio</h3>
-    <div class="portfolio-filters">
-      <button data-filter="all" class="active">All</button>
-      <button data-filter="web">Web</button>
-      <button data-filter="analytics">Analytics</button>
-      <button data-filter="repair">Tech</button>
-    </div>
-    <ul id="portfolio-list">
-      <li data-type="web"><a href="#">Business Website</a></li>
-      <li data-type="analytics"><a href="#">Data Dashboard</a></li>
-      <li data-type="repair"><a href="#">Laptop Optimization</a></li>
+    <h3>Portfolio</h3>
+    <ul class="portfolio-list">
+      <li><a href="#">Business Website</a></li>
+      <li><a href="#">Data Dashboard</a></li>
+      <li><a href="#">Laptop Optimization</a></li>
     </ul>
-  </section>
-
-  <!-- === TESTIMONIALS === -->
-  <section class="testimonials fade-in">
-    <h3 class="section-title">What Clients Say</h3>
-    <div class="testimonial active">
-      <p>"Skwakwa turned my idea into a smooth working app. Highly recommend!"</p>
-      <span>- Neo, Entrepreneur</span>
-    </div>
-    <div class="testimonial">
-      <p>"Professional, fast, and the design was clean. Worth every cent."</p>
-      <span>- Karabo, Designer</span>
-    </div>
-    <div class="testimonial">
-      <p>"He optimized my laptop and it runs like new. 5 stars."</p>
-      <span>- Musa, Student</span>
-    </div>
-  </section>
-
-  <!-- === FAQ === -->
-  <section id="faq" class="faq fade-in">
-    <h3 class="section-title">FAQ</h3>
-    <div class="faq-item">
-      <h5>Do you work with clients outside Polokwane?</h5>
-      <p>Yes. I work remotely using WhatsApp, Zoom, and email — no borders for innovation.</p>
-    </div>
-    <div class="faq-item">
-      <h5>What are your payment options?</h5>
-      <p>EFT, PayFast, and crypto. Project starts after a 50% deposit.</p>
-    </div>
   </section>
 
   <!-- === CONTACT === -->
   <section id="contact" class="contact fade-in">
-    <h3 class="section-title">Get In Touch</h3>
-    <form action="https://formspree.io/f/xzbnqlpy" method="POST" class="contact-form">
+    <h3>Get In Touch</h3>
+    <form action="https://formspree.io/f/xzbnqlpy" method="POST">
       <input type="text" name="name" placeholder="Your name" required>
       <input type="email" name="email" placeholder="Your email" required>
       <textarea name="message" placeholder="Your message" required></textarea>
@@ -134,20 +99,15 @@
     <p>&copy; 2025 Skwakwa. All Rights Reserved.</p>
   </footer>
 
-  <!-- === WHATSAPP FLOAT === -->
-  <a href="https://wa.me/27730000000" id="whatsapp-btn" title="Chat on WhatsApp">
-    <i class="fa fa-whatsapp"></i>
-  </a>
-
   <!-- === SCRIPTS === -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script src="assets/main.js"></script>
-
+  <script src="assets/js/main.js"></script>
   <script>
-window.addEventListener("load", () => {
-  document.getElementById("preloader").classList.add("fade-out");
-});
-</script>
+    window.addEventListener("load", () => {
+      document.getElementById("preloader").classList.add("fade-out");
+    });
+  </script>
 
 </body>
+
 </html>
