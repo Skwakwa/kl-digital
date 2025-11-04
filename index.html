@@ -221,15 +221,41 @@
   });
 </script>
 
-  <script>
-// Wait until the page is fully loaded
-window.addEventListener('load', () => {
-  const preloader = document.getElementById('preloader');
-  preloader.style.opacity = '0';
-  preloader.style.transition = 'opacity 0.5s ease-out';
-  setTimeout(() => preloader.style.display = 'none', 500);
+// Preloader fade
+window.addEventListener('load',()=>{
+  const pre = document.getElementById('preloader');
+  pre.style.transition='opacity 0.6s ease'; pre.style.opacity=0;
+  setTimeout(()=>pre.style.display='none',600);
 });
-</script>
+
+// Animated tagline
+const tagline = document.getElementById('animated-tagline');
+const phrases = ["Fast Delivery","Sleek Design","Pro Support"];
+let i=0,j=0;
+function type(){ 
+  tagline.textContent = phrases[i].substring(0,j+1);
+  j++; 
+  if(j>phrases[i].length){ setTimeout(()=>{i=(i+1)%phrases.length;j=0;type()},1500); return; }
+  setTimeout(type,100);
+} type();
+
+// FAQ Accordion
+document.querySelectorAll('.faq-item h5').forEach(h=>{
+  h.addEventListener('click',()=>h.parentElement.classList.toggle('active'));
+});
+
+// Service Modals
+document.querySelectorAll('.service').forEach(s=>{
+  s.addEventListener('click',()=>document.getElementById('serviceModal').style.display='flex');
+});
+document.querySelector('.service-modal .close').addEventListener('click',()=>{
+  document.getElementById('serviceModal').style.display='none';
+});
+
+// Mobile menu toggle
+document.querySelector('.menu-toggle').addEventListener('click',()=>{
+  document.querySelector('.nav-links').classList.toggle('active');
+});
 
 </body>
 </html>
