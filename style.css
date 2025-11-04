@@ -124,7 +124,22 @@ body {
 }
 
 /* === HERO SECTION === */
-.hero { position: relative; z-index: 2; }
+.hero {
+  height: auto; /* let content define height on small screens */
+  min-height: 60vh; /* keeps hero visually big but flexible */
+  padding: 50px 15px; /* responsive spacing */
+}
+
+.hero .hero-content {
+  max-width: 100%; /* prevents overflowing text */
+}
+
+.hero img, .nav .logo img {
+  max-width: 80px; /* force mobile-friendly logo */
+  width: auto;
+  height: auto;
+}
+
 
 #particles-js {
   position: absolute;
@@ -133,13 +148,6 @@ body {
   width: 100%;
   height: 100%;
   z-index: 0;
-}
-
-.hero .overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1;
 }
 
 .hero-content {
