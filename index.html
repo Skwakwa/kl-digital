@@ -51,17 +51,18 @@
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="hero fade-in">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h2 id="animated-tagline">Website Creation</h2>
-      <p class="lead">Professional websites, analytics engineering, and laptop repairs. Smart solutions built for growth.</p>
-      <div class="buttons">
-        <a class="btn" href="#contact">Book Now</a>
-        <a class="btn secondary" href="#portfolio">See Portfolio</a>
-      </div>
+<section id="home" class="hero fade-in">
+  <div id="particles-js"></div>
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h2 id="animated-tagline">Website Creation</h2>
+    <p class="lead">Professional websites, analytics engineering, and laptop repairs. Smart solutions built for growth.</p>
+    <div class="buttons">
+      <a class="btn" href="#contact">Book Now</a>
+      <a class="btn secondary" href="#portfolio">See Portfolio</a>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Services -->
   <section id="services" class="services fade-in">
@@ -276,5 +277,38 @@ form.addEventListener('submit', async (e) => {
     });
   });
   </script>
+  <script src="assets/js/particles.js"></script>
+<script>
+  particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+      "color": { "value": "#f5c542" },
+      "shape": { "type": "circle" },
+      "opacity": { "value": 0.6, "random": true },
+      "size": { "value": 3, "random": true },
+      "line_linked": {
+        "enable": true,
+        "distance": 120,
+        "color": "#f5c542",
+        "opacity": 0.2,
+        "width": 1
+      },
+      "move": { "enable": true, "speed": 2, "direction": "none", "out_mode": "out" }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": { "enable": true, "mode": "grab" },
+        "onclick": { "enable": true, "mode": "push" }
+      },
+      "modes": {
+        "grab": { "distance": 140, "line_linked": { "opacity": 0.3 } },
+        "push": { "particles_nb": 4 }
+      }
+    },
+    "retina_detect": true
+  });
+</script>
+
 </body>
 </html>
