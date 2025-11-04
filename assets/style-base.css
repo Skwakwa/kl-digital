@@ -27,33 +27,58 @@ body {
 
 /* ---- Navbar ---- */
 .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 8%;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(8px);
-  position: sticky;
+  position: fixed;              /* stays visible as you scroll */
   top: 0;
-  z-index: 1000;
-}
-
-.nav .logo {
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: flex-start;  /* aligns content from the left */
+  padding: 8px 20px;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.nav .logo img {
-  height: 40px;
-  width: 40px;
-  filter: drop-shadow(0 0 5px var(--accent));
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.nav .logo span {
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--primary);
+.logo-container img {
+  width: 28px;   /* smaller logo */
+  height: 28px;
+  object-fit: contain;
+}
+
+.brand-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: gold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
+}
+
+.nav-links {
+  display: flex;
+  margin-left: auto;   /* pushes menu items to the right side */
+  gap: 25px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: gold;
 }
 
 .nav-links {
