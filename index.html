@@ -73,12 +73,12 @@ if('serviceWorker' in navigator){
   
 <body>
   <!-- Preloader -->
-<div id="preloader" aria-hidden="true">
-  <div class="preloader-inner">
-    <img src="logo.png" alt="KL Digital" />
-    <div class="spinner"></div>
-  </div>
+<!-- Preloader -->
+<div id="preloader">
+  <img src="logo.png" alt="KL Digital Logo" class="preloader-logo">
+  <div class="spinner"></div>
 </div>
+
 
 <!-- NAVIGATION -->
 <nav class="nav">
@@ -357,4 +357,13 @@ form.addEventListener('submit', async (e) => {
   </div>
 </div>
 </body>
+  <script>
+// Wait until the page is fully loaded
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  preloader.style.opacity = '0';
+  preloader.style.transition = 'opacity 0.5s ease-out';
+  setTimeout(() => preloader.style.display = 'none', 500);
+});
+</script>
 </html>
