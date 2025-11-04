@@ -17,32 +17,58 @@ body {
 
 /* === NAVIGATION === */
 .nav {
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(8px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  position: sticky;
+  position: fixed;              /* stays visible as you scroll */
   top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;  /* aligns content from the left */
+  padding: 8px 20px;
   z-index: 1000;
   border-bottom: 1px solid rgba(255, 215, 0, 0.2);
-  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.nav .logo {
+.logo-container {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 22px;
-  font-weight: 700;
-  color: gold;
-  text-shadow: 0 0 10px gold;
+  gap: 8px;
 }
 
-.nav .logo img {
-  width: 40px;
-  height: 40px;
+.logo-container img {
+  width: 28px;   /* smaller logo */
+  height: 28px;
+  object-fit: contain;
+}
+
+.brand-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: gold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
+}
+
+.nav-links {
+  display: flex;
+  margin-left: auto;   /* pushes menu items to the right side */
+  gap: 25px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: gold;
 }
 
 /* --- NAV LINKS --- */
