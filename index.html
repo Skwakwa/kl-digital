@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
 <meta charset="UTF-8">
 <title>KL Digital — Modern Tech & Web</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -34,6 +35,12 @@
 <script defer data-domain="kldigital.co.za" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
+  
+<!-- Preloader -->
+<div id="preloader">
+  <img src="logo.png" alt="KL Digital Logo" class="preloader-logo">
+  <div class="spinner"></div>
+</div>
 
 <!-- Navigation -->
 <nav class="nav">
@@ -213,5 +220,16 @@
     });
   });
 </script>
+
+  <script>
+// Wait until the page is fully loaded
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  preloader.style.opacity = '0';
+  preloader.style.transition = 'opacity 0.5s ease-out';
+  setTimeout(() => preloader.style.display = 'none', 500);
+});
+</script>
+
 </body>
 </html>
