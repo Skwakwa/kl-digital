@@ -15,6 +15,47 @@ body {
   transition: background 0.5s ease;
 }
 
+/* === PRELOADER === */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #0b1c3a;
+  z-index: 9999;
+  padding: 15px;
+}
+
+#preloader img {
+  width: 20vw;
+  max-width: 80px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+#preloader .spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ffd70050;
+  border-top: 4px solid gold;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  #preloader img { width: 30vw; max-width: 60px; }
+}
+
 /* === NAVIGATION === */
 .nav {
   background: rgba(0, 0, 0, 0.85);
@@ -45,7 +86,7 @@ body {
   height: 40px;
 }
 
-/* --- NAV LINKS --- */
+/* NAV LINKS */
 .nav-links {
   list-style: none;
   display: flex;
@@ -56,8 +97,8 @@ body {
   text-decoration: none;
   color: white;
   font-weight: 600;
-  transition: all 0.3s ease;
   position: relative;
+  transition: all 0.3s ease;
 }
 
 .nav-links li a::after {
@@ -68,19 +109,17 @@ body {
   bottom: -4px;
   left: 0;
   background: gold;
-  transition: 0.3s;
+  transition: width 0.3s ease;
 }
 
-.nav-links li a:hover::after {
-  width: 100%;
-}
+.nav-links li a:hover::after { width: 100%; }
 
 .nav-links li a:hover {
   text-shadow: 0 0 12px gold, 0 0 20px white;
   transform: scale(1.07);
 }
 
-/* --- MOBILE MENU --- */
+/* MOBILE MENU */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -112,15 +151,8 @@ body {
     transform: translateX(100%);
     transition: all 0.3s ease;
   }
-
-  .nav-links.active {
-    transform: translateX(0);
-    opacity: 1;
-  }
-
-  .menu-toggle {
-    display: flex;
-  }
+  .nav-links.active { transform: translateX(0); opacity: 1; }
+  .menu-toggle { display: flex; }
 }
 
 /* === HERO SECTION === */
@@ -136,8 +168,7 @@ body {
 
 #particles-js {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
   z-index: 0;
@@ -153,22 +184,24 @@ body {
 .hero-content {
   position: relative;
   z-index: 2;
-  animation: heroFade 2s ease-in-out;
+  padding: 0 15px;
+  animation: heroFade 1.8s ease-out;
 }
 
 .hero h2 {
-  font-size: 40px;
-  margin-bottom: 15px;
+  font-size: 36px;
   color: #ffd700;
   text-shadow: 0 0 20px #ffd700, 0 0 40px #fff;
+  margin-bottom: 15px;
+  line-height: 1.2;
   animation: glow 2s infinite alternate;
 }
 
 .hero .lead {
   font-size: 18px;
-  margin-bottom: 25px;
   color: #fff;
   text-shadow: 0 0 6px rgba(255,255,255,0.5);
+  margin-bottom: 25px;
 }
 
 .hero .buttons a {
@@ -190,16 +223,25 @@ body {
   box-shadow: 0 0 20px gold, 0 0 40px white;
 }
 
-/* Glow Animations */
 @keyframes glow {
   0% { text-shadow: 0 0 10px #ffd700, 0 0 20px #fff; }
-  50% { text-shadow: 0 0 25px #ffd700, 0 0 50px #fff; }
+  50% { text-shadow: 0 0 25px #ffd700, 0 0 50px #fff, 0 0 60px #ffd700; }
   100% { text-shadow: 0 0 10px #ffd700, 0 0 20px #fff; }
 }
 
 @keyframes heroFade {
   0% { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .hero h2 { font-size: 28px; }
+  .hero .lead { font-size: 16px; }
+}
+
+@media (max-width: 480px) {
+  .hero h2 { font-size: 22px; }
+  .hero .lead { font-size: 14px; }
 }
 
 /* === SERVICES === */
@@ -234,15 +276,25 @@ body {
   text-shadow: 0 0 6px gold;
 }
 
+.service p {
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.service a {
+  color: gold;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
 .service:hover {
   transform: translateY(-10px) rotateZ(-1deg);
   box-shadow: 0 0 25px #ffffff, 0 0 40px #ffd70080;
-  cursor: pointer;
 }
 
-.service:hover img {
-  transform: scale(1.15);
-}
+.service:hover img { transform: scale(1.15); }
 
 /* === PORTFOLIO === */
 .portfolio {
@@ -296,6 +348,56 @@ body {
   text-shadow: 0 0 10px gold;
   padding: 5px 0;
   background: rgba(0,0,0,0.4);
+}
+
+.portfolio-list li:hover::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 25px gold, 0 0 50px #fff;
+  pointer-events: none;
+}
+
+/* PORTFOLIO FILTER BUTTONS */
+.portfolio-filters {
+  margin-bottom: 30px;
+}
+
+.portfolio-filters button {
+  background: rgba(255, 215, 0, 0.1);
+  color: gold;
+  border: 1px solid gold;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  text-shadow: 0 0 5px gold;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-filters button::before {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: 0;
+  transition: width 0.4s ease;
+}
+
+.portfolio-filters button:hover::before { width: 100%; }
+
+.portfolio-filters button.active, 
+.portfolio-filters button:hover {
+  color: #0b1c3a;
+  background: gold;
+  box-shadow: 0 0 20px gold, 0 0 35px #fff;
 }
 
 /* === CONTACT === */
@@ -376,18 +478,14 @@ footer {
 
 /* === RESPONSIVE === */
 @media screen and (max-width: 768px) {
-  .services {
-    flex-direction: column;
-    align-items: center;
-  }
+  .services { flex-direction: column; align-items: center; }
+  .hero h2 { font-size: 28px; }
+  .hero .lead { font-size: 16px; }
+}
 
-  .hero h2 {
-    font-size: 28px;
-  }
-
-  .hero .lead {
-    font-size: 16px;
-  }
+@media screen and (max-width: 480px) {
+  .hero h2 { font-size: 22px; }
+  .hero .lead { font-size: 14px; }
 }
 
 /* === HERO TAGLINE ANIMATION === */
@@ -425,61 +523,10 @@ footer {
   transition: width 0.4s ease;
 }
 
-.btn:hover::before, .btn.secondary:hover::before {
-  width: 100%;
-}
+.btn:hover::before, .btn.secondary:hover::before { width: 100%; }
 
 .btn:hover, .btn.secondary:hover {
   transform: scale(1.12);
   box-shadow: 0 0 25px #ffd700, 0 0 50px #fff;
   z-index: 1;
-}
-
-/* === PORTFOLIO FILTER BUTTONS === */
-.portfolio-filters button {
-  background: rgba(255, 215, 0, 0.1);
-  color: gold;
-  border: 1px solid gold;
-  border-radius: 8px;
-  padding: 8px 18px;
-  font-weight: 600;
-  cursor: pointer;
-  text-shadow: 0 0 5px gold;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.portfolio-filters button::before {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(255, 255, 255, 0.2);
-  z-index: 0;
-  transition: width 0.4s ease;
-}
-
-.portfolio-filters button:hover::before {
-  width: 100%;
-}
-
-.portfolio-filters button.active, 
-.portfolio-filters button:hover {
-  color: #0b1c3a;
-  background: gold;
-  box-shadow: 0 0 20px gold, 0 0 35px #fff;
-}
-
-/* === PORTFOLIO ITEM HOVER GLOW === */
-.portfolio-list li:hover::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  border-radius: 12px;
-  box-shadow: 0 0 25px gold, 0 0 50px #fff;
-  pointer-events: none;
 }
