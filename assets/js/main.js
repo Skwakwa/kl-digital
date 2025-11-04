@@ -1,69 +1,124 @@
-// ======================
-// PRELOADER
-// ======================
+// ====== PRELOADER ======
 window.addEventListener('load', () => {
   const preloader = document.getElementById('preloader');
   preloader.style.transition = 'opacity 0.6s ease';
-  preloader.style.opacity = '0';
+  preloader.style.opacity = 0;
   setTimeout(() => preloader.style.display = 'none', 600);
 });
 
-// ======================
-// TYPED / ROTATING TAGLINE
-// ======================
-const taglines = ["Website Creation", "Analytics Engineer", "Laptop & PC Repairs"];
-let taglineIndex = 0;
-let charIndex = 0;
+// ====== HERO TYPED TAGLINE ======
+const taglines = ["Fast Delivery", "Sleek Design", "Pro Support"];
 const taglineEl = document.getElementById('animated-tagline');
+let tIndex = 0, charIndex = 0, deleting = false;
 
 function typeTagline() {
-  taglineEl.textContent = taglines[taglineIndex].substring(0, charIndex + 1);
-  charIndex++;
-  if (charIndex > taglines[taglineIndex].length) {
-    setTimeout(() => {
-      charIndex = 0;
-      taglineIndex = (taglineIndex + 1) % taglines.length;
-      typeTagline();
-    }, 1500);
-    return;
-  }
-  setTimeout(typeTagline, 100);
-}
+  const current = taglines[tIndex];
+  taglineEl.textContent = deleting
+    ? current.substring(0, charIndex--)
+    : current.substring(0, charIndex++);
 
+  if (!deleting && charIndex === current.length + 1) {
+    deleting = true;
+    setTimeout(typeTagline, 1500);
+  } else if (deleting && charIndex === -1) {
+    deleting = false;
+    tIndex = (tIndex + 1) % taglines.length;
+    setTimeout(typeTagline, 300);
+  } else {
+    setTimeout(typeTagline, deleting ? 50 : 100);
+  }
+}
 typeTagline();
 
-// ======================
-// FADE-IN ON SCROLL
-// ======================
-const faders = document.querySelectorAll('.fade-in');
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
+// ====== HERO BUTTON RIPPLE ======
+document.querySelectorAll('.hero .btn, .hero .btn.secondary').forEach(btn => {
+  btn.addEventListener('click', e => {
+    const circle = document.createElement('span');
+    circle.classList.add('ripple');
+    const rect = btn.getBoundingClientRect();
+    circle.style.left = `${e.clientX - rect.left}px`;
+    circle.style.top = `${e.clientY - rect.top}px`;
+    btn.appendChild(circle);
+    setTimeout(() => circle.remove(), 600);
   });
-}, { threshold: 0.2 });
+});
 
-faders.forEach(f => appearOnScroll.observe(f));
+// ====== SERVICE MODALS ======
+const services = [
+  {
+    title: "Website Creation",
+    pricing: [
+      { tier: "Basic", price: "R2000", features: ["1 page website", "Basic SEO", "Email support"] },
+      { tier: "Pro", price: "R4000", features: ["Up to 5 pages", "SEO optimized", "1 month support"] },
+      { tier: "Premium", price: "R7000", features: ["10+ pages", "Advanced SEO", "3 months support"] }
+    ]
+  },
+  {
+    title: "Analytics Engineering",
+    pricing: [
+      { tier: "Basic", price: "R1500", features: ["Dashboard setup", "Google Analytics integration"] },
+      { tier: "Pro", price: "R3500", features: ["Custom dashboards", "Reports automation"] },
+      { tier: "Premium", price: "R6000", features: ["Full analytics stack", "Ongoing monitoring"] }
+    ]
+  },
+  {
+    title: "Laptop & PC Repairs",
+    pricing: [
+      { tier: "Basic", price: "R300", features: ["Virus removal", "OS optimization"] },
+      { tier: "Pro", price: "R700", features: ["Hardware diagnostics", "Upgrade RAM/SSD"] },
+      { tier: "Premium", price: "R1500", features: ["Full repair & cleaning", "Warranty included"] }
+    ]
+  }
+];
 
-// ======================
-// PORTFOLIO FILTERING
-// ======================
+const modal = document.createElement('div');
+modal.classList.add('service-modal');
+modal.innerHTML = `
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2 id="modal-title"></h2>
+    <div class="pricing-cards" id="pricing-cards"></div>
+  </div>
+`;
+document.body.appendChild(modal);
+
+document.querySelectorAll('.service').forEach((s, idx) => {
+  s.addEventListener('click', () => {
+    const modalTitle = modal.querySelector('#modal-title');
+    const pricingContainer = modal.querySelector('#pricing-cards');
+    modalTitle.textContent = services[idx].title;
+    pricingContainer.innerHTML = '';
+    services[idx].pricing.forEach(p => {
+      const card = document.createElement('div');
+      card.classList.add('pricing-card');
+      card.innerHTML = `
+        <h4>${p.tier}</h4>
+        <p><strong>${p.price}</strong></p>
+        <ul>${p.features.map(f => `<li>${f}</li>`).join('')}</ul>
+        <a href="#contact" class="btn">Select</a>
+      `;
+      pricingContainer.appendChild(card);
+    });
+    modal.style.display = 'flex';
+  });
+});
+
+modal.querySelector('.close').addEventListener('click', () => modal.style.display = 'none');
+window.addEventListener('click', e => { if(e.target === modal) modal.style.display = 'none'; });
+
+// ====== PORTFOLIO FILTER ======
 document.querySelectorAll('.portfolio-filters button').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.portfolio-filters button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     const filter = btn.dataset.filter;
     document.querySelectorAll('#portfolio-list li').forEach(item => {
-      item.style.display = (filter === 'all' || item.dataset.type === filter) ? 'block' : 'none';
+      item.style.display = filter === 'all' || item.dataset.type === filter ? 'block' : 'none';
     });
   });
 });
 
-// ======================
-// TESTIMONIAL SLIDER
-// ======================
+// ====== TESTIMONIAL SLIDER ======
 const slides = document.querySelectorAll('.testimonial');
 let currentSlide = 0;
 setInterval(() => {
@@ -72,57 +127,20 @@ setInterval(() => {
   slides[currentSlide].classList.add('active');
 }, 4000);
 
-// ======================
-// MOBILE MENU TOGGLE
-// ======================
+// ====== FAQ ACCORDION ======
+document.querySelectorAll('.faq-item h5').forEach(h => {
+  h.addEventListener('click', () => h.parentElement.classList.toggle('active'));
+});
+
+// ====== MOBILE MENU TOGGLE ======
 document.querySelector('.menu-toggle').addEventListener('click', () => {
   document.querySelector('.nav-links').classList.toggle('active');
 });
 
-// ======================
-// FAQ ACCORDION
-// ======================
-document.querySelectorAll('.faq-item h5').forEach(header => {
-  header.addEventListener('click', () => {
-    header.parentElement.classList.toggle('active');
-  });
-});
-
-// ======================
-// SERVICE MODAL
-// ======================
-document.querySelectorAll('.service').forEach(service => {
-  service.addEventListener('click', () => {
-    const modal = document.getElementById('serviceModal');
-    if(modal) modal.style.display = 'flex';
-  });
-});
-
-const serviceModalClose = document.querySelector('.service-modal .close');
-if(serviceModalClose) {
-  serviceModalClose.addEventListener('click', () => {
-    const modal = document.getElementById('serviceModal');
-    if(modal) modal.style.display = 'none';
-  });
-}
-
-// ======================
-// SMOOTH SCROLL
-// ======================
+// ====== SMOOTH SCROLL ======
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', e => {
     e.preventDefault();
-    const target = document.querySelector(anchor.getAttribute('href'));
-    if(target) target.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
   });
-});
-
-// ======================
-// OPTIONAL: CLICK OUTSIDE MODAL TO CLOSE
-// ======================
-window.addEventListener('click', e => {
-  const modal = document.getElementById('serviceModal');
-  if(modal && e.target === modal) {
-    modal.style.display = 'none';
-  }
 });
