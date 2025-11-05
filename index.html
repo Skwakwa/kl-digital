@@ -44,8 +44,7 @@ if('serviceWorker' in navigator){
   navigator.serviceWorker.register('/sw.js').then(()=>console.log('SW registered'));
 }
 </script>
-  
-</head>
+  </head>
   
 <body>
   <!-- Preloader -->
@@ -54,26 +53,42 @@ if('serviceWorker' in navigator){
   <div class="spinner"></div>
 </div>
 
-<div class="container">
-
-  <!-- Navbar -->
-  <nav class="nav">
-    <div class="brand">
-      <img src="logo.png" alt="KL Digital logo" class="nav-logo">
-      <h1>KL Digital <small>Digital Agency</small></h1>
+  <aside class="sidebar" aria-label="Main navigation">
+  <h4>Jump to</h4>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services" class="has-sub">Services
+      <span aria-hidden>▾</span>
+    </a>
+    <div class="sub">
+      <a href="services/website/">Web</a>
+      <a href="services/analytics/">Analytics</a>
+      <a href="services/laptop/">Repairs</a>
     </div>
-    
-<div class="menu-toggle" id="mobile-menu">☰</div>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</aside>
 
-    <ul class="nav-links">
-    <li><a href="#services/website/index.html">Website Creation</a></li>
-      <li><a href="#services/analytics/index.html">Analytics Engineer</a></li>
-      <li><a href="#services/laptop/index.html">Laptop & PC Repairs</a></li>
-      <li><a href="#portfolio/index.html" class="active">Portfolio</a></li>
-      <li><a href="#contact/index.html">Contact</a></li>
-    <li><a href="#faq">FAQ</a></li>
-  </ul>
-</nav>
+ <div class="header-wrap">
+  <div class="header-inner container">
+    <div class="brand">
+      <img class="nav-logo" src="logo.png" alt="KL Digital">
+      <div><h1>KL Digital</h1><small>Digital Agency</small></div>
+    </div>
+
+    <div class="controls">
+      <button id="theme-toggle" class="theme-toggle">🌙</button>
+      <div class="menu-toggle">☰</div>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+</di
 
   <button id="theme-toggle" class="theme-toggle">🌙</button>
 
