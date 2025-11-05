@@ -17,10 +17,10 @@ body {
 
 /* === NAVIGATION === */
 .nav {
-  position: absolute;              /* stays visible as you scroll */
-  top: 70%;
+  position: fixed;              /* stays visible as you scroll */
+  top: 0;
   left: 0;
-  width: 50%;
+  width: 100%;
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(10px);
   display: flex;
@@ -30,27 +30,6 @@ body {
   z-index: 1000;
   border-bottom: 1px solid rgba(255, 215, 0, 0.2);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.logo-container img {
-  width: 28px;   /* smaller logo */
-  height: 28px;
-  object-fit: contain;
-}
-
-.brand-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: gold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
 }
 
 .nav-links {
@@ -158,12 +137,6 @@ body {
 
 .hero .hero-content {
   max-width: 100%; /* prevents overflowing text */
-}
-
-.hero img, .nav .logo img {
-  max-width: 80px; /* force mobile-friendly logo */
-  width: auto;
-  height: auto;
 }
 
 
