@@ -229,97 +229,128 @@ a:hover {
   color: #fff;
 }
 
-/* ===== Services Section ===== */
+/* ===== Services Section (Modern Polished) ===== */
 
-.service {
-  transition: all 0.4s ease;
-  cursor: pointer;
-}
-.service.active {
-  transform: scale(1.05);
-  background: linear-gradient(135deg, #00b4d8, #0077b6);
-  color: #fff;
-}
-.service.active h4, .service.active p {
-  color: #fff;
-}
 .services {
-  padding: 80px 10%;
+  padding: 100px 10%;
   background: var(--bg);
   text-align: center;
   color: var(--text);
 }
 
 .services h3 {
-  font-size: 2rem;
-  margin-bottom: 40px;
+  font-size: 2.3rem;
+  margin-bottom: 50px;
   color: var(--accent);
   letter-spacing: 1px;
-  text-shadow: 0 0 12px rgba(255,215,0,0.3);
+  text-shadow: 0 0 12px rgba(255,215,0,0.35);
 }
 
 .service-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
+  gap: 35px;
   justify-content: center;
 }
 
+/* Service Card */
 .service {
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 215, 0, 0.2);
-  padding: 30px 20px;
-  border-radius: 16px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  cursor: pointer;
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  border-radius: 18px;
+  padding: 35px 25px;
+  text-align: center;
+  transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
 }
 
 .service:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  border-color: rgba(255, 215, 0, 0.4);
 }
 
+/* Active state (when modal opens or clicked) */
+.service.active {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #00b4d8, #0077b6);
+  color: #fff;
+  box-shadow: 0 0 25px rgba(0,180,216,0.4);
+}
+.service.active h4, 
+.service.active p {
+  color: #fff;
+}
+
+/* Icons */
 .service img {
-  width: 64px;           /* perfect medium size */
+  width: 64px;
   height: 64px;
-  object-fit: contain;   /* keeps aspect ratio */
+  object-fit: contain;
   display: block;
-  margin: 0 auto 10px;   /* centers and adds space below */
-  transition: transform 0.3s ease;
+  margin: 0 auto 15px;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: drop-shadow(0 0 6px rgba(255,215,0,0.25));
 }
 
 .service:hover img {
-  transform: scale(1.1);
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 10px rgba(255,215,0,0.4));
 }
 
+/* Text */
 .service h4 {
-  margin: 10px 0;
+  margin: 12px 0 8px;
   color: gold;
-  font-size: 1.3rem;
+  font-size: 1.35rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
 }
 
 .service p {
   font-size: 0.95rem;
   opacity: 0.9;
   margin-bottom: 15px;
+  line-height: 1.5;
 }
 
+/* Buttons */
 .service a {
   display: inline-block;
+  padding: 8px 20px;
+  border: 1px solid var(--accent);
+  border-radius: 25px;
   color: var(--accent);
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s;
+  transition: all 0.3s ease;
 }
 
 .service a:hover {
-  color: gold;
-  text-shadow: 0 0 8px gold;
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 12px var(--accent);
 }
 
+/* Responsive */
+@media (max-width: 768px) {
+  .services {
+    padding: 70px 5%;
+  }
+  .services h3 {
+    font-size: 1.8rem;
+  }
+  .service {
+    padding: 25px 20px;
+  }
+  .service img {
+    width: 56px;
+    height: 56px;
+  }
+}
 
 /* ===== Modal Styles ===== */
 .modal {
