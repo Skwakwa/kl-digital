@@ -1,407 +1,226 @@
-/* ================================
-   KL DIGITAL - STYLE.CSS
-   Modern, clean, responsive
-   ================================ */
+// assets/js/main.js
+(() => {
+  // Helpers
+  const $ = s => document.querySelector(s);
+  const $$ = s => Array.from(document.querySelectorAll(s));
 
-/* ===== Root + Themes ===== */
-:root {
-  --bg: #0b0e14;
-  --text: #e0e0e0;
-  --accent: #f5c542;
-  --glass: rgba(255,255,255,0.05);
-  --shadow: 0 0 25px rgba(0,0,0,0.3);
-  --font: 'Poppins', sans-serif;
-  --transition: 0.3s ease;
-}
+  /* -------------------------
+     THEME TOGGLE
+     - stores choice in localStorage
+  -------------------------*/
+  const themeToggle = document.getElementById('theme-toggle');
+  const applyTheme = (t) => {
+    if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    else document.documentElement.removeAttribute('data-theme');
+    if (themeToggle) themeToggle.textContent = (t === 'light') ? '☀️' : '🌙';
+  };
+  const stored = localStorage.getItem('kld-theme');
+  applyTheme(stored || 'dark');
+  if (themeToggle) themeToggle.addEventListener('click', () => {
+    const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    applyTheme(next === 'light' ? 'light' : 'dark');
+    localStorage.setItem('kld-theme', next === 'light' ? 'light' : 'dark');
+  });
 
-[data-theme="light"] {
-  --bg: #f9fafb;
-  --text: #121212;
-  --accent: #f5c542;
-  --glass: rgba(0,0,0,0.05);
-  --shadow: 0 0 25px rgba(0,0,0,0.1);
-}
+  /* -------------------------
+     PRELOADER + PARTICLES SYNC
+     - waits for custom 'particlesReady' OR canvas fallback
+  -------------------------*/
+  const preloader = $('#preloader');
+  const hidePreloader = () => {
+    if (!preloader) return;
+    preloader.classList.add('hidden');
+    setTimeout(()=> {
+      if (preloader && preloader.parentNode) preloader.parentNode.removeChild(preloader);
+    }, 600);
+  };
 
-/* ===== Global Reset ===== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+  // Listen for custom event 'particlesReady' (if your particles.js dispatches it)
+  let particlesFired = false;
+  document.addEventListener('particlesReady', () => {
+    particlesFired = true;
+    setTimeout(hidePreloader, 220); // short delay for smooth visuals
+    document.body.classList.add('page-loaded');
+    revealFaders();
+  });
 
-html, body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font);
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-}
+  // fallback: detect canvas in #particles-js and proceed
+  const fallbackStart = () => {
+    const el = document.querySelector('#particles-js canvas');
+    if (el && !particlesFired) {
+      particlesFired = true;
+      setTimeout(hidePreloader, 300);
+      document.body.classList.add('page-loaded');
+      revealFaders();
+    }
+  };
 
-/* ===== Preloader ===== */
-#preloader {
-  position: fixed;
-  inset: 0;
-  background: var(--bg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
-  transition: opacity 0.4s ease-out;
-}
-#preloader img {
-  width: 80px;
-  animation: pulse 1.5s infinite;
-}
-.spinner {
-  width: 35px; height: 35px;
-  border: 3px solid var(--accent);
-  border-top-color: transparent;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-top: 1rem;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-@keyframes pulse {
-  0%,100% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.1); opacity: 1; }
-}
+  // Fallback timeout (in case particles never initialize)
+  const fallbackTimeout = setTimeout(() => {
+    if (!particlesFired) {
+      particlesFired = true;
+      hidePreloader();
+      document.body.classList.add('page-loaded');
+      revealFaders();
+    }
+  }, 4000);
 
-/* ===== Navbar ===== */
-.nav {
-  background: rgba(15,15,25,0.7);
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 24px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
+  // Try a couple times to find canvas quickly
+  const tryCanvas = setInterval(() => {
+    fallbackStart();
+    if (particlesFired) clearInterval(tryCanvas);
+  }, 300);
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.nav-logo {
-  width: 35px;
-  height: 35px;
-  border-radius: 6px;
-}
-.brand h1 {
-  font-size: 18px;
-  color: var(--accent);
-}
-.brand small {
-  color: var(--text);
-  font-size: 12px;
-  opacity: 0.7;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 25px;
-}
-.nav-links a {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color var(--transition);
-}
-.nav-links a:hover, .nav-links .active {
-  color: var(--accent);
-}
-
-.menu-toggle {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-/* ===== Hero Section ===== */
-.hero {
-  position: relative;
-  height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
-}
-.hero .overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.4), var(--bg));
-  z-index: 1;
-}
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 700px;
-  padding: 0 20px;
-}
-.hero h2 {
-  font-size: 2.6rem;
-  color: var(--accent);
-  margin-bottom: 15px;
-  animation: fadeInUp 1.2s ease both;
-}
-.hero .lead {
-  font-size: 1.1rem;
-  margin-bottom: 25px;
-  line-height: 1.6;
-}
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-.btn {
-  padding: 10px 20px;
-  border-radius: 6px;
-  background: var(--accent);
-  color: #000;
-  text-decoration: none;
-  font-weight: 600;
-  transition: var(--transition);
-}
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow);
-}
-.btn.secondary {
-  background: transparent;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-}
-
-/* ===== Services ===== */
-.services {
-  padding: 80px 20px;
-  text-align: center;
-}
-.services h3 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-}
-.service {
-  background: var(--glass);
-  border-radius: 12px;
-  padding: 25px;
-  transition: var(--transition);
-  box-shadow: var(--shadow);
-}
-.service:hover {
-  transform: translateY(-5px);
-}
-.service img {
-  width: 50px;
-  margin-bottom: 15px;
-}
-.service h4 {
-  color: var(--accent);
-  margin-bottom: 10px;
-}
-.service a {
-  display: inline-block;
-  margin-top: 10px;
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-/* ===== Portfolio ===== */
-.portfolio {
-  padding: 80px 20px;
-  text-align: center;
-}
-.portfolio-filters {
-  margin-bottom: 20px;
-}
-.portfolio-filters button {
-  background: var(--glass);
-  border: none;
-  color: var(--text);
-  padding: 8px 16px;
-  border-radius: 20px;
-  margin: 5px;
-  cursor: pointer;
-  transition: var(--transition);
-}
-.portfolio-filters .active,
-.portfolio-filters button:hover {
-  background: var(--accent);
-  color: #000;
-}
-.portfolio-list li {
-  margin: 10px 0;
-}
-
-/* ===== Testimonials ===== */
-#testimonials {
-  background: var(--glass);
-  padding: 80px 20px;
-  text-align: center;
-}
-.testimonial {
-  display: none;
-  opacity: 0;
-  transition: opacity 0.6s;
-}
-.testimonial.active {
-  display: block;
-  opacity: 1;
-}
-.testimonial p {
-  font-style: italic;
-  margin-bottom: 10px;
-}
-
-/* ===== FAQ ===== */
-.accordion {
-  max-width: 700px;
-  margin: 0 auto;
-}
-.acc-btn {
-  background: var(--glass);
-  border: none;
-  color: var(--text);
-  width: 100%;
-  text-align: left;
-  padding: 15px;
-  margin-bottom: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-}
-.acc-btn.active {
-  background: var(--accent);
-  color: #000;
-}
-.acc-panel {
-  max-height: 0;
-  overflow: hidden;
-  background: rgba(255,255,255,0.05);
-  transition: max-height 0.3s ease;
-  padding: 0 15px;
-  border-radius: 8px;
-}
-
-/* ===== Contact ===== */
-.contact {
-  padding: 80px 20px;
-  text-align: center;
-}
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 500px;
-  margin: 0 auto 20px;
-}
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  border-radius: 6px;
-  border: 1px solid rgba(255,255,255,0.1);
-  background: var(--glass);
-  color: var(--text);
-}
-.contact-form button {
-  width: 100%;
-}
-
-/* ===== Pricing ===== */
-.pricing {
-  padding: 80px 20px;
-  text-align: center;
-}
-.pricing-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
-}
-.card {
-  background: var(--glass);
-  border-radius: 10px;
-  padding: 25px;
-  transition: var(--transition);
-}
-.card.highlight {
-  border: 2px solid var(--accent);
-  transform: scale(1.05);
-}
-.card .price {
-  font-size: 1.4rem;
-  color: var(--accent);
-  margin: 10px 0;
-}
-
-/* ===== Footer ===== */
-footer {
-  background: rgba(0,0,0,0.2);
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-  color: var(--text);
-}
-
-/* ===== Floating WhatsApp Button ===== */
-#whatsapp-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: var(--accent);
-  color: #000;
-  padding: 12px;
-  border-radius: 50%;
-  font-size: 24px;
-  text-decoration: none;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-}
-#whatsapp-btn:hover {
-  transform: scale(1.1);
-}
-
-/* ===== Utilities ===== */
-.fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s ease; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
-
-.theme-toggle {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  background: var(--glass);
-  border: none;
-  color: var(--accent);
-  font-size: 20px;
-  border-radius: 50%;
-  width: 40px; height: 40px;
-  cursor: pointer;
-  z-index: 1100;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-  .nav-links { 
-    display: none;
-    flex-direction: column;
-    background: var(--glass);
-    position: absolute;
-    top: 60px; right: 0;
-    width: 100%;
-    text-align: center;
-    padding: 15px 0;
+  /* -------------------------
+     MENU / SIDEBAR / NAV
+  -------------------------*/
+  const mobileToggle = $('.menu-toggle');
+  const navLinks = $$('.nav-links a');
+  if (mobileToggle) {
+    mobileToggle.addEventListener('click', () => {
+      const nav = document.querySelector('.nav-links');
+      nav && nav.classList.toggle('show');
+      mobileToggle.classList.toggle('active');
+    });
   }
-  .nav-links.show { display: flex; }
-  .menu-toggle { display: block; }
-  .hero h2 { font-size: 2rem; }
-  .buttons { flex-direction: column; }
-}
+
+  // Sidebar service submenu wiring
+  document.querySelectorAll('.sidebar .has-sub > a').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      a.parentElement.classList.toggle('open');
+    });
+  });
+
+  // Ensure top links scroll smoothly
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const target = a.getAttribute('href');
+      if (!target || target === '#') return;
+      // If it's link to a local section
+      if (target.startsWith('#') && document.querySelector(target)) {
+        e.preventDefault();
+        document.querySelector(target).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // close mobile nav if open
+        const nav = document.querySelector('.nav-links.show');
+        nav && nav.classList.remove('show');
+      } else {
+        // external or folder link: allow default navigation
+      }
+    });
+  });
+
+  /* -------------------------
+     REVEAL ANIMATIONS ON SCROLL
+  -------------------------*/
+  const faders = Array.from(document.querySelectorAll('.fade-in'));
+  function revealFaders(){
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(en => {
+          if (en.isIntersecting) {
+            en.target.classList.add('visible');
+            obs.unobserve(en.target);
+          }
+        });
+      }, { threshold: 0.18 });
+      faders.forEach(f => io.observe(f));
+    } else {
+      // no IO fallback
+      faders.forEach(f => f.classList.add('visible'));
+    }
+  }
+  // Call reveal if particles already fired (maybe page loaded instantly)
+  if (document.body.classList.contains('page-loaded')) revealFaders();
+
+  /* -------------------------
+     Service modal open (uses service card anchor)
+  -------------------------*/
+  function openServiceModal(name, desc){
+    const modal = $('#serviceModal');
+    if (!modal) return;
+    const t = modal.querySelector('#modalTitle');
+    const d = modal.querySelector('#modalDesc');
+    t && (t.textContent = name);
+    d && (d.textContent = desc);
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden','false');
+  }
+  const serviceLinks = $$('.service a');
+  serviceLinks.forEach(a => {
+    a.addEventListener('click', e => {
+      // If link points to service folder (e.g. services/website/) allow navigation
+      const href = a.getAttribute('href')||'';
+      if (href && (href.startsWith('services/'))) {
+        return; // let it navigate
+      }
+      // otherwise show modal with info (progressive enhancement)
+      e.preventDefault();
+      const card = a.closest('.service');
+      const name = card ? (card.querySelector('h4') && card.querySelector('h4').textContent) : 'Service';
+      const desc = card ? (card.querySelector('p') && card.querySelector('p').textContent) : '';
+      openServiceModal(name, desc);
+    });
+  });
+
+  // modal close
+  document.addEventListener('click', (e) => {
+    if (e.target.matches('.modal-close') || e.target.matches('.modal.show')) {
+      const m = document.querySelector('.modal.show');
+      if (m) {
+        m.classList.remove('show');
+        m.setAttribute('aria-hidden','true');
+      }
+    }
+  });
+
+  /* -------------------------
+     Pricing buttons / CTA wiring
+  -------------------------*/
+  $$('#bookBasic, #bookPro, #bookPremium').forEach(btn => {
+    if (!btn) return;
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      // prefill message to WhatsApp or open contact
+      const name = encodeURIComponent(btn.closest('.card')?.querySelector('h4')?.textContent || 'Service Booking');
+      const url = `https://wa.me/27658772518?text=I%20want%20to%20book:%20${name}`;
+      window.open(url, '_blank');
+    });
+  });
+
+  /* -------------------------
+     Contact form: open whatsapp & post to Formspree (defensive)
+  -------------------------*/
+  const contactForm = document.querySelector('.contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (ev) => {
+      ev.preventDefault();
+      const fd = new FormData(contactForm);
+      const name = fd.get('name') || 'Client';
+      const email = fd.get('email') || '';
+      const message = fd.get('message') || 'Hello';
+      // open whatsapp quickly
+      const wp = `https://wa.me/27658772518?text=${encodeURIComponent(`Hi, I'm ${name}. ${message} (Email: ${email})`)}`;
+      window.open(wp, '_blank');
+
+      // send to Formspree (non-blocking)
+      try {
+        await fetch(contactForm.action, { method:'POST', body: fd, headers:{ 'Accept':'application/json' }});
+      } catch(e){ /* ignore network errors; whatsapp opened already */ }
+      contactForm.reset();
+    });
+  }
+
+  /* -------------------------
+     small accessibility helper: keyboard focus visible
+  -------------------------*/
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab') document.documentElement.classList.add('user-tab');
+  });
+
+  /* -------------------------
+     Expose for debug
+  -------------------------*/
+  window.KL = { openServiceModal, hidePreloader };
+
+})();
