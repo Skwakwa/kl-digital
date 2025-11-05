@@ -25,10 +25,6 @@
       <img src="logo.png" alt="KL Digital logo" class="nav-logo">
       <h1>KL Digital <small>Digital Agency</small></h1>
     </div>
-    <div class="cta">
-      <a class="btn" href="#contact">Get Help</a>
-      <a class="btn secondary" href="#portfolio">Portfolio</a>
-    </div>
   </nav>
 
   <!-- Hero Section -->
@@ -119,6 +115,23 @@ setInterval(()=>{
   taglineEl.textContent = taglines[i];
 }, 2500);
 </script>
+
+  <script>
+  const toggle = document.getElementById('theme-toggle');
+  toggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    toggle.textContent = next === 'light' ? '🌙' : '☀️';
+  });
+  const saved = localStorage.getItem('theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+    toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+</script>
+
 
 </body>
 </html>
