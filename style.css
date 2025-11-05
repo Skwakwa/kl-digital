@@ -38,6 +38,19 @@ html, body {
   overflow-x: hidden;
 }
 
+body.light-mode {
+  background: #f7f7f7;
+  color: #111;
+}
+body.light-mode .nav {
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+body.light-mode .service {
+  background: #fff;
+  border-color: #ddd;
+}
+
 section {
   padding: 100px 10%;
   text-align: center;
@@ -217,6 +230,22 @@ a:hover {
 }
 
 /* ===== Services Section ===== */
+
+.service {
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+.service.active {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #00b4d8, #0077b6);
+  color: #fff;
+}
+.service.active h4, .service.active p {
+  color: #fff;
+}
+
+
+
 .services {
   padding: 80px 10%;
   background: var(--bg);
@@ -289,6 +318,7 @@ a:hover {
   color: gold;
   text-shadow: 0 0 8px gold;
 }
+
 
 /* ===== Modal Styles ===== */
 .modal {
