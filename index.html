@@ -63,10 +63,11 @@
   </section>
 
   <!-- Services -->
-  <section id="services" class="services fade-in">
-    <h3>What We Do</h3>
-    <div class="service-grid">
-      <div class="service-card service">
+ <h3>What We Do</h3>
+<div class="service-grid">
+  <!-- Website Creation -->
+  <div class="service">
+  <div class="particles" id="particles-web"></div>
     <div class="icon">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M3 5h18v14H3V5z" stroke="currentColor" stroke-width="2"/>
@@ -75,11 +76,12 @@
     </div>
     <h4>Website Creation</h4>
     <p>Fast, responsive, and SEO-optimized websites for brands and entrepreneurs.</p>
-    <a href="services/website/index.html/">Learn More →</a>
+    <a href="services/website/">Learn More →</a>
   </div>
 
   <!-- Analytics Engineering -->
-  <div class="service-card service">
+  <div class="service">
+  <div class="particles" id="particles-web"></div>
     <div class="icon">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M4 17h16M4 12h10M4 7h7" stroke="currentColor" stroke-width="2"/>
@@ -87,11 +89,12 @@
     </div>
     <h4>Analytics Engineering</h4>
     <p>Data dashboards, tracking systems, and smart insights for business growth.</p>
-    <a href="services/analytics/index.html/">Learn More →</a>
+    <a href="services/analytics/">Learn More →</a>
   </div>
 
   <!-- Laptop & PC Repairs -->
-  <div class="service-card service">
+  <div class="service">
+  <div class="particles" id="particles-web"></div>
     <div class="icon">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="3" y="5" width="18" height="12" stroke="currentColor" stroke-width="2"/>
@@ -100,7 +103,7 @@
     </div>
     <h4>Laptop & PC Repairs</h4>
     <p>Hardware diagnostics, OS optimization, virus removal, and more.</p>
-    <a href="services/laptop/index.html/">Learn More →</a>
+    <a href="services/laptop/">Learn More →</a>
   </div>
 </div>
 
@@ -167,5 +170,37 @@
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <script src="assets/js/particles.js"></script>
   <script src="assets/js/main.js"></script>
+  <script>
+function initServiceParticles(id) {
+  particlesJS(id, {
+    particles: {
+      number: { value: 20, density: { enable: true, value_area: 300 } },
+      color: { value: "#f5c542" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5, random: true },
+      size: { value: 2, random: true },
+      line_linked: { enable: true, distance: 80, color: "#f5c542", opacity: 0.2, width: 1 },
+      move: { enable: true, speed: 1, direction: "none", out_mode: "out" }
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: { enable: true, mode: "grab" },
+        onclick: { enable: true, mode: "push" }
+      },
+      modes: {
+        grab: { distance: 100, line_linked: { opacity: 0.4 } },
+        push: { particles_nb: 4 }
+      }
+    },
+    retina_detect: true
+  });
+}
+
+// Initialize particles for all cards
+initServiceParticles("particles-web");
+initServiceParticles("particles-analytics");
+initServiceParticles("particles-repair");
+</script>
 </body>
 </html>
