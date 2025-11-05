@@ -2,25 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>KL Digital — Modern Tech & Web</title>
+  <title>KL Digital — Future-Ready Tech & Web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="icon" href="logo.png">
   <link rel="stylesheet" href="style.css">
 
   <!-- SEO -->
-  <meta name="description" content="KL Digital — Web development, analytics, and tech solutions. Fixing laptops & scaling businesses.">
-  <meta name="keywords" content="web design, analytics, laptop repair, tech solutions, KL Digital">
+  <meta name="description" content="KL Digital — building modern websites, data-driven analytics, and repair solutions for tomorrow.">
+  <meta property="og:title" content="KL Digital — Modern Tech Agency">
+  <meta property="og:image" content="logo.png">
+  <meta property="og:description" content="Professional digital solutions for real-world growth.">
 
-  <!-- Social -->
-  <meta property="og:title" content="KL Digital — Modern Tech & Web">
-  <meta property="og:description" content="Professional websites, analytics engineering, and laptop repairs.">
-
-  <!-- Plausible Analytics -->
+  <!-- Analytics -->
   <script async src="https://plausible.io/js/pa-WxY1dy2CDtl4qfbRClRmA.js"></script>
+
   <script>
-    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-    plausible.init()
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('/sw.js');
+  }
   </script>
 </head>
+
 <body>
   <!-- Preloader -->
   <div id="preloader">
@@ -28,166 +31,123 @@
     <div class="spinner"></div>
   </div>
 
-  <!-- Sidebar -->
-  <aside class="sidebar" aria-label="Main navigation">
-    <h4>Jump to</h4>
-    <nav>
+  <!-- Header -->
+  <header class="nav">
+    <div class="logo">
+      <img src="logo.png" alt="KL Digital Logo">
+      <span>KL Digital</span>
+    </div>
+    <nav class="nav-links">
       <a href="#home">Home</a>
-      <a href="#services" class="has-sub">Services ▾</a>
-      <div class="sub">
-        <a href="services/website/">Web</a>
-        <a href="services/analytics/">Analytics</a>
-        <a href="services/laptop/">Repairs</a>
-      </div>
+      <a href="#services">Services</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#contact">Contact</a>
     </nav>
-  </aside>
-
-  <!-- Header -->
-  <header class="header-wrap">
-    <div class="header-inner container">
-      <div class="brand">
-        <img class="nav-logo" src="logo.png" alt="KL Digital">
-        <div>
-          <h1>KL Digital</h1>
-          <small>Digital Agency</small>
-        </div>
-      </div>
-
-      <div class="controls">
-        <button id="theme-toggle" class="theme-toggle">🌙</button>
-        <div class="menu-toggle">☰</div>
-        <nav class="nav-links">
-          <a href="#home">Home</a>
-          <a href="#services">Services</a>
-          <a href="#portfolio">Portfolio</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
+    <div class="nav-controls">
+      <button id="theme-toggle" class="theme-toggle">🌙</button>
     </div>
   </header>
 
   <!-- Hero Section -->
   <section id="home" class="hero fade-in">
     <div id="particles-js"></div>
-    <div class="overlay"></div>
-    <div class="hero-content">
+    <div class="hero-inner">
+      <h1 class="glow">Innovate. Build. Scale.</h1>
       <h2 id="animated-tagline">Website Creation</h2>
-      <p class="lead">Professional websites, analytics engineering, and laptop repairs. Smart solutions built for growth.</p>
-      <div class="buttons">
-        <a class="btn" href="#contact">Book Now</a>
+      <p class="lead">Transforming businesses with intelligent web systems, analytics, and device repair solutions built for speed and scale.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn primary">Get Started</a>
+        <a href="#portfolio" class="btn ghost">View Work</a>
       </div>
     </div>
   </section>
 
-  <!-- Services Section -->
+  <!-- Services -->
   <section id="services" class="services fade-in">
-    <h3>Our Services</h3>
+    <h3>What We Do</h3>
     <div class="service-grid">
-      <div class="service">
+      <div class="service-card">
         <img src="icons/web.svg" alt="Web icon">
         <h4>Website Creation</h4>
-        <p>Responsive, SEO-ready websites for businesses, portfolios, and landing pages.</p>
+        <p>Fast, responsive, and SEO-optimized websites for brands and entrepreneurs.</p>
         <a href="services/website/">Learn More →</a>
       </div>
-      <div class="service">
+      <div class="service-card">
         <img src="icons/analytics.svg" alt="Analytics icon">
         <h4>Analytics Engineering</h4>
-        <p>Data dashboards, tracking systems, and smart insights for business growth.</p>
+        <p>Data dashboards, insight systems, and tracking automation to grow your business.</p>
         <a href="services/analytics/">Learn More →</a>
       </div>
-      <div class="service">
+      <div class="service-card">
         <img src="icons/laptop.svg" alt="Laptop icon">
         <h4>Laptop & PC Repairs</h4>
-        <p>Hardware diagnostics, OS optimization, virus removal, and more.</p>
+        <p>Performance optimization, virus removal, upgrades, and full repair solutions.</p>
         <a href="services/laptop/">Learn More →</a>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="about fade-in">
-    <h3>About KL Digital</h3>
-    <p><strong>Founded by Kwena Mokoti.</strong> KL Digital solves real tech problems — building websites, analytics systems, and repair services that empower people and businesses.</p>
-  </section>
-
-  <!-- Portfolio Section -->
+  <!-- Portfolio -->
   <section id="portfolio" class="portfolio fade-in">
-    <h3>Portfolio</h3>
+    <h3>Recent Projects</h3>
     <div class="portfolio-filters">
       <button data-filter="all" class="active">All</button>
       <button data-filter="web">Web</button>
       <button data-filter="analytics">Analytics</button>
       <button data-filter="repairs">Repairs</button>
     </div>
-    <ul id="portfolio-list" class="portfolio-list"></ul>
+    <ul id="portfolio-list" class="portfolio-list">
+      <li data-type="web"><img src="samples/web1.jpg" alt="Web Project"></li>
+      <li data-type="analytics"><img src="samples/data1.jpg" alt="Analytics Project"></li>
+      <li data-type="repairs"><img src="samples/repair1.jpg" alt="Laptop Repairs"></li>
+    </ul>
   </section>
 
-  <!-- Testimonials Section -->
+  <!-- About -->
+  <section class="about fade-in">
+    <h3>About KL Digital</h3>
+    <p>Founded by <strong>Kwena Mokoti</strong> — KL Digital blends creativity and engineering to create high-performance digital systems. We bring tech to life with purpose and precision.</p>
+  </section>
+
+  <!-- Testimonials -->
   <section id="testimonials" class="fade-in">
     <h3>What Clients Say</h3>
     <div class="testimonial-slider">
-      <div class="testimonial active">
-        <p>“KL Digital built my portfolio in 3 days — clean and professional.”</p>
-        <span>— Thabo M., Artist</span>
-      </div>
-      <div class="testimonial">
-        <p>“My business started getting real leads after the SEO upgrade.”</p>
-        <span>— Kagiso P., Entrepreneur</span>
-      </div>
-      <div class="testimonial">
-        <p>“They treat your brand like their own.”</p>
-        <span>— Lerato S., Designer</span>
-      </div>
+      <div class="testimonial active"><p>“KL Digital built my portfolio in 3 days — flawless.”</p><span>— Thabo M.</span></div>
+      <div class="testimonial"><p>“I doubled my online leads after their SEO overhaul.”</p><span>— Kagiso P.</span></div>
+      <div class="testimonial"><p>“They treat your project like their own vision.”</p><span>— Lerato S.</span></div>
     </div>
   </section>
 
-  <!-- FAQ Section -->
-  <section id="faq" class="fade-in">
-    <h3>FAQ</h3>
-    <div class="accordion">
-      <button class="acc-btn">How long does a site take?<span class="plus">+</span></button>
-      <div class="acc-panel">Usually 3–7 days for simple sites, 1–3 weeks for custom projects.</div>
-      <button class="acc-btn">Do you offer hosting?</button>
-      <div class="acc-panel">Yes — I can host on GitHub Pages or connect your domain; premium plans include management.</div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
+  <!-- Contact -->
   <section id="contact" class="contact fade-in">
     <h3>Contact Us</h3>
-    <form class="contact-form" action="https://formspree.io/f/mnnokbbd" method="POST" id="contactForm">
+    <form id="contactForm" class="contact-form" action="https://formspree.io/f/mnnokbbd" method="POST">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn">Send Message</button>
+      <button type="submit" class="btn primary">Send Message</button>
       <p id="form-status"></p>
     </form>
     <p>Or email directly: <a href="mailto:kldigital.active@gmail.com">kldigital.active@gmail.com</a></p>
-    <a href="https://wa.me/27658772518" target="_blank" class="btn secondary">Chat on WhatsApp</a>
-  </section>
-
-  <!-- Pricing Section -->
-  <section id="pricing" class="pricing fade-in">
-    <h3>Pricing</h3>
-    <div class="pricing-cards">
-      <div class="card"><h4>Basic</h4><p>Landing page, 1 revision, setup on GitHub Pages</p><div class="price">R499</div><a class="btn" href="#contact">Book</a></div>
-      <div class="card highlight"><h4>Pro</h4><p>Up to 5 pages, analytics, SEO kickoff</p><div class="price">R999</div><a class="btn" href="#contact">Book</a></div>
-      <div class="card"><h4>Premium</h4><p>Custom, priority support, strategy consultation</p><div class="price">R1499</div><a class="btn" href="#contact">Book</a></div>
-    </div>
+    <a href="https://wa.me/27658772518" target="_blank" class="btn secondary">💬 Chat on WhatsApp</a>
   </section>
 
   <!-- Footer -->
   <footer>
-    <div>Quick Links: <a href="#services">Services</a> | <a href="#portfolio">Portfolio</a> | <a href="#contact">Contact</a></div>
-    <div>&copy; 2025 KL Digital • Built by Kwena Mokoti</div>
+    <p>© 2025 KL Digital — Built by <strong>Kwena Mokoti</strong></p>
+    <div class="socials">
+      <a href="https://wa.me/27658772518" target="_blank">WhatsApp</a>
+      <a href="#contact">Email</a>
+      <a href="#portfolio">Projects</a>
+    </div>
   </footer>
 
   <!-- Floating WhatsApp -->
   <a id="whatsapp-btn" href="https://wa.me/27658772518" target="_blank">📱</a>
 
   <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <script src="assets/js/particles.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
