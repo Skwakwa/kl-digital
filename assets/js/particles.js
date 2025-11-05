@@ -11,6 +11,63 @@ var pJS = function(tag_id, params){
 
   var canvas_el = document.querySelector('#'+tag_id+' > .particles-js-canvas-el');
 
+  /* ===========================
+   KL Digital Particles Engine
+   =========================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof particlesJS === "undefined") return;
+
+  particlesJS("particles-js", {
+    particles: {
+      number: {
+        value: window.innerWidth < 768 ? 40 : 100,
+        density: { enable: true, value_area: 800 }
+      },
+      color: { value: ["#ffd700", "#f5c542", "#fff8dc"] },
+      shape: { type: "circle" },
+      opacity: {
+        value: 0.6,
+        random: true,
+        anim: { enable: true, speed: 0.5, opacity_min: 0.2 }
+      },
+      size: {
+        value: 3,
+        random: true,
+        anim: { enable: true, speed: 2, size_min: 0.5 }
+      },
+      line_linked: {
+        enable: true,
+        distance: 120,
+        color: "#ffd700",
+        opacity: 0.25,
+        width: 1
+      },
+      move: {
+        enable: true,
+        speed: 2.5,
+        random: true,
+        direction: "none",
+        out_mode: "out"
+      }
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: { enable: true, mode: "grab" },
+        onclick: { enable: true, mode: "push" },
+        resize: true
+      },
+      modes: {
+        grab: { distance: 150, line_linked: { opacity: 0.4 } },
+        push: { particles_nb: 3 }
+      }
+    },
+    retina_detect: true
+  });
+});
+
+
   /* particles.js variables with default values */
   this.pJS = {
     canvas: {
