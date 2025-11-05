@@ -229,44 +229,80 @@ a:hover {
   color: #fff;
 }
 
-/* ===========================
-   SERVICES
-   =========================== */
-
+/* ===== Services Section ===== */
 .services {
-  background: rgba(255,255,255,0.02);
+  padding: 80px 10%;
+  background: var(--bg);
+  text-align: center;
+  color: var(--text);
+}
+
+.services h3 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: var(--accent);
+  letter-spacing: 1px;
+  text-shadow: 0 0 12px rgba(255,215,0,0.3);
 }
 
 .service-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-  margin-top: 40px;
+  gap: 30px;
+  justify-content: center;
 }
 
-.service-card {
-  background: rgba(0,0,0,0.3);
-  border: 1px solid rgba(255,215,0,0.2);
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
+.service {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  padding: 30px 20px;
+  border-radius: 16px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
-.service-card:hover {
-  transform: translateY(-5px);
-  background: rgba(0,0,0,0.6);
+.service:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-.service-card img {
-  width: 50px;
+.service img {
+  width: 70px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+.service:hover img {
+  transform: rotate(10deg) scale(1.1);
+}
+
+.service h4 {
+  margin: 10px 0;
+  color: gold;
+  font-size: 1.3rem;
+}
+
+.service p {
+  font-size: 0.95rem;
+  opacity: 0.9;
   margin-bottom: 15px;
 }
 
-.service-card h4 {
-  color: var(--primary);
-  margin-bottom: 10px;
+.service a {
+  display: inline-block;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
 }
+
+.service a:hover {
+  color: gold;
+  text-shadow: 0 0 8px gold;
+}
+
 /* ===== Modal Styles ===== */
 .modal {
   display: none;
