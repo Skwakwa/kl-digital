@@ -282,14 +282,21 @@ a:hover {
   transform: translateY(-10px) scale(1.03);
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
-
 .service img {
-  width: 70px;
-  margin-bottom: 15px;
-  transition: transform 0.3s ease;
+  width: 48px;           /* smaller, clean size */
+  height: 48px;
+  max-width: 48px;
+  max-height: 48px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 12px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 4px rgba(255,215,0,0.2));
 }
+
 .service:hover img {
-  transform: rotate(10deg) scale(1.1);
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(255,215,0,0.4));
 }
 
 .service h4 {
