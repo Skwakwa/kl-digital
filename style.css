@@ -18,17 +18,85 @@ a:hover { color: #fff; }
 .container { max-width: 1200px; margin: auto; padding: 20px; }
 
 /* Navbar */
+/* Navbar Base */
 .nav {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 15px 25px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
-.nav-logo { width: 50px; height: auto; }
-.nav h1 small { font-weight: 400; font-size: 0.5em; display:block; color:#ffd700; }
-.cta .btn { margin-left: 10px; padding: 10px 20px; border-radius:5px; background: #ffd700; color: #0d1b3a; transition: all 0.3s ease; }
-.cta .btn.secondary { background: transparent; border: 2px solid #ffd700; color: #ffd700; }
-.cta .btn:hover { transform: scale(1.05); }
+
+/* Logo */
+.nav .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: gold;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav .logo img {
+  width: 35px;
+  height: 35px;
+}
+
+/* Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+  text-shadow: 0 0 10px gold, 0 0 20px white;
+  transform: scale(1.05);
+}
+
+/* Mobile Menu Icon */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+
+/* RESPONSIVE MENU */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    width: 200px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+    gap: 15px;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
 
 /* Hero */
 .hero {
