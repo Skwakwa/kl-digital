@@ -17,10 +17,10 @@ body {
 
 /* === NAVIGATION === */
 .nav {
-  position: hidden;              /* stays visible as you scroll */
-  top: 0;
+  position: absolute;              /* stays visible as you scroll */
+  top: 70%;
   left: 0;
-  width: 100%;
+  width: 50%;
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(10px);
   display: flex;
