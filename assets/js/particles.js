@@ -7,6 +7,30 @@
 /* v2.0.0
 /* ----------------------------------------------- */
 
+/* assets/js/particles.js */
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 60, density: { enable: true, value_area: 800 } },
+    color: { value: "#ffffff" },
+    shape: { type: "circle" },
+    opacity: { value: 0.4, random: true },
+    size: { value: 3, random: true },
+    move: { enable: true, speed: 1.5, out_mode: "out" },
+    line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.2, width: 1 }
+  },
+  interactivity: {
+    detect_on: "canvas",
+    events: { onhover: { enable: true, mode: "repulse" }, resize: true },
+    modes: { repulse: { distance: 100, duration: 0.4 } }
+  },
+  retina_detect: true
+}, function() {
+  // Once particles are fully initialized, dispatch event
+  const event = new Event('particlesReady');
+  document.dispatchEvent(event);
+});
+
+
 var pJS = function(tag_id, params){
 
   var canvas_el = document.querySelector('#'+tag_id+' > .particles-js-canvas-el');
