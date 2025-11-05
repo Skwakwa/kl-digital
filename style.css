@@ -232,6 +232,26 @@ a:hover {
 /* ===== Services Section ===== */
 
 .service {
+  position: relative;
+  overflow: hidden;
+}
+
+.service .particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;  /* allows clicking through particles */
+}
+
+.service .icon,
+.service h4,
+.service p,
+.service a {
+  position: relative;
+  z-index: 1;  /* above particles */
+}
+
+.service {
   transition: all 0.4s ease;
   cursor: pointer;
 }
