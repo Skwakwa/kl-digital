@@ -17,7 +17,7 @@ body {
 
 /* === NAVIGATION === */
 .nav {
-  position: fixed;              /* stays visible as you scroll */
+  position: hidden;              /* stays visible as you scroll */
   top: 0;
   left: 0;
   width: 100%;
