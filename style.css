@@ -230,6 +230,20 @@ a:hover {
 }
 
 /* ===== Services Section ===== */
+
+.service {
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+.service.active {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #00b4d8, #0077b6);
+  color: #fff;
+}
+.service.active h4, .service.active p {
+  color: #fff;
+}
+
 .services {
   padding: 80px 10%;
   background: var(--bg);
