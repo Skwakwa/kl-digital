@@ -243,9 +243,6 @@ a:hover {
 .service.active h4, .service.active p {
   color: #fff;
 }
-
-
-
 .services {
   padding: 80px 10%;
   background: var(--bg);
@@ -286,12 +283,16 @@ a:hover {
 }
 
 .service img {
-  width: 70px;
-  margin-bottom: 15px;
+  width: 64px;           /* perfect medium size */
+  height: 64px;
+  object-fit: contain;   /* keeps aspect ratio */
+  display: block;
+  margin: 0 auto 10px;   /* centers and adds space below */
   transition: transform 0.3s ease;
 }
+
 .service:hover img {
-  transform: rotate(10deg) scale(1.1);
+  transform: scale(1.1);
 }
 
 .service h4 {
