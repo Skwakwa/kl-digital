@@ -42,27 +42,6 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.logo-container img {
-  width: 28px;   /* smaller logo */
-  height: 28px;
-  object-fit: contain;
-}
-
-.brand-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: gold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
-}
-
 .nav-links {
   display: flex;
   margin-left: auto;   /* pushes menu items to the right side */
@@ -264,14 +243,6 @@ footer {
 .contact-form textarea {
   height: 100px;
   resize: none;
-}
-
-.logo-container {
-  text-align: center;
-  margin-top: 100px;
-  opacity: 0;
-  transform: translateY(50px);
-  animation: reveal 1.2s ease-out forwards;
 }
 
 @keyframes reveal {
