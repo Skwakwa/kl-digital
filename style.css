@@ -1,226 +1,420 @@
-// assets/js/main.js
-(() => {
-  // Helpers
-  const $ = s => document.querySelector(s);
-  const $$ = s => Array.from(document.querySelectorAll(s));
+/* ===========================
+   KL DIGITAL — Modern Tech Style
+   =========================== */
 
-  /* -------------------------
-     THEME TOGGLE
-     - stores choice in localStorage
-  -------------------------*/
-  const themeToggle = document.getElementById('theme-toggle');
-  const applyTheme = (t) => {
-    if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
-    else document.documentElement.removeAttribute('data-theme');
-    if (themeToggle) themeToggle.textContent = (t === 'light') ? '☀️' : '🌙';
-  };
-  const stored = localStorage.getItem('kld-theme');
-  applyTheme(stored || 'dark');
-  if (themeToggle) themeToggle.addEventListener('click', () => {
-    const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-    applyTheme(next === 'light' ? 'light' : 'dark');
-    localStorage.setItem('kld-theme', next === 'light' ? 'light' : 'dark');
-  });
+/* Fonts & Base Setup */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-  /* -------------------------
-     PRELOADER + PARTICLES SYNC
-     - waits for custom 'particlesReady' OR canvas fallback
-  -------------------------*/
-  const preloader = $('#preloader');
-  const hidePreloader = () => {
-    if (!preloader) return;
-    preloader.classList.add('hidden');
-    setTimeout(()=> {
-      if (preloader && preloader.parentNode) preloader.parentNode.removeChild(preloader);
-    }, 600);
-  };
+:root {
+  --bg: #0a0a0a;
+  --bg-light: #ffffff;
+  --text: #f5f5f5;
+  --text-dark: #0a0a0a;
+  --primary: #ffd700;
+  --accent: #00d4ff;
+  --shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+  --transition: 0.3s ease;
+}
 
-  // Listen for custom event 'particlesReady' (if your particles.js dispatches it)
-  let particlesFired = false;
-  document.addEventListener('particlesReady', () => {
-    particlesFired = true;
-    setTimeout(hidePreloader, 220); // short delay for smooth visuals
-    document.body.classList.add('page-loaded');
-    revealFaders();
-  });
+[data-theme="light"] {
+  --bg: #f8f8f8;
+  --text: #1a1a1a;
+  --accent: #005d9f;
+  --primary: #000;
+}
 
-  // fallback: detect canvas in #particles-js and proceed
-  const fallbackStart = () => {
-    const el = document.querySelector('#particles-js canvas');
-    if (el && !particlesFired) {
-      particlesFired = true;
-      setTimeout(hidePreloader, 300);
-      document.body.classList.add('page-loaded');
-      revealFaders();
-    }
-  };
+/* Global Layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  // Fallback timeout (in case particles never initialize)
-  const fallbackTimeout = setTimeout(() => {
-    if (!particlesFired) {
-      particlesFired = true;
-      hidePreloader();
-      document.body.classList.add('page-loaded');
-      revealFaders();
-    }
-  }, 4000);
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
-  // Try a couple times to find canvas quickly
-  const tryCanvas = setInterval(() => {
-    fallbackStart();
-    if (particlesFired) clearInterval(tryCanvas);
-  }, 300);
+section {
+  padding: 100px 10%;
+  text-align: center;
+}
 
-  /* -------------------------
-     MENU / SIDEBAR / NAV
-  -------------------------*/
-  const mobileToggle = $('.menu-toggle');
-  const navLinks = $$('.nav-links a');
-  if (mobileToggle) {
-    mobileToggle.addEventListener('click', () => {
-      const nav = document.querySelector('.nav-links');
-      nav && nav.classList.toggle('show');
-      mobileToggle.classList.toggle('active');
-    });
+h1, h2, h3, h4 {
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* ===========================
+   NAVIGATION BAR
+   =========================== */
+
+.nav {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--primary);
+}
+
+.logo img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: 2px;
+  width: 0%;
+  background: var(--accent);
+  transition: var(--transition);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.theme-toggle {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  color: var(--primary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.theme-toggle:hover {
+  transform: rotate(20deg);
+}
+
+/* ===========================
+   HERO SECTION
+   =========================== */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  top: 0;
+  left: 0;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  color: var(--primary);
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  margin-bottom: 15px;
+}
+
+.hero h2 {
+  font-size: 1.6rem;
+  color: var(--accent);
+  margin-bottom: 20px;
+  transition: var(--transition);
+}
+
+.hero .lead {
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+  opacity: 0.8;
+}
+
+.hero-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn {
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid var(--primary);
+  transition: var(--transition);
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: var(--text-dark);
+}
+
+.btn.primary:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--primary);
+}
+
+.btn.ghost:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ===========================
+   SERVICES
+   =========================== */
+
+.services {
+  background: rgba(255,255,255,0.02);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.service-card {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,215,0,0.2);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  background: rgba(0,0,0,0.6);
+}
+
+.service-card img {
+  width: 50px;
+  margin-bottom: 15px;
+}
+
+.service-card h4 {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+/* ===========================
+   PORTFOLIO
+   =========================== */
+
+.portfolio-filters {
+  margin: 30px 0;
+}
+
+.portfolio-filters button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.1);
+  color: var(--text);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.portfolio-filters button.active,
+.portfolio-filters button:hover {
+  background: var(--primary);
+  color: var(--text-dark);
+}
+
+.portfolio-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.portfolio-list img {
+  width: 100%;
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.portfolio-list img:hover {
+  transform: scale(1.05);
+}
+
+/* ===========================
+   CONTACT
+   =========================== */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 15px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+  outline: none;
+  transition: var(--transition);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent);
+  background: rgba(255,255,255,0.1);
+}
+
+.contact-form button {
+  margin-top: 10px;
+}
+
+/* ===========================
+   FOOTER
+   =========================== */
+
+footer {
+  background: rgba(0, 0, 0, 0.85);
+  padding: 30px;
+  text-align: center;
+  border-top: 1px solid rgba(255,215,0,0.2);
+}
+
+footer .socials {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* ===========================
+   EXTRAS
+   =========================== */
+
+#whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 28px;
+  background: var(--accent);
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  transition: var(--transition);
+  z-index: 1000;
+}
+
+#whatsapp-btn:hover {
+  transform: scale(1.1);
+  background: var(--primary);
+  color: var(--text-dark);
+}
+
+/* ===========================
+   ANIMATIONS
+   =========================== */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.glow {
+  animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px var(--primary); }
+  to { text-shadow: 0 0 20px var(--accent); }
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+   =========================== */
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
   }
 
-  // Sidebar service submenu wiring
-  document.querySelectorAll('.sidebar .has-sub > a').forEach(a => {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      a.parentElement.classList.toggle('open');
-    });
-  });
-
-  // Ensure top links scroll smoothly
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      const target = a.getAttribute('href');
-      if (!target || target === '#') return;
-      // If it's link to a local section
-      if (target.startsWith('#') && document.querySelector(target)) {
-        e.preventDefault();
-        document.querySelector(target).scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // close mobile nav if open
-        const nav = document.querySelector('.nav-links.show');
-        nav && nav.classList.remove('show');
-      } else {
-        // external or folder link: allow default navigation
-      }
-    });
-  });
-
-  /* -------------------------
-     REVEAL ANIMATIONS ON SCROLL
-  -------------------------*/
-  const faders = Array.from(document.querySelectorAll('.fade-in'));
-  function revealFaders(){
-    if ('IntersectionObserver' in window) {
-      const io = new IntersectionObserver((entries, obs) => {
-        entries.forEach(en => {
-          if (en.isIntersecting) {
-            en.target.classList.add('visible');
-            obs.unobserve(en.target);
-          }
-        });
-      }, { threshold: 0.18 });
-      faders.forEach(f => io.observe(f));
-    } else {
-      // no IO fallback
-      faders.forEach(f => f.classList.add('visible'));
-    }
-  }
-  // Call reveal if particles already fired (maybe page loaded instantly)
-  if (document.body.classList.contains('page-loaded')) revealFaders();
-
-  /* -------------------------
-     Service modal open (uses service card anchor)
-  -------------------------*/
-  function openServiceModal(name, desc){
-    const modal = $('#serviceModal');
-    if (!modal) return;
-    const t = modal.querySelector('#modalTitle');
-    const d = modal.querySelector('#modalDesc');
-    t && (t.textContent = name);
-    d && (d.textContent = desc);
-    modal.classList.add('show');
-    modal.setAttribute('aria-hidden','false');
-  }
-  const serviceLinks = $$('.service a');
-  serviceLinks.forEach(a => {
-    a.addEventListener('click', e => {
-      // If link points to service folder (e.g. services/website/) allow navigation
-      const href = a.getAttribute('href')||'';
-      if (href && (href.startsWith('services/'))) {
-        return; // let it navigate
-      }
-      // otherwise show modal with info (progressive enhancement)
-      e.preventDefault();
-      const card = a.closest('.service');
-      const name = card ? (card.querySelector('h4') && card.querySelector('h4').textContent) : 'Service';
-      const desc = card ? (card.querySelector('p') && card.querySelector('p').textContent) : '';
-      openServiceModal(name, desc);
-    });
-  });
-
-  // modal close
-  document.addEventListener('click', (e) => {
-    if (e.target.matches('.modal-close') || e.target.matches('.modal.show')) {
-      const m = document.querySelector('.modal.show');
-      if (m) {
-        m.classList.remove('show');
-        m.setAttribute('aria-hidden','true');
-      }
-    }
-  });
-
-  /* -------------------------
-     Pricing buttons / CTA wiring
-  -------------------------*/
-  $$('#bookBasic, #bookPro, #bookPremium').forEach(btn => {
-    if (!btn) return;
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      // prefill message to WhatsApp or open contact
-      const name = encodeURIComponent(btn.closest('.card')?.querySelector('h4')?.textContent || 'Service Booking');
-      const url = `https://wa.me/27658772518?text=I%20want%20to%20book:%20${name}`;
-      window.open(url, '_blank');
-    });
-  });
-
-  /* -------------------------
-     Contact form: open whatsapp & post to Formspree (defensive)
-  -------------------------*/
-  const contactForm = document.querySelector('.contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', async (ev) => {
-      ev.preventDefault();
-      const fd = new FormData(contactForm);
-      const name = fd.get('name') || 'Client';
-      const email = fd.get('email') || '';
-      const message = fd.get('message') || 'Hello';
-      // open whatsapp quickly
-      const wp = `https://wa.me/27658772518?text=${encodeURIComponent(`Hi, I'm ${name}. ${message} (Email: ${email})`)}`;
-      window.open(wp, '_blank');
-
-      // send to Formspree (non-blocking)
-      try {
-        await fetch(contactForm.action, { method:'POST', body: fd, headers:{ 'Accept':'application/json' }});
-      } catch(e){ /* ignore network errors; whatsapp opened already */ }
-      contactForm.reset();
-    });
+  .hero h1 {
+    font-size: 2.5rem;
   }
 
-  /* -------------------------
-     small accessibility helper: keyboard focus visible
-  -------------------------*/
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab') document.documentElement.classList.add('user-tab');
-  });
-
-  /* -------------------------
-     Expose for debug
-  -------------------------*/
-  window.KL = { openServiceModal, hidePreloader };
-
-})();
+  section {
+    padding: 70px 6%;
+  }
+}
