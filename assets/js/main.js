@@ -1,163 +1,136 @@
-// ====== PRELOADER ======
-window.addEventListener('load', () => {
-  const preloader = document.getElementById('preloader');
-  preloader.style.transition = 'opacity 0.6s ease';
-  preloader.style.opacity = 0;
-  setTimeout(() => preloader.style.display = 'none', 600);
-});
+/* ===========================
+   KL Digital Main JS
+   =========================== */
 
-// ====== HERO TYPED TAGLINE ======
-const taglines = ["Fast Delivery", "Sleek Design", "Pro Support"];
-const taglineEl = document.getElementById('animated-tagline');
-let tIndex = 0, charIndex = 0, deleting = false;
+// Wait for the page to fully load
+document.addEventListener("DOMContentLoaded", () => {
+  /* === 1. Theme Toggle === */
+  const toggleBtn = document.getElementById("theme-toggle");
+  const body = document.body;
+  const currentTheme = localStorage.getItem("theme");
 
-function typeTagline() {
-  const current = taglines[tIndex];
-  taglineEl.textContent = deleting
-    ? current.substring(0, charIndex--)
-    : current.substring(0, charIndex++);
-
-  if (!deleting && charIndex === current.length + 1) {
-    deleting = true;
-    setTimeout(typeTagline, 1500);
-  } else if (deleting && charIndex === -1) {
-    deleting = false;
-    tIndex = (tIndex + 1) % taglines.length;
-    setTimeout(typeTagline, 300);
+  // Load saved theme
+  if (currentTheme === "light") {
+    body.setAttribute("data-theme", "light");
+    toggleBtn.textContent = "🌙";
   } else {
-    setTimeout(typeTagline, deleting ? 50 : 100);
+    body.removeAttribute("data-theme");
+    toggleBtn.textContent = "☀️";
   }
-}
-typeTagline();
 
-// ====== HERO BUTTON RIPPLE ======
-document.querySelectorAll('.hero .btn, .hero .btn.secondary').forEach(btn => {
-  btn.addEventListener('click', e => {
-    const circle = document.createElement('span');
-    circle.classList.add('ripple');
-    const rect = btn.getBoundingClientRect();
-    circle.style.left = `${e.clientX - rect.left}px`;
-    circle.style.top = `${e.clientY - rect.top}px`;
-    btn.appendChild(circle);
-    setTimeout(() => circle.remove(), 600);
+  toggleBtn.addEventListener("click", () => {
+    if (body.getAttribute("data-theme") === "light") {
+      body.removeAttribute("data-theme");
+      localStorage.setItem("theme", "dark");
+      toggleBtn.textContent = "☀️";
+    } else {
+      body.setAttribute("data-theme", "light");
+      localStorage.setItem("theme", "light");
+      toggleBtn.textContent = "🌙";
+    }
   });
-});
 
-// ====== SERVICE MODALS ======
-const services = [
-  {
-    title: "Website Creation",
-    pricing: [
-      { tier: "Basic", price: "R2000", features: ["1 page website", "Basic SEO", "Email support"] },
-      { tier: "Pro", price: "R4000", features: ["Up to 5 pages", "SEO optimized", "1 month support"] },
-      { tier: "Premium", price: "R7000", features: ["10+ pages", "Advanced SEO", "3 months support"] }
-    ]
-  },
-  {
-    title: "Analytics Engineering",
-    pricing: [
-      { tier: "Basic", price: "R1500", features: ["Dashboard setup", "Google Analytics integration"] },
-      { tier: "Pro", price: "R3500", features: ["Custom dashboards", "Reports automation"] },
-      { tier: "Premium", price: "R6000", features: ["Full analytics stack", "Ongoing monitoring"] }
-    ]
-  },
-  {
-    title: "Laptop & PC Repairs",
-    pricing: [
-      { tier: "Basic", price: "R300", features: ["Virus removal", "OS optimization"] },
-      { tier: "Pro", price: "R700", features: ["Hardware diagnostics", "Upgrade RAM/SSD"] },
-      { tier: "Premium", price: "R1500", features: ["Full repair & cleaning", "Warranty included"] }
-    ]
+  /* === 2. Animated Tagline === */
+  const tagline = document.getElementById("animated-tagline");
+  const phrases = [
+    "Innovating your digital world...",
+    "Design. Develop. Dominate.",
+    "Smart tech for bold creators.",
+    "Turning ideas into reality."
+  ];
+
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+
+  function typeEffect() {
+    const currentPhrase = phrases[phraseIndex];
+    tagline.textContent = currentPhrase.substring(0, charIndex);
+
+    if (!deleting && charIndex < currentPhrase.length) {
+      charIndex++;
+      setTimeout(typeEffect, 70);
+    } else if (deleting && charIndex > 0) {
+      charIndex--;
+      setTimeout(typeEffect, 35);
+    } else {
+      deleting = !deleting;
+      if (!deleting) phraseIndex = (phraseIndex + 1) % phrases.length;
+      setTimeout(typeEffect, 1000);
+    }
   }
-];
+  typeEffect();
 
-const modal = document.createElement('div');
-modal.classList.add('service-modal');
-modal.innerHTML = `
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2 id="modal-title"></h2>
-    <div class="pricing-cards" id="pricing-cards"></div>
-  </div>
-`;
-document.body.appendChild(modal);
+  /* === 3. Scroll Fade Animation === */
+  const fadeEls = document.querySelectorAll(".fade-in");
 
-document.querySelectorAll('.service').forEach((s, idx) => {
-  s.addEventListener('click', () => {
-    const modalTitle = modal.querySelector('#modal-title');
-    const pricingContainer = modal.querySelector('#pricing-cards');
-    modalTitle.textContent = services[idx].title;
-    pricingContainer.innerHTML = '';
-    services[idx].pricing.forEach(p => {
-      const card = document.createElement('div');
-      card.classList.add('pricing-card');
-      card.innerHTML = `
-        <h4>${p.tier}</h4>
-        <p><strong>${p.price}</strong></p>
-        <ul>${p.features.map(f => `<li>${f}</li>`).join('')}</ul>
-        <a href="#contact" class="btn">Select</a>
-      `;
-      pricingContainer.appendChild(card);
+  function revealOnScroll() {
+    fadeEls.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) el.classList.add("visible");
     });
-    modal.style.display = 'flex';
+  }
+
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll();
+
+  /* === 4. Mobile Menu Toggle === */
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("active");
+    navLinks.classList.toggle("active");
   });
+
+  /* === 5. WhatsApp Floating Button === */
+  const whatsapp = document.createElement("a");
+  whatsapp.id = "whatsapp-btn";
+  whatsapp.href = "https://wa.me/27710000000"; // replace with your number
+  whatsapp.target = "_blank";
+  whatsapp.innerHTML = "💬";
+  document.body.appendChild(whatsapp);
 });
 
-modal.querySelector('.close').addEventListener('click', () => modal.style.display = 'none');
-window.addEventListener('click', e => { if(e.target === modal) modal.style.display = 'none'; });
+/* ===========================
+   6. Particles Background Config
+   =========================== */
 
-// ====== PORTFOLIO FILTER ======
-document.querySelectorAll('.portfolio-filters button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.portfolio-filters button').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const filter = btn.dataset.filter;
-    document.querySelectorAll('#portfolio-list li').forEach(item => {
-      item.style.display = filter === 'all' || item.dataset.type === filter ? 'block' : 'none';
+window.onload = () => {
+  if (window.particlesJS) {
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80 },
+        color: { value: "#ffd700" },
+        shape: { type: "circle" },
+        opacity: { value: 0.6 },
+        size: { value: 3 },
+        line_linked: {
+          enable: true,
+          distance: 120,
+          color: "#ffd700",
+          opacity: 0.3,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: "none",
+          out_mode: "bounce"
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "grab" },
+          onclick: { enable: true, mode: "push" }
+        },
+        modes: {
+          grab: { distance: 150, line_linked: { opacity: 0.5 } },
+          push: { particles_nb: 3 }
+        }
+      },
+      retina_detect: true
     });
-  });
-});
-
-// ====== TESTIMONIAL SLIDER ======
-const slides = document.querySelectorAll('.testimonial');
-let currentSlide = 0;
-setInterval(() => {
-  slides[currentSlide].classList.remove('active');
-  currentSlide = (currentSlide + 1) % slides.length;
-  slides[currentSlide].classList.add('active');
-}, 4000);
-
-// ====== FAQ ACCORDION ======
-document.querySelectorAll('.faq-item h5').forEach(h => {
-  h.addEventListener('click', () => h.parentElement.classList.toggle('active'));
-});
-
-// ====== MOBILE MENU TOGGLE ======
-document.querySelector('.menu-toggle').addEventListener('click', () => {
-  document.querySelector('.nav-links').classList.toggle('active');
-});
-
-// ====== SMOOTH SCROLL ======
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', e => {
-    e.preventDefault();
-    document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-  });
-});
-
-// Theme toggle
-const toggle = document.getElementById("theme-toggle");
-const body = document.body;
-
-// Load saved theme
-if (localStorage.getItem("theme") === "dark") {
-  body.classList.add("dark-mode");
-  toggle.textContent = "☀️";
-}
-
-toggle.addEventListener("click", () => {
-  body.classList.toggle("dark-mode");
-  const isDark = body.classList.contains("dark-mode");
-  toggle.textContent = isDark ? "☀️" : "🌙";
-  localStorage.setItem("theme", isDark ? "dark" : "light");
-});
+  }
+};
