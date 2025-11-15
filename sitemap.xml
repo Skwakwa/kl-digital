@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.kldigital.co.za/</loc>
+    <lastmod>2025-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+```
+
+4. Save it as `sitemap.xml`
+5. Upload it to your website root folder (same place as index.html)
+6. Your sitemap URL is now: `https://www.kldigital.co.za/sitemap.xml`
+
+**Option B: Auto-generate (if your hosting has tools)**
+
+Some hosting platforms auto-generate sitemaps. Check if yours does.
+
+#### **SUBMIT THE SITEMAP:**
+
+Back in Search Console:
+1. Click "Sitemaps" in left menu
+2. Under "Add a new sitemap", type: `sitemap.xml`
+3. Click **"Submit"**
+
+You'll see:
+```
+Status: Success
+Discovered URLs: 1
+```
+
+### **STEP 6: EXPLORE YOUR DATA**
+
+**Left menu options:**
+
+**1. Overview**
+- See total clicks, impressions, average position
+- **Takes 2-3 days to show data**
+
+**2. Performance**
+- **MOST IMPORTANT**
+- See what keywords people use to find you
+- Which pages get clicks
+- Your average position on Google
+
+Example data you'll see:
+```
+Query: "web design polokwane" - 50 impressions, 5 clicks, Position 8.3
+Query: "polokwane web designer" - 30 impressions, 2 clicks, Position 12.1
+```
+
+**3. URL Inspection**
+- Check if specific pages are indexed
+- See how Google sees your page
+
+**4. Coverage**
+- Shows which pages Google found
+- Shows errors (if any)
+
+**5. Sitemaps**
+- Status of your submitted sitemap
+
+## 📊 HOW TO USE SEARCH CONSOLE (Weekly):
+
+### **MONDAY MORNING ROUTINE:**
+
+1. Open Search Console
+2. Click "Performance"
+3. Look at:
+   - **Total clicks** (how many people clicked your site)
+   - **Total impressions** (how many times you showed up)
+   - **Average position** (where you rank)
+   - **Top queries** (what people searched)
+
+4. **Use this data to improve:**
+   - If "web design polokwane" shows up a lot but you're position 15 → improve your SEO for that keyword
+   - If people search "cheap website polokwane" → add that phrase to your site
+
+### **WHAT GOOD DATA LOOKS LIKE:**
+
+**Week 1 (after setup):**
+```
+Clicks: 0-5
+Impressions: 50-200
+Avg Position: 20-50
+```
+
+**Month 1:**
+```
+Clicks: 10-50
+Impressions: 500-2,000
+Avg Position: 10-20
+```
+
+**Month 3:**
+```
+Clicks: 50-200
+Impressions: 2,000-10,000
+Avg Position: 5-15
+```
+
+**Month 6:**
+```
+Clicks: 100-500
+Impressions: 5,000-20,000
+Avg Position: 1-10
