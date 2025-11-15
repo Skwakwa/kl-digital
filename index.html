@@ -240,37 +240,6 @@ nav a:hover::after {
   left: -20px;
 }
 
-.nav-foundation {
-  background: linear-gradient(135deg, var(--accent), var(--gold));
-  padding: 0.7rem 1.8rem;
-  border-radius: 50px;
-  color: white !important;
-  box-shadow: 0 4px 20px rgba(255, 107, 53, 0.5), 0 0 40px rgba(255, 215, 0, 0.3);
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.nav-foundation::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transition: left 0.5s ease;
-}
-
-.nav-foundation:hover::before {
-  left: 100%;
-}
-
-.nav-foundation:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 8px 30px rgba(255, 107, 53, 0.7), 0 0 60px rgba(255, 215, 0, 0.5);
-}
-
 /* ===== EXPLOSIVE HERO SECTION ===== */
 .hero {
   position: relative;
@@ -1278,6 +1247,23 @@ footer p {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+  /* Turn off heavy effects on mobile */
+  .particles,
+  .cursor-trail,
+  .bg-gradient::before {
+    display: none !important;
+  }
+  
+  .project-card::after,
+  .project-card::before,
+  .pricing-card::before {
+    display: none !important;
+  }
+
+  * {
+    animation: none !important;
+  }
+
   .mobile-menu-btn {
     display: flex;
   }
@@ -1292,9 +1278,11 @@ footer p {
     flex-direction: column;
     padding: 3rem 2rem;
     gap: 2rem;
-    transition: left 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: left 0.5s ease;
     border-top: 2px solid rgba(0, 212, 255, 0.3);
     box-shadow: 0 10px 50px rgba(0, 212, 255, 0.3);
+    overflow-y: auto;
+    max-height: calc(100vh - 90px);
   }
 
   nav.active {
@@ -1302,38 +1290,53 @@ footer p {
   }
 
   .hero h1 {
-    font-size: 3rem;
+    font-size: 2.2rem;
   }
 
   .hero-tagline {
-    font-size: 1.2rem;
-    letter-spacing: 6px;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
   }
 
   h2 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
 
   .project-container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .project-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .project-card p {
+    font-size: 0.95rem;
   }
 
   .logo-section svg {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
   }
 
   header h1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
   }
 
   .modal-content {
-    padding: 2.5rem 1.5rem;
-    max-height: 85vh;
+    padding: 2rem 1.2rem;
+    max-height: 90vh;
+    overflow-y: auto;
   }
 
   .modal-header h2 {
-    font-size: 2.2rem;
+    font-size: 1.6rem;
+  }
+
+  .modal-header p {
+    font-size: 1rem;
   }
 
   .pricing-cards {
@@ -1348,15 +1351,34 @@ footer p {
     transform: translateY(-15px) scale(1);
   }
 
-  .tech-icon {
-    width: 70px;
-    height: 70px;
+  .pricing-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .price {
     font-size: 2.2rem;
   }
 
+  .tech-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+  }
+
   .btn {
-    padding: 1.2rem 2.5rem;
+    padding: 1rem 2rem;
+    font-size: 0.95rem;
+  }
+
+  section {
+    padding: 4rem 1.5rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select {
     font-size: 1rem;
+    padding: 1rem 1.2rem;
   }
 }
 </style>
@@ -1505,6 +1527,30 @@ footer p {
       <div class="project-icon">🛠️</div>
       <h3>Tech Support</h3>
       <p>Expert technical assistance when you need it most. From troubleshooting to optimization, we've got your technology covered 24/7.</p>
+      <span class="learn-more">Learn More & View Pricing</span>
+    </div>
+    <div class="project-card" onclick="openModal('social')">
+      <div class="project-icon">📱</div>
+      <h3>Social Media Management</h3>
+      <p>Grow your online presence with expert social media management. Engaging content, consistent posting, and real audience growth.</p>
+      <span class="learn-more">Learn More & View Pricing</span>
+    </div>
+    <div class="project-card" onclick="openModal('logo')">
+      <div class="project-icon">🎨</div>
+      <h3>Logo Design</h3>
+      <p>Professional logo design that captures your brand identity. Stand out from the competition with memorable, modern branding.</p>
+      <span class="learn-more">Learn More & View Pricing</span>
+    </div>
+    <div class="project-card" onclick="openModal('seo')">
+      <div class="project-icon">🔍</div>
+      <h3>SEO Services</h3>
+      <p>Rank higher on Google and attract more customers. Local SEO expertise to dominate your market in Polokwane and beyond.</p>
+      <span class="learn-more">Learn More & View Pricing</span>
+    </div>
+    <div class="project-card" onclick="openModal('email')">
+      <div class="project-icon">📧</div>
+      <h3>Business Email Setup</h3>
+      <p>Professional email addresses that build trust. Quick setup with Gmail for Business or custom domain emails.</p>
       <span class="learn-more">Learn More & View Pricing</span>
     </div>
   </div>
@@ -1744,6 +1790,306 @@ footer p {
   </div>
 </div>
 
+<!-- SOCIAL MEDIA MANAGEMENT MODAL -->
+<div id="socialModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal('social')">×</span>
+    
+    <div class="modal-header">
+      <h2>Social Media Management</h2>
+      <p>Build your brand and engage your audience with professional social media management that drives real results.</p>
+    </div>
+
+    <div class="service-intro">
+      <h3>What We Offer</h3>
+      <p>
+        Let KL Digital handle your social media while you focus on running your business. We create engaging content, 
+        manage your accounts, respond to customers, and grow your online presence across Instagram, Facebook, and more. 
+        Our strategies are designed to increase followers, boost engagement, and turn social media into a powerful 
+        marketing tool for your business.
+      </p>
+    </div>
+
+    <div class="pricing-cards">
+      <div class="pricing-card">
+        <h3>Starter</h3>
+        <span class="price">R800</span>
+        <span class="price-note">per month</span>
+        <ul>
+          <li>2 social media platforms</li>
+          <li>3 posts per week (12 per month)</li>
+          <li>Basic content creation</li>
+          <li>Hashtag research</li>
+          <li>Monthly analytics report</li>
+        </ul>
+        <button class="btn btn-select" onclick="selectService('Social Media Starter - R800/month')">Select Plan</button>
+      </div>
+
+      <div class="pricing-card featured">
+        <h3>Growth</h3>
+        <span class="price">R1,200</span>
+        <span class="price-note">per month</span>
+        <ul>
+          <li>3 social media platforms</li>
+          <li>5 posts per week (20 per month)</li>
+          <li>Custom graphics & content</li>
+          <li>Daily engagement & replies</li>
+          <li>Story management</li>
+          <li>Competitor analysis</li>
+          <li>Weekly performance reports</li>
+        </ul>
+        <button class="btn btn-select" onclick="selectService('Social Media Growth - R1,200/month')">Select Plan</button>
+      </div>
+
+      <div class="pricing-card">
+        <h3>Premium</h3>
+        <span class="price">R1,500</span>
+        <span class="price-note">per month</span>
+        <ul>
+          <li>All major platforms (IG, FB, Twitter, LinkedIn)</li>
+          <li>Daily posting (30+ per month)</li>
+          <li>Video content creation</li>
+          <li>Influencer outreach</li>
+          <li>Paid ad management (ad spend not included)</li>
+          <li>Dedicated account manager</li>
+          <li>Real-time engagement</li>
+        </ul>
+        <button class="btn btn-select" onclick="selectService('Social Media Premium - R1,500/month')">Select Plan</button>
+      </div>
+    </div>
+
+    <div class="modal-cta">
+      <h3>Ready to Grow Your Audience?</h3>
+      <p>Let's build a social media presence that converts followers into customers.</p>
+      <button class="btn" onclick="closeModal('social'); scrollToContact()">Get Started</button>
+    </div>
+  </div>
+</div>
+
+<!-- LOGO DESIGN MODAL -->
+<div id="logoModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal('logo')">×</span>
+    
+    <div class="modal-header">
+      <h2>Logo Design</h2>
+      <p>Professional logo design that makes your brand unforgettable. Stand out with a unique visual identity.</p>
+    </div>
+
+    <div class="service-intro">
+      <h3>What We Offer</h3>
+      <p>
+        Your logo is the face of your business. At KL Digital, we create memorable, professional logos that capture 
+        your brand's essence and leave a lasting impression. From concept to final delivery, we work with you to 
+        ensure your logo perfectly represents your business and connects with your target audience.
+      </p>
+    </div>
+
+    <div class="pricing-cards">
+      <div class="pricing-card">
+        <h3>Basic Logo</h3>
+        <span class="price">R500</span>
+        <span class="price-note">one-time payment</span>
+        <ul>
+          <li>2 logo concepts</li>
+          <li>1 round of revisions</li>
+          <li>High-resolution files (PNG, JPG)</li>
+          <li>2-3 day delivery</li>
+          <li>Basic brand colors</li>
+        </ul>
+        <button class="btn btn-select" onclick="selectService('Logo Design Basic - R500')">Select Plan</button>
+      </div>
+
+      <div class="pricing-card featured">
+        <h3>Professional Logo</h3>
+        <span class="price">R900</span>
+        <span class="price-note">one-time payment</span>
+        <ul>
+          <li>4 logo concepts</li>
+          <li>Unlimited revisions</li>
+          <li>All file formats (PNG, JPG, SVG, PDF)</li>
+          <li>Brand color palette</li>
+          <li>Social media kit</li>
+          <li>3-5 day delivery</li>
+        </ul>
+        <button class="btn btn-select" onclick="selectService('Logo Design Professional - R900')">Select Plan</button>
+      </div>
+
+      <div class="pricing-card">
+        <h3>Complete Branding</h3>
+        <span class="price">R1,500</span>
+        <span class="price-note">one-time payment</span>
+        <ul>
+          <li>6 logo concepts</li>
+          <li>Unlimited revisions</li>
+          <li>Full brand identity package</li>
+          <li>Business card design</li>
+          <li>Letterhead & email signature</li>
+          <li>Brand style guide</li>
+          <li>5-7 day delivery</li>
+        </ul>
+        <button class="btn btn-select" onclick="selectService('Logo Design Complete - R1,500')">Select Plan</button>
+      </div>
+    </div>
+
+    <div class="modal-cta">
+      <h3>Let's Create Your Brand Identity</h3>
+      <p>Get a logo that makes your business memorable and professional.</p>
+      <button class="btn" onclick="closeModal('logo'); scrollToContact()">Get Started</button>
+    </div>
+  </div>
+</div>
+
+<!-- SEO SERVICES MODAL -->
+<div id="seoModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal('seo')">×</span>
+    
+    <div class="modal-header">
+      <h2>SEO Services</h2>
+      <p>Rank higher on Google and attract more customers. Dominate local search results in Polokwane and beyond.</p>
+    </div>
+
+    <div class="service-intro">
+      <h3>What We Offer</h3>
+      <p>
+        If your customers can't find you on Google, you're losing business every day. KL Digital specializes in 
+        Search Engine Optimization (SEO) that gets results. We optimize your website, improve your Google rankings, 
+        and bring more customers to your door. Our focus is on local SEO to help Polokwane businesses dominate 
+        their market and grow consistently.
+      </p>
+    </div>
+
+    <div class="pricing-cards">
+      <div class="pricing-card">
+        <h3>Local SEO</h3>
+        <span class="price">R1,200</span>
+        <span class="price-note">per month</span>
+        <ul>
+          <li>Google My Business optimization</li>
+          <li>Local keyword research</li>
+          <li>On-page SEO (5 pages)</li>
+          <li>Monthly progress reports</li>
+          <li>Local citation building</li>
+        </ul>
+        <button class="btn btn-select" onclick="selectService('SEO Local - R1,200/month')">Select Plan</button>
+      </div>
+
+      <div class="pricing-card featured">
+        <h3>Business SEO</h3>
+        <span class="price">R2,000</span>
+        <span class="price-note">per month</span>
+        <ul>
+          <li>Everything in Local SEO</li>
+          <li>Advanced keyword targeting</li>
+          <li>Competitor analysis</li>
+          <li>Content optimization (10 pages)</li>
+          <li>Backlink building</li>
+          <li>Bi-weekly reports</li>
+          <li>Google Analytics setup</li>
+        </ul>
+        <button class="btn btn-select" onclick="selectService('SEO Business - R2,000/month')">Select Plan</button>
+      </div>
+
+      <div class="pricing-card">
+        <h3>Enterprise SEO</h3>
+        <span class="price">Custom</span>
+        <span class="price-note">tailored pricing</span>
+        <ul>
+          <li>Comprehensive SEO strategy</li>
+          <li>National keyword targeting</li>
+          <li>Unlimited page optimization</li>
+          <li>Advanced technical SEO</li>
+          <li>Content creation included</li>
+          <li>Dedicated SEO specialist</li>
+          <li>Weekly performance calls</li>
+        </ul>
+        <button class="btn btn-select" onclick="selectService('SEO Enterprise - Custom Quote')">Request Quote</button>
+      </div>
+    </div>
+
+    <div class="modal-cta">
+      <h3>Ready to Rank #1 on Google?</h3>
+      <p>Let's get your business found by customers searching for your services.</p>
+      <button class="btn" onclick="closeModal('seo'); scrollToContact()">Get Started</button>
+    </div>
+  </div>
+</div>
+
+<!-- BUSINESS EMAIL MODAL -->
+<div id="emailModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal('email')">×</span>
+    
+    <div class="modal-header">
+      <h2>Business Email Setup</h2>
+      <p>Professional email addresses that build trust and credibility with your customers.</p>
+    </div>
+
+    <div class="service-intro">
+      <h3>What We Offer</h3>
+      <p>
+        Stop using Gmail or Hotmail for business. A professional email address like yourname@yourcompany.co.za 
+        instantly makes your business look more legitimate and trustworthy. KL Digital sets up custom business 
+        emails quickly and affordably, with options for Gmail for Business or custom domain emails. We handle 
+        all the technical setup so you can start emailing professionally right away.
+      </p>
+    </div>
+
+    <div class="pricing-cards">
+      <div class="pricing-card">
+        <h3>Basic Setup</h3>
+        <span class="price">R300</span>
+        <span class="price-note">one-time setup</span>
+        <ul>
+          <li>1 professional email address</li>
+          <li>Gmail for Business setup</li>
+          <li>Email signature template</li>
+          <li>Basic training included</li>
+          <li>Same-day setup</li>
+        </ul>
+        <button class="btn btn-select" onclick="selectService('Business Email Basic - R300')">Select Plan</button>
+      </div>
+
+      <div class="pricing-card featured">
+        <h3>Team Setup</h3>
+        <span class="price">R500</span>
+        <span class="price-note">one-time setup</span>
+        <ul>
+          <li>Up to 5 email addresses</li>
+          <li>Custom domain email setup</li>
+          <li>Branded email signatures</li>
+          <li>Mobile device configuration</li>
+          <li>Team training session</li>
+          <li>1-2 day setup</li>
+        </ul>
+        <button class="btn btn-select" onclick="selectService('Business Email Team - R500')">Select Plan</button>
+      </div>
+
+      <div class="pricing-card">
+        <h3>Enterprise</h3>
+        <span class="price">Custom</span>
+        <span class="price-note">tailored solution</span>
+        <ul>
+          <li>Unlimited email addresses</li>
+          <li>Advanced security features</li>
+          <li>Email migration from old accounts</li>
+          <li>Shared calendars & contacts</li>
+          <li>Priority support</li>
+          <li>Full documentation</li>
+        </ul>
+        <button class="btn btn-select" onclick="selectService('Business Email Enterprise - Custom Quote')">Request Quote</button>
+      </div>
+    </div>
+
+    <div class="modal-cta">
+      <h3>Ready to Look Professional?</h3>
+      <p>Get your business email set up today and start building trust with customers.</p>
+      <button class="btn" onclick="closeModal('email'); scrollToContact()">Get Started</button>
+    </div>
+  </div>
+</div>
+
 <section id="contact">
   <h2>Contact Us</h2>
   <div class="contact-info">
@@ -1760,6 +2106,10 @@ footer p {
       <option value="AI Integration">AI Integration</option>
       <option value="Web Development">Web Development</option>
       <option value="Tech Support">Tech Support</option>
+      <option value="Social Media Management">Social Media Management</option>
+      <option value="Logo Design">Logo Design</option>
+      <option value="SEO Services">SEO Services</option>
+      <option value="Business Email Setup">Business Email Setup</option>
       <option value="General Inquiry">General Inquiry</option>
     </select>
     <textarea name="message" placeholder="Your Message" required></textarea>
