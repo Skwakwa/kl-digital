@@ -950,13 +950,7 @@ h2::after {
 }
 
 /* ===== NEON PRICING CARDS ===== */
-.pricing-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
-  margin: 3.5rem 0;
-}
-
+/* Base pricing card */
 .pricing-card {
   background: rgba(255, 255, 255, 0.02);
   border: 2px solid rgba(0, 212, 255, 0.3);
@@ -968,6 +962,7 @@ h2::after {
   overflow: hidden;
 }
 
+/* Animated border for all cards */
 .pricing-card::before {
   content: '';
   position: absolute;
@@ -990,12 +985,8 @@ h2::after {
   background-size: 400% 400%;
 }
 
-@keyframes neonBorder {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-.pricing-card::after {
+/* Shine effect - ONLY for non-featured cards */
+.pricing-card:not(.featured)::after {
   content: '';
   position: absolute;
   top: 0;
@@ -1004,16 +995,14 @@ h2::after {
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   transition: left 0.7s ease;
+  pointer-events: none;
 }
 
-.pricing-card:hover::after {
+.pricing-card:not(.featured):hover::after {
   left: 100%;
 }
 
-.pricing-card:hover::before {
-  opacity: 1;
-}
-
+/* Featured card styling */
 .pricing-card.featured {
   border-color: var(--accent);
   background: rgba(255, 107, 53, 0.08);
@@ -1025,10 +1014,11 @@ h2::after {
   opacity: 0.6;
 }
 
+/* POPULAR badge - uses ::after on featured cards */
 .pricing-card.featured::after {
   content: '⚡ POPULAR ⚡';
   position: absolute;
-  top: -15px;
+  top: -18px; /* Slightly higher to prevent overlap */
   left: 50%;
   transform: translateX(-50%);
   background: linear-gradient(135deg, var(--accent), var(--gold));
@@ -1038,31 +1028,29 @@ h2::after {
   font-size: 0.85rem;
   font-weight: 800;
   letter-spacing: 2px;
-  z-index: 1;
+  z-index: 10;
   box-shadow: 0 5px 20px rgba(255, 107, 53, 0.6);
   animation: popularPulse 2s infinite;
+  white-space: nowrap;
+  pointer-events: none;
 }
 
-@keyframes popularPulse {
-  0%, 100% { transform: translateX(-50%) scale(1); }
-  50% { transform: translateX(-50%) scale(1.1); }
+/* Ensure all text is visible with proper z-index */
+.pricing-card h3,
+.pricing-card .price,
+.pricing-card .price-note,
+.pricing-card ul,
+.pricing-card li,
+.pricing-card .btn-select {
+  position: relative;
+  z-index: 5; /* Higher than before */
+  color: var(--text); /* Ensure color is defined */
 }
 
-.pricing-card:hover {
-  transform: translateY(-15px) rotateY(5deg);
-  box-shadow: 
-    0 30px 60px rgba(0, 212, 255, 0.5),
-    0 0 80px rgba(180, 75, 243, 0.4);
-  border-color: var(--secondary);
-}
-
-.pricing-card.featured:hover {
-  transform: translateY(-15px) scale(1.08) rotateY(5deg);
-}
-
+/* Specific text visibility fixes */
 .pricing-card h3 {
   font-size: 2rem;
-  color: var(--text);
+  color: var(--text) !important; /* Force visibility */
   margin-bottom: 1rem;
   text-align: center;
   text-transform: uppercase;
@@ -1084,14 +1072,13 @@ h2::after {
 
 .price-note {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7) !important; /* Force visibility */
   margin-bottom: 2rem;
   text-align: center;
   display: block;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
 .pricing-card ul {
   list-style: none;
   margin: 2rem 0;
