@@ -959,7 +959,13 @@ h2::after {
 }
 
 /* ===== NEON PRICING CARDS ===== */
-/* Base pricing card */
+.pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin: 3.5rem 0;
+}
+
 .pricing-card {
   background: rgba(255, 255, 255, 0.02);
   border: 2px solid rgba(0, 212, 255, 0.3);
@@ -971,7 +977,6 @@ h2::after {
   overflow: hidden;
 }
 
-/* Animated border for all cards */
 .pricing-card::before {
   content: '';
   position: absolute;
@@ -994,7 +999,11 @@ h2::after {
   background-size: 400% 400%;
 }
 
-/* Shine effect - ONLY for non-featured cards */
+@keyframes neonBorder {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
 .pricing-card:not(.featured)::after {
   content: '';
   position: absolute;
@@ -1009,9 +1018,8 @@ h2::after {
 
 .pricing-card:not(.featured):hover::after {
   left: 100%;
-}
-
-/* Featured card styling */
+}    
+    
 .pricing-card.featured {
   border-color: var(--accent);
   background: rgba(255, 107, 53, 0.08);
@@ -1023,7 +1031,6 @@ h2::after {
   opacity: 0.6;
 }
 
-/* POPULAR badge - uses ::after on featured cards */
 .pricing-card.featured::after {
   content: '⚡ POPULAR ⚡';
   position: absolute;
@@ -1042,6 +1049,10 @@ h2::after {
   animation: popularPulse 2s infinite;
   white-space: nowrap;
   pointer-events: none;
+}
+@keyframes popularPulse {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.1); }
 }
 
 /* Ensure all text is visible with proper z-index */
