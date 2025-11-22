@@ -1572,6 +1572,55 @@ footer::before {
   font-size: 1rem;
 }
     
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    gap: 2rem 1.5rem;
+  }
+  
+  footer {
+    padding: 3rem 1.5rem 1.5rem;
+  }
+  
+  .footer-section h3 {
+    font-size: 1.1rem;
+  }
+  
+  .footer-section p,
+  .footer-links a,
+  .contact-item {
+    font-size: 0.85rem;
+  }
+  
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+  
+  .footer-bottom-content {
+    gap: 1.5rem;
+  }
+  
+  .footer-badges {
+    gap: 0.8rem;
+  }
+  
+  .badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* Very small mobile devices */
+@media (max-width: 480px) {
+  .footer-container {
+    grid-template-columns: 1fr; /* Stack on very small screens */
+    gap: 2rem;
+  }
+}
+    
 /* ===== SCROLL TO TOP ROCKET ===== */
 .scroll-top {
   position: fixed;
@@ -1785,26 +1834,6 @@ footer::before {
   }
 }
 
-    /* Mobile Responsive */
-@media (max-width: 768px) {
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  footer {
-    padding: 3rem 1.5rem 1.5rem;
-  }
-  
-  .footer-bottom-content {
-    gap: 1.5rem;
-  }
-  
-  .footer-badges {
-    flex-direction: column;
-    align-items: center;
-  }
-}
 </style>
 </head>
 <body>
@@ -1829,6 +1858,10 @@ footer::before {
   <div class="particle"></div>
 </div>
 
+<div class="spacer">
+  <h1>👇 Scroll Down to See Your New Footer 👇</h1>
+</div>
+    
 <header>
   <div class="logo-section">
     <svg width="60" height="60" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
@@ -2614,6 +2647,78 @@ footer::before {
   </div>
 
   <!-- Footer Bottom -->
+<footer>
+  <div class="footer-container">
+    <!-- About Section -->
+    <div class="footer-section">
+      <h3>About KL Digital</h3>
+      <p>
+        Empowering Polokwane businesses with cutting-edge digital solutions. 
+        From AI integration to web development, we turn your vision into reality.
+      </p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/kwenamokoti" class="social-icon" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <span>💼</span>
+        </a>
+        <a href="mailto:kldigital.active@gmail.com" class="social-icon" aria-label="Email">
+          <span>📧</span>
+        </a>
+        <a href="#" class="social-icon" aria-label="WhatsApp">
+          <span>💬</span>
+        </a>
+        <a href="#" class="social-icon" aria-label="Instagram">
+          <span>📸</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#projects">Our Services</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#projects">AI Integration</a></li>
+        <li><a href="#projects">Web Development</a></li>
+        <li><a href="#projects">SEO Services</a></li>
+      </ul>
+    </div>
+
+    <!-- Services -->
+    <div class="footer-section">
+      <h3>Our Services</h3>
+      <ul class="footer-links">
+        <li><a href="#" onclick="openModal('web')">Website Design</a></li>
+        <li><a href="#" onclick="openModal('ai')">AI Solutions</a></li>
+        <li><a href="#" onclick="openModal('support')">Tech Support</a></li>
+        <li><a href="#" onclick="openModal('social')">Social Media</a></li>
+        <li><a href="#" onclick="openModal('logo')">Logo Design</a></li>
+        <li><a href="#" onclick="openModal('seo')">SEO Services</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-section">
+      <h3>Get In Touch</h3>
+      <div class="footer-contact">
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <span>Polokwane, Limpopo, SA</span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📧</div>
+          <a href="mailto:kldigital.active@gmail.com">kldigital.active@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🕒</div>
+          <span>Mon - Fri: 8:00 - 17:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
   <div class="footer-bottom">
     <div class="footer-bottom-content">
       <div class="footer-logo">
@@ -2636,7 +2741,7 @@ footer::before {
         </span>
         <span class="badge">
           <span class="badge-icon">🛡️</span>
-          Trusted by 10+ Businesses
+          Trusted by 100+ Businesses
         </span>
         <span class="badge">
           <span class="badge-icon">🏆</span>
@@ -2646,6 +2751,7 @@ footer::before {
     </div>
   </div>
 </footer>
+
 </footer>
 
 <button class="scroll-top" onclick="scrollToTop()">↑</button>
@@ -2811,6 +2917,15 @@ if (contactForm) {
       formStatus.className = 'error';
     }
   });
+}
+
+    function openModal(type) {
+  const modalId = type + 'Modal';
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
 }
 </script>
 
