@@ -179,6 +179,39 @@ body, html {
   cursor: default;
 }
 
+
+.spacer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.spacer h1 {
+  font-size: 2rem;
+  background: linear-gradient(135deg, var(--secondary), var(--purple), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+    
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: center;
+  width: 150px;
+  height: 5px;
+  background: linear-gradient(90deg, var(--accent), var(--gold), var(--secondary), var(--purple));
+  background-size: 300% 300%;
+  border-radius: 3px;
+  animation: rainbowPulse 3s ease-in-out infinite;
+  box-shadow: 0 0 20px var(--accent);
+}
 /* ===== CURSOR TRAIL EFFECT ===== */
 .cursor-trail {
   position: fixed;
@@ -686,8 +719,14 @@ h2::after {
 }
 
 @keyframes rainbowPulse {
-  0%, 100% { width: 150px; background-position: 0% 50%; }
-  50% { width: 250px; background-position: 100% 50%; }
+  0%, 100% { 
+    transform: scaleX(1);
+    background-position: 0% 50%; 
+  }
+  50% { 
+    transform: scaleX(1.67);
+    background-position: 100% 50%; 
+  }
 }
 
 /* ===== HOLOGRAPHIC PROJECT CARDS ===== */
@@ -1833,6 +1872,18 @@ footer::before {
     gap: 2rem;
   }
 }
+
+    .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
     
 </style>
 </head>
@@ -1936,7 +1987,7 @@ footer::before {
     <h1>KL DIGITAL</h1>
   </div>
   
-  <button class="mobile-menu-btn" onclick="toggleMenu()">
+  <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle mobile menu">
     <span></span>
     <span></span>
     <span></span>
@@ -1968,43 +2019,43 @@ footer::before {
 <section id="projects">
   <h2>Our Digital Services in Polokwane, Limpopo</h2>
   <div class="project-container">
-    <article class="project-card" onclick="openModal('ai')" role="button" tabindex="0" aria-label="Learn about AI Integration services">
+   <article class="project-card" onclick="openModal('ai')" tabindex="0" aria-label="Learn about AI Integration services">
       <div class="project-icon" role="img" aria-label="AI Robot icon">🤖</div>
       <h3>AI Integration & Workshops</h3>
       <p>Transform your Polokwane business with cutting-edge artificial intelligence. Unlock exponential growth through intelligent automation and data-driven insights.</p>
       <span class="learn-more">View Pricing & Details</span>
     </article>
-    <article class="project-card" onclick="openModal('web')" role="button" tabindex="0" aria-label="Learn about Web Development services">
+    <article class="project-card" onclick="openModal('ai')" tabindex="0" aria-label="Learn about Website design services">
       <div class="project-icon" role="img" aria-label="Computer icon">💻</div>
       <h3>Website Design & Development</h3>
       <p>Modern, responsive websites for South African businesses. Professional web design in Polokwane with 12-month affordable payment plans starting at R499/month.</p>
       <span class="learn-more">View Pricing & Details</span>
     </article>
-    <article class="project-card" onclick="openModal('support')" role="button" tabindex="0" aria-label="Learn about Tech Support services">
+   <article class="project-card" onclick="openModal('ai')" tabindex="0" aria-label="Learn about Tech solutions services">
       <div class="project-icon" role="img" aria-label="Tools icon">🛠️</div>
       <h3>IT Support & Tech Solutions</h3>
       <p>Expert technical assistance in Polokwane and Limpopo. From troubleshooting to optimization, professional IT support for your business technology needs.</p>
       <span class="learn-more">View Pricing & Details</span>
     </article>
-    <article class="project-card" onclick="openModal('social')" role="button" tabindex="0" aria-label="Learn about Social Media Management services">
+   <article class="project-card" onclick="openModal('ai')" tabindex="0" aria-label="Learn about Social media management">
       <div class="project-icon" role="img" aria-label="Mobile phone icon">📱</div>
       <h3>Social Media Management</h3>
       <p>Grow your Polokwane business online with expert social media management. Professional content creation, engagement, and real audience growth for SA businesses.</p>
       <span class="learn-more">View Pricing & Details</span>
     </article>
-    <article class="project-card" onclick="openModal('logo')" role="button" tabindex="0" aria-label="Learn about Logo Design services">
+    <article class="project-card" onclick="openModal('ai')" tabindex="0" aria-label="Learn about Logo desigh/brading services">
       <div class="project-icon" role="img" aria-label="Art palette icon">🎨</div>
       <h3>Logo Design & Branding</h3>
       <p>Professional logo design in Polokwane. Capture your brand identity with memorable, modern branding that makes your South African business stand out.</p>
       <span class="learn-more">View Pricing & Details</span>
     </article>
-    <article class="project-card" onclick="openModal('seo')" role="button" tabindex="0" aria-label="Learn about SEO services">
+   <article class="project-card" onclick="openModal('ai')" tabindex="0" aria-label="Learn about SEO services">
       <div class="project-icon" role="img" aria-label="Search icon">🔍</div>
       <h3>SEO Services Polokwane</h3>
       <p>Rank higher on Google and attract more customers. Local SEO expertise to dominate search results in Polokwane, Limpopo, and across South Africa.</p>
       <span class="learn-more">View Pricing & Details</span>
     </article>
-    <article class="project-card" onclick="openModal('email')" role="button" tabindex="0" aria-label="Learn about Business Email Setup services">
+    <article class="project-card" onclick="openModal('ai')" tabindex="0" aria-label="Learn about Business email setup services">
       <div class="project-icon" role="img" aria-label="Email icon">📧</div>
       <h3>Business Email Setup</h3>
       <p>Professional email addresses for South African businesses. Build trust with custom domain emails. Quick Gmail for Business setup in Polokwane.</p>
@@ -2558,6 +2609,7 @@ footer::before {
     <input type="text" name="name" placeholder="Your Name" required>
     <input type="email" name="email" placeholder="Your Email" required>
     <input type="tel" name="phone" placeholder="Your Phone Number (optional)">
+      <label for="serviceSelect" class="visually-hidden">Select a service</label>
     <select name="service" id="serviceSelect">
       <option value="">Select a Service (optional)</option>
       <option value="AI Integration">AI Integration</option>
@@ -2857,5 +2909,23 @@ function openModal(type) {
   }
 }
 </script>
+
+    <script>
+  // Delay Google Analytics to improve performance
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-0F6T20CQEB';
+      document.head.appendChild(script);
+      
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0F6T20CQEB');
+    }, 3000); // Load after 3 seconds
+  });
+</script>
+    
 </body>
 </html>
