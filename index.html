@@ -356,18 +356,26 @@ header.scrolled {
   gap: 1rem;
 }
 
-.logo-section svg {
-  width: 60px;
-  height: 60px;
-  filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.8));
-  transition: all 0.5s ease;
-}
+.logo-section .logo-img {
+     width: 60px;
+     height: 60px;
+     object-fit: contain;
+     filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.8));
+     transition: all 0.5s ease;
+   }
 
-.logo-section svg:hover {
-  transform: scale(1.2) rotate(360deg);
-  filter: drop-shadow(0 0 30px rgba(0, 212, 255, 1)) drop-shadow(0 0 60px rgba(255, 107, 53, 0.5));
-}
+   .logo-section .logo-img:hover {
+     transform: scale(1.2) rotate(360deg);
+     filter: drop-shadow(0 0 30px rgba(0, 212, 255, 1)) drop-shadow(0 0 60px rgba(255, 107, 53, 0.5));
+   }
 
+   @media (max-width: 768px) {
+     .logo-section .logo-img {
+       width: 45px;
+       height: 45px;
+     }
+   }
+  
 header h1 {
   font-size: 1.8rem;
   font-weight: 900;
