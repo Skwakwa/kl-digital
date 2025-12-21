@@ -1737,5 +1737,80 @@ footer::before {
   white-space: nowrap;
   border-width: 0;
 }
-    
+
+.membership-bubble {
+  background: linear-gradient(135deg, var(--accent), var(--gold)) !important;
+  color: white !important;
+  padding: 0.8rem 2rem !important;
+  border-radius: 50px !important;
+  font-weight: 800 !important;
+  font-size: 0.9rem !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0 5px 25px rgba(255, 107, 53, 0.6), 0 0 40px rgba(255, 215, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  animation: membershipPulse 2s infinite;
+  border: 2px solid rgba(255, 215, 0, 0.8);
+  margin-left: 1rem;
+}
+
+.membership-bubble::before,
+.membership-bubble::after {
+  display: none !important;
+}
+
+.membership-bubble:hover {
+  transform: translateY(-5px) scale(1.1) !important;
+  box-shadow: 0 10px 40px rgba(255, 107, 53, 0.9), 0 0 60px rgba(255, 215, 0, 0.7) !important;
+  background: linear-gradient(135deg, var(--gold), var(--accent)) !important;
+}
+
+@keyframes membershipPulse {
+  0%, 100% { 
+    box-shadow: 0 5px 25px rgba(255, 107, 53, 0.6), 0 0 40px rgba(255, 215, 0, 0.4);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 8px 35px rgba(255, 107, 53, 0.9), 0 0 60px rgba(255, 215, 0, 0.6);
+    transform: scale(1.05);
+  }
+}
+
+.membership-bubble:hover::before {
+  content: '✨';
+  position: absolute;
+  left: 10px;
+  animation: sparkleLeft 0.6s infinite;
+  display: block !important;
+}
+
+.membership-bubble:hover::after {
+  content: '✨';
+  position: absolute;
+  right: 10px;
+  animation: sparkleRight 0.6s infinite;
+  display: block !important;
+}
+
+@keyframes sparkleLeft {
+  0%, 100% { opacity: 0; transform: translateX(-5px) rotate(0deg); }
+  50% { opacity: 1; transform: translateX(0) rotate(180deg); }
+}
+
+@keyframes sparkleRight {
+  0%, 100% { opacity: 0; transform: translateX(5px) rotate(0deg); }
+  50% { opacity: 1; transform: translateX(0) rotate(-180deg); }
+}
+
+@media (max-width: 768px) {
+  .membership-bubble {
+    margin-left: 0 !important;
+    margin-top: 1rem;
+    padding: 1rem 2.5rem !important;
+    font-size: 1rem !important;
+    width: 100%;
+    text-align: center;
+  }
+}
 </style>
