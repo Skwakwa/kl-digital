@@ -1228,6 +1228,31 @@ function openModal(type) {
       gtag('config', 'G-0F6T20CQEB');
     }, 3000); // Load after 3 seconds
   });
-      
+   <script>
+// ===== Particle Randomizer =====
+const particles = document.querySelectorAll('.particle-layer .particle');
+
+particles.forEach(p => {
+  const size = Math.random() * 6 + 4; // 4px to 10px
+  p.style.width = size + 'px';
+  p.style.height = size + 'px';
+  p.style.left = Math.random() * window.innerWidth + 'px';
+  p.style.top = Math.random() * window.innerHeight + 'px';
+  const duration = Math.random() * 15 + 10; // 10s to 25s
+  p.style.animationDuration = duration + 's';
+  const delay = Math.random() * 5;
+  p.style.animationDelay = delay + 's';
+});
+
+const style = document.createElement('style');
+style.innerHTML = `
+@keyframes floatParticle {
+  0% { transform: translateY(0px); opacity: 0.4; }
+  50% { transform: translateY(-80px); opacity: 0.8; }
+  100% { transform: translateY(0px); opacity: 0.4; }
+}`;
+document.head.appendChild(style);
+</script>
+   
 </body>
 </html>
