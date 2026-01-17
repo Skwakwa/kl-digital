@@ -2014,3 +2014,61 @@ nav a:hover {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+/* ===== Gradient Background ===== */
+.animated-gradient-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -2;
+  background: linear-gradient(270deg, #e0ffff, #f0f8ff, #c0c0c0, #e0ffff);
+  background-size: 800% 800%;
+  animation: gradientShift 20s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== Particle Layer ===== */
+.particle-layer {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 6px; height: 6px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  animation: floatParticle linear infinite;
+}
+
+/* Particle animation will be set dynamically via JS */
+
+/* ===== Glowing Headings & Buttons ===== */
+.hero h1, .hero h2, .hero h3, .btn {
+  transition: all 0.3s ease;
+}
+
+.hero h1:hover, .hero h2:hover, .hero h3:hover, .btn:hover {
+  text-shadow: 0 0 15px #00d4ff, 0 0 30px #c0c0ff;
+  transform: translateY(-2px);
+}
+
+/* ===== Hero Icons Floating ===== */
+.hero-tech-icons .tech-icon {
+  display: inline-block;
+  animation: floatIcon 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatIcon {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
