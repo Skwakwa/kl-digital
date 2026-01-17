@@ -1683,3 +1683,108 @@ grid-template-columns: 1fr;
 gap: 2rem;
 }
 }</parameter>
+
+/* ===============================
+   WHITE STARTUP SKIN OVERRIDE
+   =============================== */
+
+:root {
+  --dark: #ffffff;
+  --text: #0f172a;
+  --primary: #2563eb;
+  --secondary: #0ea5e9;
+  --accent: #f97316;
+  --purple: #7c3aed;
+}
+
+/* Global background */
+html, body {
+  background: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Kill heavy cyber backgrounds */
+.bg-gradient,
+.particles,
+.hero-glow {
+  display: none !important;
+}
+
+/* Header = clean glass */
+header {
+  background: rgba(255,255,255,0.85) !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important;
+}
+
+header h1 {
+  -webkit-text-fill-color: unset !important;
+  color: #0f172a !important;
+  background: none !important;
+}
+
+/* Nav links */
+nav a {
+  color: #0f172a !important;
+}
+
+nav a:hover {
+  color: var(--primary) !important;
+  text-shadow: none !important;
+}
+
+/* Hero section */
+.hero {
+  background: #ffffff !important;
+}
+
+.hero h1 {
+  -webkit-text-fill-color: unset !important;
+  color: #020617 !important;
+  background: none !important;
+  font-weight: 900;
+}
+
+.hero-tagline {
+  color: #475569 !important;
+  letter-spacing: 4px;
+}
+
+/* Buttons = clean SaaS */
+.btn {
+  background: linear-gradient(135deg, #2563eb, #0ea5e9) !important;
+  box-shadow: 0 10px 30px rgba(37,99,235,0.3) !important;
+}
+
+.btn:hover {
+  box-shadow: 0 15px 40px rgba(37,99,235,0.4) !important;
+}
+
+/* Cards */
+.project-card,
+.pricing-card,
+#contact {
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06) !important;
+}
+
+/* Section titles */
+h2 {
+  -webkit-text-fill-color: unset !important;
+  color: #020617 !important;
+  background: none !important;
+  filter: none !important;
+}
+
+/* Footer */
+footer {
+  background: #020617 !important;
+  color: #ffffff !important;
+}
+
+.footer-section p,
+.footer-links a {
+  color: #cbd5f5 !important;
+}
+
