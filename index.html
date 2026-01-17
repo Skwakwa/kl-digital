@@ -1,502 +1,1534 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Optimized Google Tag - Delayed Load for Better Performance -->
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  
-  // Delay loading Google Analytics until after page content loads
-  function loadGoogleAnalytics() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-0F6T20CQEB';
-    document.head.appendChild(script);
-    
-    script.onload = function() {
-      gtag('js', new Date());
-      gtag('config', 'G-0F6T20CQEB');
-    };
-  }
-  
-  // Load analytics after page is ready
-  if (document.readyState === 'complete') {
-    loadGoogleAnalytics();
-  } else {
-    window.addEventListener('load', function() {
-      setTimeout(loadGoogleAnalytics, 2000);
-    });
-  }
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- SEO Meta Tags -->
-<title>KL Digital | Web Design, AI, Tech Support & Digital Services in Polokwane</title>
-<meta name="description" content="KL Digital offers professional web design, AI integration, tech support, social media management, logo design, and SEO services in Polokwane, Limpopo. Affordable digital solutions for South African businesses. Contact us today!">
-<meta name="keywords" content="web design polokwane, digital marketing limpopo, tech support polokwane, AI services south africa, logo design polokwane, SEO services limpopo, social media management polokwane, website development south africa, business email setup, KL Digital">
-<meta name="author" content="KL Digital - Kwena Malope Mokoti">
-<meta name="robots" content="index, follow">
-<meta name="language" content="English">
-<meta name="revisit-after" content="7 days">
-
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://kldigital.co.za">
-<meta property="og:title" content="KL Digital | Digital Services in Polokwane, Limpopo">
-<meta property="og:description" content="Professional web design, AI integration, tech support, and digital marketing services for South African businesses. Based in Polokwane.">
-<meta property="og:image" content="https://kldigital.co.za/og-image.jpg">
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://kldigital.co.za">
-<meta property="twitter:title" content="KL Digital | Digital Services in Polokwane">
-<meta property="twitter:description" content="Professional web design, AI integration, tech support, and digital marketing services in Polokwane, Limpopo.">
-<meta property="twitter:image" content="https://kldigital.co.za/og-image.jpg">
-
-<!-- Local Business Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "KL Digital",
-  "image": "https://kldigital.co.za/logo.png",
-  "description": "Professional digital services including web design, AI integration, tech support, social media management, logo design, SEO services, and business email setup in Polokwane, Limpopo.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Polokwane",
-    "addressRegion": "Limpopo",
-    "addressCountry": "ZA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": -23.9045,
-    "longitude": 29.4689
-  },
-  "url": "https://kldigital.co.za",
-  "telephone": "",
-  "email": "kldigital.active@gmail.com",
-  "priceRange": "R300 - R7500",
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday"
-    ],
-    "opens": "08:00",
-    "closes": "17:00"
-  },
-  "sameAs": [
-    "https://www.linkedin.com/in/kwenamokoti"
-  ],
-  "areaServed": [
-    {
-      "@type": "City",
-      "name": "Polokwane"
-    },
-    {
-      "@type": "State",
-      "name": "Limpopo"
-    },
-    {
-      "@type": "Country",
-      "name": "South Africa"
-    }
-  ],
-  "makesOffer": [
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Web Design & Development",
-        "description": "Professional website design and development services starting at R499/month"
-      }
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "AI Integration Services",
-        "description": "Business AI integration and automation starting at R2,500"
-      }
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Tech Support",
-        "description": "Professional IT support and technical assistance starting at R350"
-      }
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Social Media Management",
-        "description": "Professional social media management services starting at R800/month"
-      }
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Logo Design",
-        "description": "Professional logo design and branding starting at R500"
-      }
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "SEO Services",
-        "description": "Search engine optimization to rank higher on Google starting at R1,200/month"
-      }
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Business Email Setup",
-        "description": "Professional business email setup starting at R300"
-      }
-    }
-  ]
-}
-</script>
-<title>KL Digital | Web & AI Solutions</title>
-<link rel="stylesheet" href="style.css">
+<title>KL Digital | Premium Web Design, AI & Digital Services in Polokwane</title>
+<meta name="description" content="KL Digital offers professional web design, AI integration, tech support, social media management, logo design, and SEO services in Polokwane, Limpopo.">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="canonical" href="https://kldigital.co.za">
 <style>
-  /* ===== Full-page animated gradient ===== */
-  .animated-gradient-bg {
-    position: fixed;
-    top:0; left:0; width:100%; height:100%;
-    z-index:-2;
-    background: linear-gradient(270deg, #e0ffff, #f0f8ff, #c0c0c0, #e0ffff);
-    background-size: 800% 800%;
-    animation: gradientShift 20s ease infinite;
-  }
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
+:root {
+  --primary: #ffffff;
+  --secondary: #e8e8e8;
+  --accent: #00d4ff;
+  --gold: #ffd700;
+  --purple: #b24bf3;
+  --dark: #0a0e27;
+  --gradient-start: #f0f0f0;
+  --gradient-end: #ffffff;
+}
 
-  /* ===== Particle Layer ===== */
-  .particle-layer {
-    position: fixed;
-    top:0; left:0;
-    width:100%; height:100%;
-    z-index:-1;
-    pointer-events:none;
-    overflow:hidden;
-  }
-  .particle {
-    position:absolute;
-    width:6px; height:6px;
-    background: rgba(255,255,255,0.6);
-    border-radius:50%;
-    animation: floatParticle linear infinite;
-  }
-  @keyframes floatParticle {
-    0% { transform: translateY(0px); opacity:0.4; }
-    50% { transform: translateY(-80px); opacity:0.8; }
-    100% { transform: translateY(0px); opacity:0.4; }
-  }
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
 
-  /* ===== Hero Section ===== */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding: 0 1rem;
-    color:#0a0e27;
-  }
-  .hero h1 {
-    font-size:3rem;
-    margin-bottom:1rem;
-    text-shadow: 0 0 15px #00d4ff;
-  }
-  .hero p {
-    font-size:1.25rem;
-    margin-bottom:2rem;
-  }
-  .hero .btn {
-    margin:0.5rem;
-    padding:0.75rem 2rem;
-    background:#00d4ff;
-    color:#fff;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    transition: all 0.3s ease;
-    text-decoration:none;
-    font-weight:bold;
-  }
-  .hero .btn:hover {
-    box-shadow:0 0 15px #00d4ff, 0 0 30px #c0c0ff;
-    transform: translateY(-2px);
-  }
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #ffffff;
+  color: #1a1a1a;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
 
-  /* ===== Services Cards ===== */
-  .services-overview {
-    padding:5rem 2rem;
-    text-align:center;
-  }
-  .services-overview h2 {
-    font-size:2.5rem;
-    margin-bottom:2rem;
-  }
-  .services-cards {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:2rem;
-  }
-  .services-cards .card {
-    background: rgba(255,255,255,0.8);
-    border-radius:12px;
-    padding:2rem;
-    width:250px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-  }
-  .services-cards .card:hover {
-    transform: translateY(-5px);
-    box-shadow:0 15px 40px rgba(0,0,0,0.2);
-  }
-  .services-cards .card .icon {
-    font-size:2.5rem;
-    margin-bottom:1rem;
-  }
-  .services-cards .card h3 {
-    margin-bottom:0.5rem;
-  }
-  .services-cards .card p {
-    font-size:0.95rem;
-    margin-bottom:1rem;
-  }
-  .services-cards .card .btn {
-    background:#0a0e27;
-    color:#00d4ff;
-    text-decoration:none;
-    display:inline-block;
-    padding:0.5rem 1rem;
-    border-radius:6px;
-    font-weight:bold;
-  }
-  .services-cards .card .btn:hover {
-    box-shadow:0 0 15px #00d4ff;
-    transform: translateY(-2px);
-  }
+/* Premium Animated Background */
+.bg-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(0, 212, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(178, 75, 243, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.03) 0%, transparent 50%),
+    linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #ffffff 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
+}
 
-  /* ===== Portfolio / Featured Projects ===== */
-  .portfolio {
-    padding:5rem 2rem;
-    text-align:center;
-    background: #f8f8f8;
-  }
-  .portfolio h2 { font-size:2.5rem; margin-bottom:2rem; }
-  .portfolio .project-cards {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:2rem;
-  }
-  .portfolio .project-card {
-    background:#fff;
-    border-radius:12px;
-    overflow:hidden;
-    width:300px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-  }
-  .portfolio .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow:0 15px 40px rgba(0,0,0,0.2);
-  }
-  .portfolio .project-card img {
-    width:100%;
-    display:block;
-  }
-  .portfolio .project-card h3 {
-    margin:1rem;
-  }
-  .portfolio .project-card p {
-    margin:0 1rem 1rem 1rem;
-    font-size:0.9rem;
-  }
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
 
-  /* ===== Process Section ===== */
-  .process {
-    padding:5rem 2rem;
-    text-align:center;
-  }
-  .process h2 { font-size:2.5rem; margin-bottom:2rem; }
-  .process-cards {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:2rem;
-  }
-  .process-card {
-    background: rgba(255,255,255,0.85);
-    border-radius:12px;
-    padding:2rem;
-    width:220px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.1);
-  }
-  .process-card .icon { font-size:2rem; margin-bottom:0.5rem; }
-  .process-card h3 { margin-bottom:0.5rem; }
-  .process-card p { font-size:0.9rem; }
+/* Mesh Gradient Overlay */
+.mesh-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  background: 
+    radial-gradient(at 20% 30%, rgba(0, 212, 255, 0.08) 0px, transparent 50%),
+    radial-gradient(at 80% 70%, rgba(178, 75, 243, 0.08) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(255, 215, 0, 0.05) 0px, transparent 50%);
+  filter: blur(40px);
+  animation: meshMove 15s ease-in-out infinite;
+}
 
-  /* ===== CTA Section ===== */
-  .cta {
-    background:#00d4ff;
-    color:#fff;
-    text-align:center;
-    padding:4rem 2rem;
-  }
-  .cta h2 { font-size:2rem; margin-bottom:1rem; }
-  .cta .btn {
-    background:#0a0e27;
-    color:#00d4ff;
-    text-decoration:none;
-    padding:0.75rem 2rem;
-    border-radius:8px;
-    font-weight:bold;
-  }
+@keyframes meshMove {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(5deg); }
+}
 
-  /* ===== Footer ===== */
-  footer {
-    background:#0a0e27;
-    color:#fff;
-    text-align:center;
-    padding:2rem;
-  }
+/* Floating Particles */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
 
-  /* Responsive */
-  @media(max-width:900px){
-    .services-cards, .portfolio .project-cards, .process-cards { flex-direction:column; align-items:center; }
-  }
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.4), rgba(178, 75, 243, 0.4));
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+}
+
+.particle:nth-child(1) { width: 8px; height: 8px; left: 10%; top: 20%; animation: float 12s infinite; }
+.particle:nth-child(2) { width: 12px; height: 12px; left: 25%; top: 60%; animation: float 15s infinite; background: linear-gradient(135deg, rgba(178, 75, 243, 0.4), rgba(255, 215, 0, 0.4)); }
+.particle:nth-child(3) { width: 6px; height: 6px; left: 45%; top: 35%; animation: float 10s infinite; }
+.particle:nth-child(4) { width: 10px; height: 10px; left: 65%; top: 70%; animation: float 13s infinite; }
+.particle:nth-child(5) { width: 8px; height: 8px; left: 80%; top: 25%; animation: float 11s infinite; background: linear-gradient(135deg, rgba(255, 215, 0, 0.4), rgba(0, 212, 255, 0.4)); }
+.particle:nth-child(6) { width: 14px; height: 14px; left: 15%; top: 80%; animation: float 14s infinite; }
+.particle:nth-child(7) { width: 7px; height: 7px; left: 55%; top: 15%; animation: float 16s infinite; }
+.particle:nth-child(8) { width: 9px; height: 9px; left: 90%; top: 50%; animation: float 12s infinite; }
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+  25% { transform: translate(100px, -150px) scale(1.2); opacity: 0.6; }
+  50% { transform: translate(-50px, -300px) scale(0.8); opacity: 0.4; }
+  75% { transform: translate(80px, -200px) scale(1.1); opacity: 0.7; }
+}
+
+/* Premium Header */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 1.2rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+}
+
+header.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.logo-icon {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: white;
+  box-shadow: 0 8px 24px rgba(0, 212, 255, 0.3);
+  transition: all 0.4s ease;
+}
+
+.logo-icon:hover {
+  transform: rotate(360deg) scale(1.1);
+  box-shadow: 0 12px 32px rgba(0, 212, 255, 0.5);
+}
+
+.logo-text {
+  font-size: 1.6rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #1a1a1a, #4a4a4a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+}
+
+nav {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+nav a {
+  color: #2a2a2a;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--purple));
+  transition: width 0.3s;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.cta-header {
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  color: white;
+  padding: 0.7rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 24px rgba(0, 212, 255, 0.3);
+  transition: all 0.3s;
+}
+
+.cta-header:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 212, 255, 0.5);
+  color: white;
+}
+
+.cta-header::after {
+  display: none;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.mobile-menu span {
+  width: 28px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--purple));
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* Premium Hero Section */
+.hero {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10rem 5% 6rem;
+  overflow: hidden;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  animation: fadeInDown 1s ease;
+}
+
+.badge-icon {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content h1 {
+  font-size: 5rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 50%, #1a1a1a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content h1 span {
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  color: #5a5a5a;
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 400;
+  animation: fadeInUp 1.2s ease;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeInUp 1.4s ease;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+  width: 400px;
+  height: 400px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  color: white;
+  box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0, 212, 255, 0.5);
+}
+
+.btn-primary span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-secondary {
+  background: white;
+  border: 2px solid #e0e0e0;
+  color: #2a2a2a;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 4rem;
+  margin-top: 5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #6a6a6a;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.hero-icons {
+  display: flex;
+  gap: 2rem;
+  margin-top: 4rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-icon {
+  width: 80px;
+  height: 80px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  animation: iconFloat 4s ease-in-out infinite;
+  transition: all 0.4s;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.hero-icon:nth-child(1) { animation-delay: 0s; }
+.hero-icon:nth-child(2) { animation-delay: 0.5s; }
+.hero-icon:nth-child(3) { animation-delay: 1s; }
+.hero-icon:nth-child(4) { animation-delay: 1.5s; }
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.hero-icon:hover {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(178, 75, 243, 0.1));
+  border-color: var(--accent);
+  transform: translateY(-15px) scale(1.1);
+  box-shadow: 0 20px 50px rgba(0, 212, 255, 0.2);
+}
+
+/* Section Styles */
+section {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 6rem 5%;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #1a1a1a, #4a4a4a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+}
+
+.section-description {
+  font-size: 1.2rem;
+  color: #6a6a6a;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Premium Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+
+.service-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--purple), var(--gold));
+  transform: scaleX(0);
+  transition: transform 0.5s;
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(178, 75, 243, 0.05));
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: 0;
+}
+
+.service-card:hover {
+  transform: translateY(-15px);
+  border-color: var(--accent);
+  box-shadow: 0 25px 60px rgba(0, 212, 255, 0.15);
+}
+
+.service-card:hover::after {
+  opacity: 1;
+}
+
+.service-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2rem;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(178, 75, 243, 0.1));
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  transition: all 0.5s;
+  position: relative;
+  z-index: 1;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1) rotate(5deg);
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(178, 75, 243, 0.2));
+}
+
+.service-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
+}
+
+.service-card p {
+  color: #6a6a6a;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+.service-link::after {
+  content: '→';
+  transition: transform 0.3s;
+}
+
+.service-link:hover {
+  gap: 0.8rem;
+}
+
+.service-link:hover::after {
+  transform: translateX(5px);
+}
+
+/* Portfolio Section */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+
+.portfolio-item {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.5s;
+  cursor: pointer;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+}
+
+.portfolio-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent);
+}
+
+.portfolio-image {
+  width: 100%;
+  height: 280px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(178, 75, 243, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  transition: all 0.5s;
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(0, 212, 255, 0.1));
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.portfolio-item:hover .portfolio-image::before {
+  transform: translateX(100%);
+}
+
+.portfolio-item:hover .portfolio-image {
+  transform: scale(1.05);
+}
+
+.portfolio-info {
+  padding: 2rem;
+}
+
+.portfolio-tag {
+  display: inline-block;
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--accent);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.portfolio-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: #1a1a1a;
+  font-weight: 800;
+}
+
+.portfolio-info p {
+  color: #6a6a6a;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Process Section */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-top: 4rem;
+  position: relative;
+}
+
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--purple), var(--gold));
+  z-index: 0;
+}
+
+.process-step {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.step-number {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2rem;
+  background: white;
+  border: 3px solid var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--accent);
+  box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
+  transition: all 0.4s;
+  position: relative;
+}
+
+.step-number::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: -1;
+}
+
+.process-step:hover .step-number {
+  transform: scale(1.1) rotate(360deg);
+  color: white;
+}
+
+.process-step:hover .step-number::before {
+  opacity: 1;
+}
+
+.process-step h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+  font-weight: 800;
+}
+
+.process-step p {
+  color: #6a6a6a;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* Testimonials Section */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+
+.testimonial-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 24px;
+  padding: 3rem;
+  transition: all 0.4s;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent);
+}
+
+.stars {
+  color: var(--gold);
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-text {
+  color: #4a4a4a;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-avatar {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+
+.author-info h4 {
+  color: #1a1a1a;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.author-info p {
+  color: #6a6a6a;
+  font-size: 0.85rem;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(178, 75, 243, 0.05));
+  border: 2px solid rgba(0, 212, 255, 0.2);
+  border-radius: 30px;
+  padding: 5rem 4rem;
+  text-align: center;
+  margin: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  <function_calls>
+<invoke name="artifacts">
+<parameter name="command">update</parameter>
+<parameter name="id">kl_digital_redesign</parameter>
+<parameter name="old_str">  width: 200%;</parameter>
+<parameter name="new_str">  width: 200%;
+height: 200%;
+background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+animation: ctaRotate 20s linear infinite;
+}
+@keyframes ctaRotate {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+.cta-section h2 {
+position: relative;
+z-index: 1;
+margin-bottom: 1.5rem;
+}
+.cta-section p {
+font-size: 1.3rem;
+color: #5a5a5a;
+margin-bottom: 3rem;
+position: relative;
+z-index: 1;
+}
+.cta-buttons {
+display: flex;
+gap: 1.5rem;
+justify-content: center;
+flex-wrap: wrap;
+position: relative;
+z-index: 1;
+}
+/* Premium Footer */
+footer {
+position: relative;
+z-index: 2;
+background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+border-top: 1px solid #e0e0e0;
+padding: 4rem 5% 2rem;
+}
+.footer-content {
+max-width: 1400px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: 2fr 1fr 1fr 1fr;
+gap: 3rem;
+margin-bottom: 3rem;
+}
+.footer-section h3 {
+font-size: 1.3rem;
+margin-bottom: 1.5rem;
+color: #1a1a1a;
+font-weight: 800;
+}
+.footer-brand {
+max-width: 350px;
+}
+.footer-logo {
+display: flex;
+align-items: center;
+gap: 0.8rem;
+margin-bottom: 1.5rem;
+}
+.footer-logo-icon {
+width: 50px;
+height: 50px;
+background: linear-gradient(135deg, var(--accent), var(--purple));
+border-radius: 12px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.8rem;
+color: white;
+font-weight: 900;
+box-shadow: 0 8px 24px rgba(0, 212, 255, 0.3);
+}
+.footer-logo-text {
+font-size: 1.5rem;
+font-weight: 900;
+color: #1a1a1a;
+}
+.footer-description {
+color: #6a6a6a;
+line-height: 1.7;
+margin-bottom: 1.5rem;
+}
+.social-links {
+display: flex;
+gap: 1rem;
+}
+.social-icon {
+width: 45px;
+height: 45px;
+background: white;
+border: 1px solid #e0e0e0;
+border-radius: 12px;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #4a4a4a;
+text-decoration: none;
+font-size: 1.2rem;
+transition: all 0.3s;
+}
+.social-icon:hover {
+background: linear-gradient(135deg, var(--accent), var(--purple));
+color: white;
+border-color: transparent;
+transform: translateY(-5px);
+box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+}
+.footer-links {
+list-style: none;
+}
+.footer-links li {
+margin-bottom: 0.8rem;
+}
+.footer-links a {
+color: #6a6a6a;
+text-decoration: none;
+transition: all 0.3s;
+display: inline-flex;
+align-items: center;
+gap: 0.5rem;
+}
+.footer-links a::before {
+content: '→';
+opacity: 0;
+transform: translateX(-10px);
+transition: all 0.3s;
+color: var(--accent);
+}
+.footer-links a:hover {
+color: var(--accent);
+transform: translateX(5px);
+}
+.footer-links a:hover::before {
+opacity: 1;
+transform: translateX(0);
+}
+.footer-bottom {
+border-top: 1px solid #e0e0e0;
+padding-top: 2rem;
+text-align: center;
+}
+.footer-bottom-content {
+max-width: 1400px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 1rem;
+}
+.copyright {
+color: #6a6a6a;
+font-size: 0.9rem;
+}
+.footer-badges {
+display: flex;
+gap: 1.5rem;
+flex-wrap: wrap;
+}
+.badge {
+display: inline-flex;
+align-items: center;
+gap: 0.5rem;
+background: rgba(0, 212, 255, 0.1);
+border: 1px solid rgba(0, 212, 255, 0.2);
+padding: 0.5rem 1rem;
+border-radius: 50px;
+font-size: 0.8rem;
+color: var(--accent);
+font-weight: 600;
+}
+/* Scroll To Top */
+.scroll-top {
+position: fixed;
+bottom: 30px;
+right: 30px;
+width: 55px;
+height: 55px;
+background: linear-gradient(135deg, var(--accent), var(--purple));
+border: none;
+border-radius: 50%;
+color: white;
+font-size: 1.5rem;
+cursor: pointer;
+opacity: 0;
+transform: scale(0);
+transition: all 0.4s;
+z-index: 100;
+box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+}
+.scroll-top.visible {
+opacity: 1;
+transform: scale(1);
+}
+.scroll-top:hover {
+transform: scale(1.1) translateY(-5px);
+box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
+}
+/* Responsive */
+@media (max-width: 1024px) {
+.footer-content {
+grid-template-columns: repeat(2, 1fr);
+}
+.footer-brand {
+grid-column: span 2;
+}
+.process-steps::before {
+display: none;
+}
+}
+@media (max-width: 768px) {
+.mobile-menu {
+display: flex;
+}
+nav {
+position: fixed;
+top: 75px;
+left: -100%;
+width: 100%;
+background: rgba(255, 255, 255, 0.98);
+backdrop-filter: blur(20px);
+flex-direction: column;
+padding: 2rem;
+gap: 1.5rem;
+transition: left 0.4s;
+border-bottom: 1px solid #e0e0e0;
+box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+align-items: flex-start;
+}
+nav.active {
+left: 0;
+}
+.cta-header {
+width: 100%;
+text-align: center;
+}
+.hero-content h1 {
+font-size: 2.8rem;
+}
+.hero-content p {
+font-size: 1.1rem;
+}
+h2 {
+font-size: 2.2rem;
+}
+.hero-buttons,
+.cta-buttons {
+flex-direction: column;
+width: 100%;
+}
+.btn {
+width: 100%;
+justify-content: center;
+}
+.services-grid,
+.portfolio-grid,
+.testimonials-grid {
+grid-template-columns: 1fr;
+}
+.hero-stats {
+gap: 2rem;
+}
+.stat-number {
+font-size: 2.2rem;
+}
+.footer-content {
+grid-template-columns: 1fr;
+}
+.footer-brand {
+grid-column: span 1;
+}
+.footer-bottom-content {
+flex-direction: column;
+text-align: center;
+}
+section {
+padding: 4rem 5%;
+}
+.cta-section {
+padding: 3rem 2rem;
+}
+}
+@media (max-width: 480px) {
+.hero-content h1 {
+font-size: 2rem;
+}
+.hero-icons {
+gap: 1rem;
+}
+.hero-icon {
+width: 65px;
+height: 65px;
+font-size: 2rem;
+}
+}
 </style>
 </head>
 <body>
-
-<!-- Gradient & Particles -->
-<div class="animated-gradient-bg"></div>
-<div class="particle-layer">
-  <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-  <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-  <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+<div class="bg-gradient"></div>
+<div class="mesh-gradient"></div>
+<div class="particles">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
   <div class="particle"></div>
 </div>
-
-<!-- Hero -->
-<section class="hero">
-  <h1>Elevate Your Business. Dominate Your Market</h1>
-  <p>Web Design • AI Integration • Tech Support</p>
-  <a href="#services" class="btn">Explore Services</a>
-  <a href="ai-salon-demo.html" class="btn">See AI Demo</a>
+<header id="header">
+  <div class="logo-container">
+    <div class="logo-icon">KL</div>
+    <div class="logo-text">KL DIGITAL</div>
+  </div>
+  <nav id="mainNav">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#process">Process</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#contact" class="cta-header">Get Started</a>
+  </nav>
+  <div class="mobile-menu" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+<section class="hero" id="home">
+  <div class="hero-badge">
+    <div class="badge-icon">✨</div>
+    <span>Premium Digital Solutions in Polokwane</span>
+  </div>
+  <div class="hero-content">
+    <h1>
+      Transform Your Business
+      <span>With Cutting-Edge Technology</span>
+    </h1>
+    <p>We deliver world-class web design, AI automation, and digital marketing services that drive real results for South African businesses.</p>
+    <div class="hero-buttons">
+      <a href="#services" class="btn btn-primary"><span>Explore Services</span></a>
+      <a href="/ai-salon-demo.html" class="btn btn-secondary"><span>See AI Demo</span></a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-number">50+</span>
+        <span class="stat-label">Projects Delivered</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">98%</span>
+        <span class="stat-label">Client Satisfaction</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">24/7</span>
+        <span class="stat-label">Support Available</span>
+      </div>
+    </div>
+    <div class="hero-icons">
+      <div class="hero-icon">🤖</div>
+      <div class="hero-icon">💻</div>
+      <div class="hero-icon">🚀</div>
+      <div class="hero-icon">⚡</div>
+    </div>
+  </div>
 </section>
-
-<!-- Services Snapshot -->
-<section class="services-overview" id="services">
-  <h2>Our Services</h2>
-  <div class="services-cards">
-    <div class="card">
-      <div class="icon">💻</div>
+<section id="services">
+  <div class="section-header">
+    <div class="section-badge">
+      <span>🎯</span>
+      Our Services
+    </div>
+    <h2>What We Offer</h2>
+    <p class="section-description">Comprehensive digital solutions designed to help your business thrive in the modern marketplace.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">💻</div>
       <h3>Web Development</h3>
-      <p>Modern, responsive websites optimized for speed.</p>
-      <a href="services/web-development.html" class="btn">Learn More</a>
+      <p>Modern, responsive websites that convert visitors into customers. Built with the latest technologies for optimal performance and SEO.</p>
+      <a href="/services/web-development.html" class="service-link">Learn More</a>
     </div>
-    <div class="card">
-      <div class="icon">🤖</div>
-      <h3>AI & Automation</h3>
-      <p>Smart solutions to scale your business effortlessly.</p>
-      <a href="services/ai-automation.html" class="btn">Learn More</a>
-    </div>
-    <div class="card">
-      <div class="icon">🎨</div>
-      <h3>Graphic Design</h3>
-      <p>Branding, visuals, and marketing materials that impress.</p>
-      <a href="services/graphic-design.html" class="btn">Learn More</a>
-    </div>
+<div class="service-card">
+  <div class="service-icon">🤖</div>
+  <h3>AI Automation</h3>
+  <p>Intelligent automation solutions that save time and reduce costs. From chatbots to predictive analytics.</p>
+  <a href="/services/ai-automation.html" class="service-link">Learn More</a>
+</div>
+
+<div class="service-card">
+  <div class="service-icon">🎨</div>
+  <h3>Graphic Design</h3>
+  <p>Professional branding and visual identity that makes your business memorable and builds trust with customers.</p>
+  <a href="/services/graphic-design.html" class="service-link">Learn More</a>
+</div>
+
+<div class="service-card">
+  <div class="service-icon">📊</div>
+  <h3>Dashboard Analytics</h3>
+  <p>Custom dashboards that turn your data into actionable insights for smarter business decisions.</p>
+  <a href="/services/dashboard-analytics.html" class="service-link">Learn More</a>
+</div>
+
+<div class="service-card">
+  <div class="service-icon">🛠️</div>
+  <h3>Tech Support</h3>
+  <p>Reliable IT support that keeps your systems running smoothly so you can focus on growing your business.</p>
+  <a href="/services/tech-support.html" class="service-link">Learn More</a>
+</div>
+
+<div class="service-card">
+  <div class="service-icon">📱</div>
+  <h3>Social Media</h3>
+  <p>Strategic social media management that builds your brand and engages your target audience effectively.</p>
+  <a href="/services/social-media.html" class="service-link">Learn More</a>
+</div>
   </div>
 </section>
+<section id="portfolio">
+  <div class="section-header">
+    <div class="section-badge">
+      <span>🏆</span>
+      Portfolio
+    </div>
+    <h2>Featured Projects</h2>
+    <p class="section-description">A selection of our recent work that showcases our expertise and commitment to excellence.</p>
+  </div>
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <div class="portfolio-image">🏪</div>
+      <div class="portfolio-info">
+        <span class="portfolio-tag">E-Commerce</span>
+        <h3>Online Store Platform</h3>
+        <p>Complete e-commerce solution with AI-powered product recommendations and seamless checkout experience.</p>
+      </div>
+    </div>
+<div class="portfolio-item">
+  <div class="portfolio-image">💼</div>
+  <div class="portfolio-info">
+    <span class="portfolio-tag">Dashboard</span>
+    <h3>Business Analytics Dashboard</h3>
+    <p>Real-time analytics platform providing comprehensive insights into business performance metrics.</p>
+  </div>
+</div>
 
-<!-- Portfolio / Projects -->
-<section class="portfolio">
-  <h2>Featured Projects</h2>
-  <div class="project-cards">
-    <div class="project-card">
-      <img src="og-image.jpg" alt="Sample Project">
-      <h3>Tech Dashboard</h3>
-      <p>Custom analytics dashboards for data-driven decisions.</p>
-    </div>
-    <div class="project-card">
-      <img src="logo.png" alt="Website Project">
-      <h3>Website Launch</h3>
-      <p>Responsive website design for a local business in Polokwane.</p>
-    </div>
+<div class="portfolio-item">
+  <div class="portfolio-image">🎨</div>
+  <div class="portfolio-info">
+    <span class="portfolio-tag">Branding</span>
+    <h3>Complete Brand Identity</h3>
+    <p>Full rebranding project including logo design, color palette, and marketing materials.</p>
+  </div>
+</div>
+  </div>
+  <div style="text-align: center; margin-top: 3rem;">
+    <a href="/portfolio.html" class="btn btn-primary"><span>View All Projects</span></a>
   </div>
 </section>
-
-<!-- Process -->
-<section class="process">
-  <h2>How We Work</h2>
-  <div class="process-cards">
-    <div class="process-card">
-      <div class="icon">📝</div>
+<section id="process">
+  <div class="section-header">
+    <div class="section-badge">
+      <span>⚙️</span>
+      Our Process
+    </div>
+    <h2>How We Work</h2>
+    <p class="section-description">Our proven three-step process ensures your project is delivered on time and exceeds expectations.</p>
+  </div>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-number">1</div>
       <h3>Plan</h3>
-      <p>We start by understanding your business goals.</p>
+      <p>We dive deep into understanding your business goals, target audience, and competition to create a tailored strategy.</p>
     </div>
-    <div class="process-card">
-      <div class="icon">💻</div>
-      <h3>Build</h3>
-      <p>We create responsive websites, AI tools, and graphics.</p>
+<div class="process-step">
+  <div class="step-number">2</div>
+  <h3>Build</h3>
+  <p>Our expert team brings your vision to life with precision, creativity, and attention to every detail.</p>
+</div>
+
+<div class="process-step">
+  <div class="step-number">3</div>
+  <h3>Launch</h3>
+  <p>We deploy your solution seamlessly and provide ongoing support to ensure continuous success and growth.</p>
+</div>
+  </div>
+</section>
+<section id="testimonials">
+  <div class="section-header">
+    <div class="section-badge">
+      <span>⭐</span>
+      Testimonials
     </div>
-    <div class="process-card">
-      <div class="icon">🚀</div>
-      <h3>Launch</h3>
-      <p>We deploy and optimize your digital presence for success.</p>
+    <h2>What Clients Say</h2>
+    <p class="section-description">Don't just take our word for it - hear from businesses we've helped transform.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"KL Digital transformed our online presence completely. Their team is professional, responsive, and truly understands modern web design."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">TM</div>
+        <div class="author-info">
+          <h4>Thabo Maluleke</h4>
+          <p>CEO, Local Business</p>
+        </div>
+      </div>
+    </div>
+<div class="testimonial-card">
+  <div class="stars">★★★★★</div>
+  <p class="testimonial-text">"The AI automation they implemented saved us countless hours every week. Best investment we've made for our business efficiency."</p>
+  <div class="testimonial-author">
+    <div class="author-avatar">SK</div>
+    <div class="author-info">
+      <h4>Sarah Kgosana</h4>
+      <p>Operations Manager</p>
+    </div>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <div class="stars">★★★★★</div>
+  <p class="testimonial-text">"Exceptional service from start to finish. They delivered exactly what we needed and provided excellent ongoing support."</p>
+  <div class="testimonial-author">
+    <div class="author-avatar">PM</div>
+    <div class="author-info">
+      <h4>Peter Mokoena</h4>
+      <p>Business Owner</p>
+    </div>
+  </div>
+</div>
+  </div>
+</section>
+<section>
+  <div class="cta-section" id="contact">
+    <h2>Ready to Transform Your Business?</h2>
+    <p>Let's create something amazing together. Get in touch today for a free consultation.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/27658772518" class="btn btn-primary"><span>💬 WhatsApp Us</span></a>
+      <a href="mailto:kldigital.active@gmail.com" class="btn btn-secondary"><span>📧 Email Us</span></a>
     </div>
   </div>
 </section>
-
-<!-- CTA -->
-<section class="cta">
-  <h2>Ready to Elevate Your Business?</h2>
-  <a href="contact.html" class="btn">Contact Us Today</a>
-</section>
-
-<!-- Footer -->
 <footer>
-  <p>&copy; 2026 KL Digital. All Rights Reserved.</p>
-</footer>
+  <div class="footer-content">
+    <div class="footer-section footer-brand">
+      <div class="footer-logo">
+        <div class="footer-logo-icon">KL</div>
+        <div class="footer-logo-text">KL DIGITAL</div>
+      </div>
+      <p class="footer-description">Premium digital solutions for businesses in Polokwane and across South Africa. We combine creativity with technology to drive real results.</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/kwenamokoti" class="social-icon" aria-label="LinkedIn">💼</a>
+        <a href="https://wa.me/27658772518" class="social-icon" aria-label="WhatsApp">💬</a>
+        <a href="mailto:kldigital.active@gmail.com" class="social-icon" aria-label="Email">📧</a>
+      </div>
+    </div>
+<div class="footer-section">
+  <h3>Services</h3>
+  <ul class="footer-links">
+    <li><a href="/services/web-development.html">Web Development</a></li>
+    <li><a href="/services/ai-automation.html">AI Automation</a></li>
+    <li><a href="/services/graphic-design.html">Graphic Design</a></li>
+    <li><a href="/services/dashboard-analytics.html">Dashboard Analytics</a></li>
+  </ul>
+</div>
 
+<div class="footer-section">
+  <h3>Company</h3>
+  <ul class="footer-links">
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#process">Our Process</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="/ai-salon-demo.html">AI Demo</a></li>
+  </ul>
+</div>
+
+<div class="footer-section">
+  <h3>Contact</h3>
+  <ul class="footer-links">
+    <li><a href="mailto:kldigital.active@gmail.com">kldigital.active@gmail.com</a></li>
+    <li><a href="https://wa.me/27658772518">+27 65 877 2518</a></li>
+    <li><a href="#contact">Polokwane, Limpopo, SA</a></li>
+  </ul>
+</div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-content">
+      <p class="copyright">© 2025 KL Digital | K&L Foundation - Gen Z Innovation Hub</p>
+      <div class="footer-badges">
+        <span class="badge">🔒 SSL Secured</span>
+        <span class="badge">⚡ Fast Support</span>
+        <span class="badge">🇿🇦 Made in SA</span>
+      </div>
+    </div>
+  </div>
+</footer>
+<button class="scroll-top" onclick="scrollToTop()">↑</button>
 <script>
-// Particle Randomizer
-const particles = document.querySelectorAll('.particle-layer .particle');
-particles.forEach(p => {
-  const size = Math.random() * 6 + 4;
-  p.style.width = size + 'px';
-  p.style.height = size + 'px';
-  p.style.left = Math.random() * window.innerWidth + 'px';
-  p.style.top = Math.random() * window.innerHeight + 'px';
-  const duration = Math.random() * 15 + 10;
-  p.style.animationDuration = duration + 's';
-  const delay = Math.random() * 5;
-  p.style.animationDelay = delay + 's';
+function toggleMenu() {
+  document.getElementById('mainNav').classList.toggle('active');
+}
+
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.getElementById('mainNav').classList.remove('active');
+    }
+  });
+});
+
+// Header scroll effect
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('header');
+  const scrollTop = document.querySelector('.scroll-top');
+  
+  if (window.scrollY > 100) {
+    header.classList.add('scrolled');
+    scrollTop.classList.add('visible');
+  } else {
+    header.classList.remove('scrolled');
+    scrollTop.classList.remove('visible');
+  }
+});
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+  const nav = document.getElementById('mainNav');
+  const menuBtn = document.querySelector('.mobile-menu');
+  
+  if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
+    nav.classList.remove('active');
+  }
 });
 </script>
-
 </body>
-</html>
-
-
+</html></parameter>
