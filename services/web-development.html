@@ -4,92 +4,63 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Web Development | KL Digital</title>
-<link rel="stylesheet" href="../style.css"> <!-- Link to your main CSS -->
+<link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <!-- BACKGROUND ELEMENTS -->
-  <div class="bg-gradient"></div>
-  <div class="particles">
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
+
+<header>
+  <div class="logo-section">
+    <img src="../logo.png" alt="KL Digital Logo" class="logo-img">
+    <h1>KL DIGITAL</h1>
   </div>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="services-overview.html">Services</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+  </nav>
+  <a href="../membership.html" class="membership-bubble">Join</a>
+</header>
 
-  <!-- HEADER -->
-  <header>
-    <div class="logo-section">
-      <img src="../logo.png" alt="KL Digital Logo" class="logo-img">
-      <h1>KL DIGITAL</h1>
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <h1>Web Development</h1>
+    <p class="hero-tagline">Responsive, Modern, and Fast Websites</p>
+    <a href="#details" class="btn">Learn More</a>
+  </div>
+</section>
+
+<section id="details">
+  <h2>What We Offer</h2>
+  <div class="project-container">
+    <div class="project-card">
+      <div class="project-icon">💻</div>
+      <h3>Responsive Websites</h3>
+      <p>Websites that look perfect on desktop, tablet, and mobile. Optimized for speed and smooth user experience.</p>
     </div>
-    <nav>
-      <a href="../index.html">Home</a>
-      <a href="../services/web-development.html">Services</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
-    </nav>
-    <a href="../membership.html" class="membership-bubble">Join</a>
-  </header>
-
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-glow"></div>
-    <div class="hero-content">
-      <h1>Web Development</h1>
-      <p class="hero-tagline">FAST • FUTURISTIC • RESPONSIVE</p>
-      <a href="#services-features" class="btn">Explore Services</a>
+    <div class="project-card">
+      <div class="project-icon">⚡</div>
+      <h3>Custom Web Apps</h3>
+      <p>Dynamic web applications tailored for your business. Fast, secure, and future-ready.</p>
     </div>
-  </section>
-
-  <!-- SERVICE FEATURES SECTION -->
-  <section id="services-features">
-    <h2>What We Offer</h2>
-    <div class="project-container">
-      <div class="project-card">
-        <div class="project-icon">💻</div>
-        <h3>Responsive Websites</h3>
-        <p>Websites that look perfect on desktop, tablet, and mobile. Optimized for speed and smooth user experience.</p>
-        <a href="#contact" class="learn-more">Contact Us</a>
-      </div>
-
-      <div class="project-card">
-        <div class="project-icon">⚡</div>
-        <h3>Custom Web Apps</h3>
-        <p>Dynamic web applications tailored for your business. Fast, secure, and future-ready with modern frameworks.</p>
-        <a href="#contact" class="learn-more">Contact Us</a>
-      </div>
-
-      <div class="project-card">
-        <div class="project-icon">🌐</div>
-        <h3>E-commerce Solutions</h3>
-        <p>Fully functional online stores with smooth checkout, payment integration, and advanced features for growth.</p>
-        <a href="#contact" class="learn-more">Contact Us</a>
-      </div>
+    <div class="project-card">
+      <div class="project-icon">🌐</div>
+      <h3>E-commerce Solutions</h3>
+      <p>Fully functional online stores with smooth checkout, payment integration, and advanced features.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CTA / CONTACT -->
-  <section id="contact">
-    <h2>Ready to Build Your Future?</h2>
-    <p>Reach out and let's start your project today. Our web solutions will put your brand ahead of the curve.</p>
-    <a href="../contact.html" class="btn">Get Started</a>
-  </section>
+<section id="contact">
+  <h2>Start Your Project Today</h2>
+  <a href="../contact.html" class="btn">Contact Us</a>
+  <a href="services-overview.html" class="btn">Back to All Services</a>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2026 KL Digital. All Rights Reserved.</p>
-  </footer>
+<footer>
+  <p>&copy; 2026 KL Digital. All Rights Reserved.</p>
+</footer>
 
-  <!-- OPTIONAL: Cursor Trail JS -->
-  <script>
-    document.addEventListener('mousemove', e => {
-      const trail = document.createElement('div');
-      trail.className = 'cursor-trail';
-      trail.style.left = e.pageX + 'px';
-      trail.style.top = e.pageY + 'px';
-      document.body.appendChild(trail);
-      setTimeout(() => trail.remove(), 1000);
-    });
-  </script>
 </body>
 </html>
