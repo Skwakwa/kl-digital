@@ -1995,3 +1995,22 @@ nav a:hover {
   box-shadow: 0 30px 60px rgba(37,99,235,0.15) !important;
   border-color: #2563eb !important;
 }
+/* Full-page animated gradient background */
+.animated-gradient-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* behind everything */
+  background: linear-gradient(270deg, #e0ffff, #f0f8ff, #c0c0c0, #e0ffff);
+  background-size: 800% 800%;
+  animation: gradientShift 20s ease infinite;
+}
+
+/* Smooth gradient movement */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
