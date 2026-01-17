@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Optimized Google Tag - Delayed Load for Better Performance -->
+  <!-- Optimized Google Tag - Delayed Load for Better Performance -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -166,1093 +166,337 @@
   ]
 }
 </script>
-
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="/favicon.png">
-<link rel="canonical" href="https://kldigital.co.za">
-  
+<title>KL Digital | Web & AI Solutions</title>
 <link rel="stylesheet" href="style.css">
+<style>
+  /* ===== Full-page animated gradient ===== */
+  .animated-gradient-bg {
+    position: fixed;
+    top:0; left:0; width:100%; height:100%;
+    z-index:-2;
+    background: linear-gradient(270deg, #e0ffff, #f0f8ff, #c0c0c0, #e0ffff);
+    background-size: 800% 800%;
+    animation: gradientShift 20s ease infinite;
+  }
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 
+  /* ===== Particle Layer ===== */
+  .particle-layer {
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    z-index:-1;
+    pointer-events:none;
+    overflow:hidden;
+  }
+  .particle {
+    position:absolute;
+    width:6px; height:6px;
+    background: rgba(255,255,255,0.6);
+    border-radius:50%;
+    animation: floatParticle linear infinite;
+  }
+  @keyframes floatParticle {
+    0% { transform: translateY(0px); opacity:0.4; }
+    50% { transform: translateY(-80px); opacity:0.8; }
+    100% { transform: translateY(0px); opacity:0.4; }
+  }
+
+  /* ===== Hero Section ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding: 0 1rem;
+    color:#0a0e27;
+  }
+  .hero h1 {
+    font-size:3rem;
+    margin-bottom:1rem;
+    text-shadow: 0 0 15px #00d4ff;
+  }
+  .hero p {
+    font-size:1.25rem;
+    margin-bottom:2rem;
+  }
+  .hero .btn {
+    margin:0.5rem;
+    padding:0.75rem 2rem;
+    background:#00d4ff;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition: all 0.3s ease;
+    text-decoration:none;
+    font-weight:bold;
+  }
+  .hero .btn:hover {
+    box-shadow:0 0 15px #00d4ff, 0 0 30px #c0c0ff;
+    transform: translateY(-2px);
+  }
+
+  /* ===== Services Cards ===== */
+  .services-overview {
+    padding:5rem 2rem;
+    text-align:center;
+  }
+  .services-overview h2 {
+    font-size:2.5rem;
+    margin-bottom:2rem;
+  }
+  .services-cards {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:2rem;
+  }
+  .services-cards .card {
+    background: rgba(255,255,255,0.8);
+    border-radius:12px;
+    padding:2rem;
+    width:250px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+  .services-cards .card:hover {
+    transform: translateY(-5px);
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+  }
+  .services-cards .card .icon {
+    font-size:2.5rem;
+    margin-bottom:1rem;
+  }
+  .services-cards .card h3 {
+    margin-bottom:0.5rem;
+  }
+  .services-cards .card p {
+    font-size:0.95rem;
+    margin-bottom:1rem;
+  }
+  .services-cards .card .btn {
+    background:#0a0e27;
+    color:#00d4ff;
+    text-decoration:none;
+    display:inline-block;
+    padding:0.5rem 1rem;
+    border-radius:6px;
+    font-weight:bold;
+  }
+  .services-cards .card .btn:hover {
+    box-shadow:0 0 15px #00d4ff;
+    transform: translateY(-2px);
+  }
+
+  /* ===== Portfolio / Featured Projects ===== */
+  .portfolio {
+    padding:5rem 2rem;
+    text-align:center;
+    background: #f8f8f8;
+  }
+  .portfolio h2 { font-size:2.5rem; margin-bottom:2rem; }
+  .portfolio .project-cards {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:2rem;
+  }
+  .portfolio .project-card {
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    width:300px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+  .portfolio .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+  }
+  .portfolio .project-card img {
+    width:100%;
+    display:block;
+  }
+  .portfolio .project-card h3 {
+    margin:1rem;
+  }
+  .portfolio .project-card p {
+    margin:0 1rem 1rem 1rem;
+    font-size:0.9rem;
+  }
+
+  /* ===== Process Section ===== */
+  .process {
+    padding:5rem 2rem;
+    text-align:center;
+  }
+  .process h2 { font-size:2.5rem; margin-bottom:2rem; }
+  .process-cards {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:2rem;
+  }
+  .process-card {
+    background: rgba(255,255,255,0.85);
+    border-radius:12px;
+    padding:2rem;
+    width:220px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+  }
+  .process-card .icon { font-size:2rem; margin-bottom:0.5rem; }
+  .process-card h3 { margin-bottom:0.5rem; }
+  .process-card p { font-size:0.9rem; }
+
+  /* ===== CTA Section ===== */
+  .cta {
+    background:#00d4ff;
+    color:#fff;
+    text-align:center;
+    padding:4rem 2rem;
+  }
+  .cta h2 { font-size:2rem; margin-bottom:1rem; }
+  .cta .btn {
+    background:#0a0e27;
+    color:#00d4ff;
+    text-decoration:none;
+    padding:0.75rem 2rem;
+    border-radius:8px;
+    font-weight:bold;
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    background:#0a0e27;
+    color:#fff;
+    text-align:center;
+    padding:2rem;
+  }
+
+  /* Responsive */
+  @media(max-width:900px){
+    .services-cards, .portfolio .project-cards, .process-cards { flex-direction:column; align-items:center; }
+  }
+</style>
 </head>
 <body>
-<!-- Layered Gradient + Particle + Glow -->
+
+<!-- Gradient & Particles -->
 <div class="animated-gradient-bg"></div>
-
 <div class="particle-layer">
-  <!-- 30 particles, can add more if needed -->
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
+  <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+  <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+  <div class="particle"></div><div class="particle"></div><div class="particle"></div>
   <div class="particle"></div>
 </div>
 
+<!-- Hero -->
+<section class="hero">
+  <h1>Elevate Your Business. Dominate Your Market</h1>
+  <p>Web Design • AI Integration • Tech Support</p>
+  <a href="#services" class="btn">Explore Services</a>
+  <a href="ai-salon-demo.html" class="btn">See AI Demo</a>
+</section>
 
-<div class="spacer">
-  <h1>👇 Scroll Down to See Your New Footer 👇</h1>
-</div>
-    
-<header>
-  <div class="logo-section">
-   <img src="logo.png" alt="KL Digital Logo" class="logo-img">
-      <defs>
-        <filter id="blueGlow">
-          <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-          <feMerge>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-        <filter id="purpleGlow">
-          <feGaussianBlur stdDeviation="10" result="coloredBlur"/>
-          <feMerge>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-        <filter id="orangeGlow">
-          <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-          <feMerge>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-        <linearGradient id="blueNeon" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
-          <stop offset="100%" style="stop-color:#0066ff;stop-opacity:1" />
-        </linearGradient>
-        <linearGradient id="purpleNeon" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#b24bf3;stop-opacity:1" />
-          <stop offset="100%" style="stop-color:#7b2cbf;stop-opacity:1" />
-        </linearGradient>
-        <linearGradient id="orangeNeon" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
-          <stop offset="100%" style="stop-color:#ff6b35;stop-opacity:1" />
-        </linearGradient>
-      </defs>
-      <rect width="500" height="500" fill="#0a0e27"/>
-      <circle cx="150" cy="200" r="100" fill="#00d4ff" opacity="0.1" filter="url(#blueGlow)">
-        <animate attributeName="r" values="100;120;100" dur="3s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="350" cy="200" r="100" fill="#ff6b35" opacity="0.1" filter="url(#orangeGlow)">
-        <animate attributeName="r" values="100;120;100" dur="3.5s" repeatCount="indefinite"/>
-      </circle>
-   <g filter="url(#blueGlow)">
-        <path d="M 100,120 L 100,280" stroke="url(#blueNeon)" stroke-width="16" stroke-linecap="round" fill="none"/>
-        <path d="M 100,180 L 180,120" stroke="url(#blueNeon)" stroke-width="16" stroke-linecap="round" fill="none"/>
-        <path d="M 100,200 L 180,280" stroke="url(#blueNeon)" stroke-width="16" stroke-linecap="round" fill="none"/>
-        <circle cx="100" cy="180" r="6" fill="#00d4ff" opacity="0.9">
-          <animate attributeName="r" values="6;9;6" dur="1.5s" repeatCount="indefinite"/>
-        </circle>
-      </g>
-      <g filter="url(#purpleGlow)">
-        <path d="M 250,160 Q 230,140 210,140 Q 180,140 180,170 Q 180,190 200,210 L 240,250 Q 260,230 280,230 Q 300,230 300,250 Q 300,280 260,280 Q 230,280 210,260" 
-              stroke="url(#purpleNeon)" stroke-width="18" stroke-linecap="round" fill="none"/>
-        <circle cx="250" cy="200" r="8" fill="#b24bf3">
-          <animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" repeatCount="indefinite"/>
-        </circle>
-      </g>
-      <g filter="url(#orangeGlow)">
-        <path d="M 340,120 L 340,280" stroke="url(#orangeNeon)" stroke-width="16" stroke-linecap="round" fill="none"/>
-        <path d="M 340,280 L 420,280" stroke="url(#orangeNeon)" stroke-width="16" stroke-linecap="round" fill="none"/>
-        <path d="M 350,150 L 370,170 L 350,190" stroke="#ffd700" stroke-width="3" fill="none" opacity="0.6">
-          <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
-        </path>
-      </g>
-    </svg>
-    <h1>KL DIGITAL</h1>
-  </div>
-  
-  <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle mobile menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-
-  <nav id="mainNav">
-    <a href="#hero">Home</a>
-   <a href="#projects">Services</a>
-    <a href="#contact">Contact</a>
-    <a href="register.html" class="membership-bubble">MEMBERSHIP</a>
-  </nav>
-</header>
-
-<section class="hero" id="hero">
-  <div class="hero-glow"></div>
-  <div class="hero-content">
-    <h1>Elevate Your Business. Dominate Your Market</h1>
-    <p class="hero-tagline">Web Design <span>•</span> AI Integration <span>•</span> Tech Support</p>
-    <a href="#projects" class="btn" aria-label="View our digital services">Explore Services</a>
-             <!-- Add the demo link BELOW your hero text -->
-<p style="margin-top:20px;">
-🚀 See Our AI Salon Booking Demo
-</p>
-<a href="ai-salon-demo.html" class="btn">View Demo</a>
-    
-    <div class="hero-tech-icons" role="presentation" aria-label="Technology icons">
-      <div class="tech-icon" title="AI Integration Services">🤖</div>
-      <div class="tech-icon" title="Web Development Services">💻</div>
-      <div class="tech-icon" title="Digital Innovation">🚀</div>
-      <div class="tech-icon" title="Fast Service">⚡</div>
+<!-- Services Snapshot -->
+<section class="services-overview" id="services">
+  <h2>Our Services</h2>
+  <div class="services-cards">
+    <div class="card">
+      <div class="icon">💻</div>
+      <h3>Web Development</h3>
+      <p>Modern, responsive websites optimized for speed.</p>
+      <a href="services/web-development.html" class="btn">Learn More</a>
+    </div>
+    <div class="card">
+      <div class="icon">🤖</div>
+      <h3>AI & Automation</h3>
+      <p>Smart solutions to scale your business effortlessly.</p>
+      <a href="services/ai-automation.html" class="btn">Learn More</a>
+    </div>
+    <div class="card">
+      <div class="icon">🎨</div>
+      <h3>Graphic Design</h3>
+      <p>Branding, visuals, and marketing materials that impress.</p>
+      <a href="services/graphic-design.html" class="btn">Learn More</a>
     </div>
   </div>
 </section>
 
-<section id="projects">
-  <h2>Digital Services </h2>
-  <div class="project-container">
-   <article class="project-card" onclick="openModal('ai')" tabindex="0" aria-label="Learn about AI Integration services">
-      <div class="project-icon" role="img" aria-label="AI Robot icon">🤖</div>
-      <h3>AI Integration & Workshops</h3>
-      <p>Transform your business with cutting-edge artificial intelligence, automation and data-driven insights. </p>
-      <span class="learn-more">View Pricing & Details</span>
-    </article>
-    
-    <article class="project-card" onclick="openModal('web')" tabindex="0" aria-label="Learn about Website design services">
-      <div class="project-icon" role="img" aria-label="Computer icon">💻</div>
-      <h3>Website Design & Development</h3>
-      <p>Modern, responsive websites for South African businesses. Professional web design with 12-month affordable payment plans starting at R499/month.</p>
-      <span class="learn-more">View Pricing & Details</span>
-    </article>
-    
-   <article class="project-card" onclick="openModal('support')" tabindex="0" aria-label="Learn about Tech solutions services">
-      <div class="project-icon" role="img" aria-label="Tools icon">🛠️</div>
-      <h3>IT Support & Tech Solutions</h3>
-      <p>Expert technical assistance in Polokwane and Limpopo. From troubleshooting to optimization, professional IT support for your business technology needs.</p>
-      <span class="learn-more">View Pricing & Details</span>
-    </article>
-    
-   <article class="project-card" onclick="openModal('social')" tabindex="0" aria-label="Learn about Social media management">
-      <div class="project-icon" role="img" aria-label="Mobile phone icon">📱</div>
-      <h3>Social Media Management</h3>
-      <p>Grow your Polokwane business online with expert social media management. Professional content creation, engagement, and real audience growth for SA businesses.</p>
-      <span class="learn-more">View Pricing & Details</span>
-    </article>
-    
-    <article class="project-card" onclick="openModal('logo')" tabindex="0" aria-label="Learn about Logo design/branding services">
-      <div class="project-icon" role="img" aria-label="Art palette icon">🎨</div>
-      <h3>Logo Design & Branding</h3>
-      <p>Professional logo design in Polokwane. Capture your brand identity with memorable, modern branding that makes your South African business stand out.</p>
-      <span class="learn-more">View Pricing & Details</span>
-    </article>
-    
-   <article class="project-card" onclick="openModal('seo')" tabindex="0" aria-label="Learn about SEO services">
-      <div class="project-icon" role="img" aria-label="Search icon">🔍</div>
-      <h3>SEO Services Polokwane</h3>
-      <p>Rank higher on Google and attract more customers. Local SEO expertise to dominate search results in Polokwane, Limpopo, and across South Africa.</p>
-      <span class="learn-more">View Pricing & Details</span>
-    </article>
-    
-    <article class="project-card" onclick="openModal('email')" tabindex="0" aria-label="Learn about Business email setup services">
-      <div class="project-icon" role="img" aria-label="Email icon">📧</div>
-      <h3>Business Email Setup</h3>
-      <p>Professional email addresses for South African businesses. Build trust with custom domain emails. Quick Gmail for Business setup in Polokwane.</p>
-      <span class="learn-more">View Pricing & Details</span>
-    </article>
+<!-- Portfolio / Projects -->
+<section class="portfolio">
+  <h2>Featured Projects</h2>
+  <div class="project-cards">
+    <div class="project-card">
+      <img src="og-image.jpg" alt="Sample Project">
+      <h3>Tech Dashboard</h3>
+      <p>Custom analytics dashboards for data-driven decisions.</p>
+    </div>
+    <div class="project-card">
+      <img src="logo.png" alt="Website Project">
+      <h3>Website Launch</h3>
+      <p>Responsive website design for a local business in Polokwane.</p>
+    </div>
   </div>
 </section>
 
-<!-- AI WORKSHOP MODAL -->
-<div id="aiModal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal" onclick="closeModal('ai')">×</span>
-    
-    <div class="modal-header">
-      <h2>AI Integration & Workshops</h2>
-      <p>Revolutionize your business operations with artificial intelligence that works as hard as you do.</p>
+<!-- Process -->
+<section class="process">
+  <h2>How We Work</h2>
+  <div class="process-cards">
+    <div class="process-card">
+      <div class="icon">📝</div>
+      <h3>Plan</h3>
+      <p>We start by understanding your business goals.</p>
     </div>
-
-    <div class="service-intro">
-      <h3>What We Offer</h3>
-      <p>
-        At KL Digital, we specialize in bringing AI to businesses of all sizes. Whether you're looking to automate repetitive tasks, 
-        gain deeper insights from your data, or create intelligent customer experiences, our AI solutions are designed to deliver 
-        measurable results. We provide hands-on workshops, custom AI implementations, and ongoing support to ensure your team 
-        maximizes the potential of artificial intelligence.
-      </p>
+    <div class="process-card">
+      <div class="icon">💻</div>
+      <h3>Build</h3>
+      <p>We create responsive websites, AI tools, and graphics.</p>
     </div>
-
-    <div class="pricing-cards">
-      <div class="pricing-card">
-        <h3>AI Starter</h3>
-        <span class="price">R2,500</span>
-        <span class="price-note">One-time setup</span>
-        <ul>
-          <li>2-hour AI workshop for your team</li>
-          <li>Basic automation setup (1 process)</li>
-          <li>Introduction to AI tools for business</li>
-          <li>Email support for 30 days</li>
-          <li>Resource guide & documentation</li>
-        </ul>
-        <button class="btn btn-select" onclick="selectService('AI Starter - R2,500')">Select Plan</button>
-      </div>
-
-      <div class="pricing-card .featured">
-        <h3>AI Business</h3>
-        <span class="price">R7,500</span>
-        <span class="price-note">One-time setup + 3 months support</span>
-        <ul>
-          <li>Full-day intensive AI workshop</li>
-          <li>Custom AI integration (up to 3 processes)</li>
-          <li>Chatbot or customer service AI implementation</li>
-          <li>Data analysis & insights dashboard</li>
-          <li>3 months of technical support</li>
-          <li>Monthly optimization check-ins</li>
-        </ul>
-        <button class="btn btn-select" onclick="selectService('AI Business - R7,500')">Select Plan</button>
-      </div>
-
-      <div class="pricing-card">
-        <h3>AI Enterprise</h3>
-        <span class="price">Custom</span>
-        <span class="price-note">Tailored to your needs</span>
-        <ul>
-          <li>Comprehensive AI strategy consultation</li>
-          <li>Unlimited process automation</li>
-          <li>Advanced machine learning models</li>
-          <li>Predictive analytics implementation</li>
-          <li>Dedicated AI specialist</li>
-          <li>12 months premium support</li>
-          <li>Quarterly performance reviews</li>
-        </ul>
-        <button class="btn btn-select" onclick="selectService('AI Enterprise - Custom Quote')">Request Quote</button>
-      </div>
-    </div>
-
-    <div class="modal-cta">
-      <h3>Ready to Transform Your Business?</h3>
-      <p>Let's discuss how AI can unlock exponential growth for your company.</p>
-      <button class="btn" onclick="closeModal('ai'); scrollToContact()">Get Started</button>
+    <div class="process-card">
+      <div class="icon">🚀</div>
+      <h3>Launch</h3>
+      <p>We deploy and optimize your digital presence for success.</p>
     </div>
   </div>
-</div>
-
-<!-- WEB DEVELOPMENT MODAL -->
-<div id="webModal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal" onclick="closeModal('web')">×</span>
-    
-    <div class="modal-header">
-      <h2>Website Development</h2>
-      <p>Modern, responsive, and SEO-optimized websites that represent your brand perfectly and drive real results.</p>
-    </div>
-
-    <div class="service-intro">
-      <h3>What We Offer</h3>
-      <p>
-        At KL Digital, we build websites designed to attract attention, convert visitors, and scale with your business. 
-        From elegant one-page sites to comprehensive business platforms, our web development focuses on speed, stunning design, 
-        and measurable outcomes. All our plans are structured on convenient 12-month contracts with affordable monthly payments, 
-        ensuring you get premium quality without the hefty upfront cost.
-      </p>
-    </div>
-
-    <div class="pricing-cards">
-      <div class="pricing-card">
-        <h3>Starter</h3>
-        <span class="price">R499</span>
-        <span class="price-note">per month x 12 months</span>
-        <ul>
-          <li>1-page responsive website</li>
-          <li>Mobile-friendly design</li>
-          <li>Custom branding & colors</li>
-          <li>Contact form integration</li>
-          <li>Basic SEO optimization</li>
-          <li>3-day delivery</li>
-          <li>SSL security certificate</li>
-        </ul>
-        <button class="btn btn-select" onclick="selectService('Website Starter - R499/month')">Select Plan</button>
-      </div>
-
-      <div class="pricing-card .featured">
-        <h3>Professional</h3>
-        <span class="price">R999</span>
-        <span class="price-note">per month x 12 months</span>
-        <ul>
-          <li>Up to 5 pages</li>
-          <li>Advanced SEO setup</li>
-          <li>Google Analytics integration</li>
-          <li>Mobile optimization</li>
-          <li>Domain connection & setup</li>
-          <li>Social media integration</li>
-          <li>7-day delivery</li>
-          <li>Monthly performance reports</li>
-        </ul>
-        <button class="btn btn-select" onclick="selectService('Website Professional - R999/month')">Select Plan</button>
-      </div>
-
-      <div class="pricing-card">
-        <h3>Elite</h3>
-        <span class="price">R1,499</span>
-        <span class="price-note">per month x 12 months</span>
-        <ul>
-          <li>Unlimited pages</li>
-          <li>Custom interactive features</li>
-          <li>E-commerce capabilities (optional)</li>
-          <li>Advanced analytics & tracking</li>
-          <li>Content management system</li>
-          <li>Premium hosting included</li>
-          <li>Priority support & updates</li>
-          <li>Conversion optimization</li>
-          <li>14-day delivery</li>
-        </ul>
-        <button class="btn btn-select" onclick="selectService('Website Elite - R1,499/month')">Select Plan</button>
-      </div>
-    </div>
-
-    <div class="modal-cta">
-      <h3>Let's Build Something Amazing</h3>
-      <p>Your website should work as hard as you do. Contact us to start your project today.</p>
-      <button class="btn" onclick="closeModal('web'); scrollToContact()">Get Started</button>
-    </div>
-  </div>
-</div>
-
-<!-- TECH SUPPORT MODAL -->
-<div id="supportModal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal" onclick="closeModal('support')">×</span>
-    
-    <div class="modal-header">
-      <h2>Tech Support & IT Solutions</h2>
-      <p>Professional technical assistance to keep your technology running smoothly, so you can focus on what matters most.</p>
-    </div>
-
-    <div class="service-intro">
-      <h3>What We Offer</h3>
-      <p>
-        From laptop issues to network problems, software installations to system optimization, KL Digital provides comprehensive 
-        technical support for individuals and businesses. Our experienced technicians diagnose and resolve issues quickly, 
-        ensuring minimal downtime. Whether you need one-time assistance or ongoing support, we're here to help you navigate 
-        any technical challenge with confidence and expertise.
-      </p>
-    </div>
-
-    <div class="pricing-cards">
-      <div class="pricing-card">
-        <h3>On-Demand</h3>
-        <span class="price">R350</span>
-        <span class="price-note">per incident</span>
-        <ul>
-          <li>Single issue resolution</li>
-          <li>Remote or on-site support</li>
-          <li>Software troubleshooting</li>
-          <li>Hardware diagnostics</li>
-          <li>Virus & malware removal</li>
-          <li>Same-day response</li>
-        </ul>
-        <button class="btn btn-select" onclick="selectService('Tech Support On-Demand - R350')">Select Plan</button>
-      </div>
-
-      <div class="pricing-card .featured">
-        <h3>Monthly Care</h3>
-        <span class="price">R899</span>
-        <span class="price-note">per month</span>
-        <ul>
-          <li>Unlimited support tickets</li>
-          <li>Priority response (4-hour SLA)</li>
-          <li>Monthly system health checks</li>
-          <li>Software updates & maintenance</li>
-          <li>Data backup assistance</li>
-          <li>Remote & on-site options</li>
-          <li>24/7 emergency hotline</li>
-        </ul>
-        <button class="btn btn-select" onclick="selectService('Tech Support Monthly - R899/month')">Select Plan</button>
-      </div>
-
-      <div class="pricing-card">
-        <h3>Business Support</h3>
-        <span class="price">R2,500</span>
-        <span class="price-note">per month</span>
-        <ul>
-          <li>Multi-device & user support</li>
-          <li>Network setup & management</li>
-          <li>Server maintenance</li>
-          <li>Security audits & monitoring</li>
-          <li>Dedicated support technician</li>
-          <li>1-hour emergency response</li>
-          <li>IT consulting included</li>
-          <li>Quarterly technology reviews</li>
-        </ul>
-        <button class="btn btn-select" onclick="selectService('Tech Support Business - R2,500/month')">Select Plan</button>
-      </div>
-    </div>
-
-    <div class="modal-cta">
-      <h3>Get the Support You Deserve</h3>
-      <p>Don't let tech issues slow you down. Contact us for reliable, expert support.</p>
-      <button class="btn" onclick="closeModal('support'); scrollToContact()">Get Started</button>
-    </div>
-  </div>
-</div>
-
-<!-- SOCIAL MEDIA MANAGEMENT MODAL -->
-<div id="socialModal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal" onclick="closeModal('social')">×</span>
-    
-    <div class="modal-header">
-      <h2>Social Media Management</h2>
-      <p>Build your brand and engage your audience with professional social media management that drives real results.</p>
-    </div>
-
-    <div class="service-intro">
-      <h3>What We Offer</h3>
-      <p>
-        Let KL Digital handle your social media while you focus on running your business. We create engaging content, 
-        manage your accounts, respond to customers, and grow your online presence across Instagram, Facebook, and more. 
-        Our strategies are designed to increase followers, boost engagement, and turn social media into a powerful 
-        marketing tool for your business.
-      </p>
-    </div>
-
-    <div class="pricing-cards">
-      <div class="pricing-card">
-        <h3>Starter</h3>
-        <span class="price">R800</span>
-        <span class="price-note">per month</span>
-        <ul>
-          <li>2 social media platforms</li>
-          <li>3 posts per week (12 per month)</li>
-          <li>Basic content creation</li>
-          <li>Hashtag research</li>
-          <li>Monthly analytics report</li>
-        </ul>
-        <button class="btn btn-select" onclick="selectService('Social Media Starter - R800/month')">Select Plan</button>
-      </div>
-
-      <div class="pricing-card .featured">
-        <h3>Growth</h3>
-        <span class="price">R1,200</span>
-        <span class="price-note">per month</span>
-        <ul>
-          <li>3 social media platforms</li>
-          <li>5 posts per week (20 per month)</li>
-          <li>Custom graphics & content</li>
-          <li>Daily engagement & replies</li>
-          <li>Story management</li>
-          <li>Competitor analysis</li>
-          <li>Weekly performance reports</li>
-        </ul>
-        <button class="btn btn-select" onclick="selectService('Social Media Growth - R1,200/month')">Select Plan</button>
-      </div>
-
-      <div class="pricing-card">
-        <h3>Premium</h3>
-        <span class="price">R1,500</span>
-        <span class="price-note">per month</span>
-        <ul>
-          <li>All major platforms (IG, FB, Twitter, LinkedIn)</li>
-          <li>Daily posting (30+ per month)</li>
-          <li>Video content creation</li>
-          <li>Influencer outreach</li>
-          <li>Paid ad management (ad spend not included)</li>
-          <li>Dedicated account manager</li>
-          <li>Real-time engagement</li>
-        </ul>
-        <button class="btn btn-select" onclick="selectService('Social Media Premium - R1,500/month')">Select Plan</button>
-      </div>
-    </div>
-
-    <div class="modal-cta">
-      <h3>Ready to Grow Your Audience?</h3>
-      <p>Let's build a social media presence that converts followers into customers.</p>
-      <button class="btn" onclick="closeModal('social'); scrollToContact()">Get Started</button>
-    </div>
-  </div>
-</div>
-
-<!-- LOGO DESIGN MODAL -->
-<div id="logoModal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal" onclick="closeModal('logo')">×</span>
-    
-    <div class="modal-header">
-      <h2>Logo Design</h2>
-      <p>Professional logo design that makes your brand unforgettable. Stand out with a unique visual identity.</p>
-    </div>
-
-    <div class="service-intro">
-      <h3>What We Offer</h3>
-      <p>
-        Your logo is the face of your business. At KL Digital, we create memorable, professional logos that capture 
-        your brand's essence and leave a lasting impression. From concept to final delivery, we work with you to 
-        ensure your logo perfectly represents your business and connects with your target audience.
-      </p>
-    </div>
-
-    <div class="pricing-cards">
-      <div class="pricing-card">
-        <h3>Basic Logo</h3>
-        <span class="price">R500</span>
-        <span class="price-note">one-time payment</span>
-        <ul>
-          <li>2 logo concepts</li>
-          <li>1 round of revisions</li>
-          <li>High-resolution files (PNG, JPG)</li>
-          <li>2-3 day delivery</li>
-          <li>Basic brand colors</li>
-        </ul>
-        <button class="btn btn-select" onclick="selectService('Logo Design Basic - R500')">Select Plan</button>
-      </div>
-
-      <div class="pricing-card .featured">
-        <h3>Professional Logo</h3>
-        <span class="price">R900</span>
-        <span class="price-note">one-time payment</span>
-        <ul>
-          <li>4 logo concepts</li>
-          <li>Unlimited revisions</li>
-          <li>All file formats (PNG, JPG, SVG, PDF)</li>
-          <li>Brand color palette</li>
-          <li>Social media kit</li>
-          <li>3-5 day delivery</li>
-        </ul>
-        <button class="btn btn-select" onclick="selectService('Logo Design Professional - R900')">Select Plan</button>
-      </div>
-
-      <div class="pricing-card">
-        <h3>Complete Branding</h3>
-        <span class="price">R1,500</span>
-        <span class="price-note">one-time payment</span>
-        <ul>
-          <li>6 logo concepts</li>
-          <li>Unlimited revisions</li>
-          <li>Full brand identity package</li>
-          <li>Business card design</li>
-          <li>Letterhead & email signature</li>
-          <li>Brand style guide</li>
-          <li>5-7 day delivery</li>
-        </ul>
-        <button class="btn btn-select" onclick="selectService('Logo Design Complete - R1,500')">Select Plan</button>
-      </div>
-    </div>
-
-    <div class="modal-cta">
-      <h3>Let's Create Your Brand Identity</h3>
-      <p>Get a logo that makes your business memorable and professional.</p>
-      <button class="btn" onclick="closeModal('logo'); scrollToContact()">Get Started</button>
-    </div>
-  </div>
-</div>
-
-<!-- SEO SERVICES MODAL -->
-<div id="seoModal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal" onclick="closeModal('seo')">×</span>
-    
-    <div class="modal-header">
-      <h2>SEO Services</h2>
-      <p>Rank higher on Google and attract more customers. Dominate local search results in Polokwane and beyond.</p>
-    </div>
-
-    <div class="service-intro">
-      <h3>What We Offer</h3>
-      <p>
-        If your customers can't find you on Google, you're losing business every day. KL Digital specializes in 
-        Search Engine Optimization (SEO) that gets results. We optimize your website, improve your Google rankings, 
-        and bring more customers to your door. Our focus is on local SEO to help Polokwane businesses dominate 
-        their market and grow consistently.
-      </p>
-    </div>
-
-    <div class="pricing-cards">
-      <div class="pricing-card">
-        <h3>Local SEO</h3>
-        <span class="price">R1,200</span>
-        <span class="price-note">per month</span>
-        <ul>
-          <li>Google My Business optimization</li>
-          <li>Local keyword research</li>
-          <li>On-page SEO (5 pages)</li>
-          <li>Monthly progress reports</li>
-          <li>Local citation building</li>
-        </ul>
-        <button class="btn btn-select" onclick="selectService('SEO Local - R1,200/month')">Select Plan</button>
-      </div>
-
-      <div class="pricing-card .featured">
-        <h3>Business SEO</h3>
-        <span class="price">R2,000</span>
-        <span class="price-note">per month</span>
-        <ul>
-          <li>Everything in Local SEO</li>
-          <li>Advanced keyword targeting</li>
-          <li>Competitor analysis</li>
-          <li>Content optimization (10 pages)</li>
-          <li>Backlink building</li>
-          <li>Bi-weekly reports</li>
-          <li>Google Analytics setup</li>
-        </ul>
-        <button class="btn btn-select" onclick="selectService('SEO Business - R2,000/month')">Select Plan</button>
-      </div>
-
-      <div class="pricing-card">
-        <h3>Enterprise SEO</h3>
-        <span class="price">Custom</span>
-        <span class="price-note">tailored pricing</span>
-        <ul>
-          <li>Comprehensive SEO strategy</li>
-          <li>National keyword targeting</li>
-          <li>Unlimited page optimization</li>
-          <li>Advanced technical SEO</li>
-          <li>Content creation included</li>
-          <li>Dedicated SEO specialist</li>
-          <li>Weekly performance calls</li>
-        </ul>
-        <button class="btn btn-select" onclick="selectService('SEO Enterprise - Custom Quote')">Request Quote</button>
-      </div>
-    </div>
-
-    <div class="modal-cta">
-      <h3>Ready to Rank #1 on Google?</h3>
-      <p>Let's get your business found by customers searching for your services.</p>
-      <button class="btn" onclick="closeModal('seo'); scrollToContact()">Get Started</button>
-    </div>
-  </div>
-</div>
-
-<!-- BUSINESS EMAIL MODAL -->
-<div id="emailModal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal" onclick="closeModal('email')">×</span>
-    
-    <div class="modal-header">
-      <h2>Business Email Setup</h2>
-      <p>Professional email addresses that build trust and credibility with your customers.</p>
-    </div>
-
-    <div class="service-intro">
-      <h3>What We Offer</h3>
-      <p>
-        Stop using Gmail or Hotmail for business. A professional email address like yourname@yourcompany.co.za 
-        instantly makes your business look more legitimate and trustworthy. KL Digital sets up custom business 
-        emails quickly and affordably, with options for Gmail for Business or custom domain emails. We handle 
-        all the technical setup so you can start emailing professionally right away.
-      </p>
-    </div>
-
-    <div class="pricing-cards">
-      <div class="pricing-card">
-        <h3>Basic Setup</h3>
-        <span class="price">R300</span>
-        <span class="price-note">one-time setup</span>
-        <ul>
-          <li>1 professional email address</li>
-          <li>Gmail for Business setup</li>
-          <li>Email signature template</li>
-          <li>Basic training included</li>
-          <li>Same-day setup</li>
-        </ul>
-        <button class="btn btn-select" onclick="selectService('Business Email Basic - R300')">Select Plan</button>
-      </div>
-
-      <div class="pricing-card .featured">
-        <h3>Team Setup</h3>
-        <span class="price">R500</span>
-        <span class="price-note">one-time setup</span>
-        <ul>
-          <li>Up to 5 email addresses</li>
-          <li>Custom domain email setup</li>
-          <li>Branded email signatures</li>
-          <li>Mobile device configuration</li>
-          <li>Team training session</li>
-          <li>1-2 day setup</li>
-        </ul>
-        <button class="btn btn-select" onclick="selectService('Business Email Team - R500')">Select Plan</button>
-      </div>
-
-      <div class="pricing-card">
-        <h3>Enterprise</h3>
-        <span class="price">Custom</span>
-        <span class="price-note">tailored solution</span>
-        <ul>
-          <li>Unlimited email addresses</li>
-          <li>Advanced security features</li>
-          <li>Email migration from old accounts</li>
-          <li>Shared calendars & contacts</li>
-          <li>Priority support</li>
-          <li>Full documentation</li>
-        </ul>
-        <button class="btn btn-select" onclick="selectService('Business Email Enterprise - Custom Quote')">Request Quote</button>
-      </div>
-    </div>
-
-    <div class="modal-cta">
-      <h3>Ready to Look Professional?</h3>
-      <p>Get your business email set up today and start building trust with customers.</p>
-      <button class="btn" onclick="closeModal('email'); scrollToContact()">Get Started</button>
-    </div>
-  </div>
-</div>
-
-<section id="contact">
-  <h2>Contact Us</h2>
-  <div class="contact-info">
-    <p>Email: <a href="mailto:kldigital.active@gmail.com">kldigital.active@gmail.com</a></p>
-    <p>Location: Polokwane, Limpopo, South Africa</p>
-  </div>
-
-  <form id="contactForm" class="contact-form" action="https://formspree.io/f/mnnokbbd" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <input type="tel" name="phone" placeholder="Your Phone Number (optional)">
-      <label for="serviceSelect" class="visually-hidden">Select a service</label>
-    <select name="service" id="serviceSelect">
-      <option value="">Select a Service (optional)</option>
-      <option value="AI Integration">AI Integration</option>
-      <option value="Web Development">Web Development</option>
-      <option value="Tech Support">Tech Support</option>
-      <option value="Social Media Management">Social Media Management</option>
-      <option value="Logo Design">Logo Design</option>
-      <option value="SEO Services">SEO Services</option>
-      <option value="Business Email Setup">Business Email Setup</option>
-      <option value="General Inquiry">General Inquiry</option>
-    </select>
-    <textarea name="message" placeholder="Your Message" required></textarea>
-    <button type="submit" class="btn">Send Message</button>
-    <div id="form-status"></div>
-  </form>
 </section>
 
+<!-- CTA -->
+<section class="cta">
+  <h2>Ready to Elevate Your Business?</h2>
+  <a href="contact.html" class="btn">Contact Us Today</a>
+</section>
+
+<!-- Footer -->
 <footer>
-  <div class="footer-container">
-    <!-- About Section -->
-    <div class="footer-section">
-      <h3>About KL Digital</h3>
-      <p>
-        Empowering Polokwane businesses with cutting-edge digital solutions. 
-        From AI integration to web development, we turn your vision into reality.
-      </p>
-
-      
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/kwenamokoti" class="social-icon" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <span>💼</span>
-        </a>
-        <a href="mailto:kldigital.active@gmail.com" class="social-icon" aria-label="Email">
-          <span>📧</span>
-        </a>
-        <a href="#" class="social-icon" aria-label="WhatsApp">
-          <span>💬</span>
-        </a>
-        <a href="#" class="social-icon" aria-label="Instagram">
-          <span>📸</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Quick Links -->
-    <div class="footer-section">
-      <h3>Quick Links</h3>
-      <ul class="footer-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#projects">Our Services</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-        <li><a href="#projects">AI Integration</a></li>
-        <li><a href="#projects">Web Development</a></li>
-        <li><a href="#projects">SEO Services</a></li>
-      </ul>
-    </div>
-
-    <!-- Services -->
-    <div class="footer-section">
-      <h3>Our Services</h3>
-      <ul class="footer-links">
-        <li><a href="#" onclick="openModal('web')">Website Design</a></li>
-        <li><a href="#" onclick="openModal('ai')">AI Solutions</a></li>
-        <li><a href="#" onclick="openModal('support')">Tech Support</a></li>
-        <li><a href="#" onclick="openModal('social')">Social Media</a></li>
-        <li><a href="#" onclick="openModal('logo')">Logo Design</a></li>
-        <li><a href="#" onclick="openModal('seo')">SEO Services</a></li>
-      </ul>
-    </div>
-
-    <!-- Contact Info -->
-    <div class="footer-section">
-      <h3>Get In Touch</h3>
-      <div class="footer-contact">
-        <div class="contact-item">
-          <div class="contact-item-icon">📍</div>
-          <span>Polokwane, Limpopo, SA</span>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item-icon">📧</div>
-          <a href="mailto:kldigital.active@gmail.com">kldigital.active@gmail.com</a>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item-icon">🕒</div>
-          <span>Mon - Fri: 8:00 - 17:00</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer Bottom -->
-  <div class="footer-bottom">
-    <div class="footer-bottom-content">
-      <div class="footer-logo">
-        <div class="footer-logo-icon">KL</div>
-        <span class="footer-logo-text">KL DIGITAL</span>
-      </div>
-      
-      <p class="footer-copyright">
-        © 2025 K&L Foundation | KL Digital - Gen Z Innovation Hub
-      </p>
-      
-      <p class="footer-tagline">
-        🚀 Transforming Ideas into Digital Reality
-      </p>
-      
-      <div class="footer-badges">
-        <span class="badge">
-          <span class="badge-icon">⚡</span>
-          Fast Delivery
-        </span>
-        <span class="badge">
-          <span class="badge-icon">🛡️</span>
-          Trusted by 10+ Businesses
-        </span>
-        <span class="badge">
-          <span class="badge-icon">🏆</span>
-          Award-Winning Service
-        </span>
-      </div>
-    </div>
-  </div>
+  <p>&copy; 2026 KL Digital. All Rights Reserved.</p>
 </footer>
 
-<button class="scroll-top" onclick="scrollToTop()">↑</button>
-
 <script>
-// Cursor trail effect
-document.addEventListener('mousemove', (e) => {
-  const trail = document.createElement('div');
-  trail.className = 'cursor-trail';
-  trail.style.left = e.pageX + 'px';
-  trail.style.top = e.pageY + 'px';
-  document.body.appendChild(trail);
-  
-  setTimeout(() => trail.remove(), 1000);
-});
-
-// Mobile menu toggle
-function toggleMenu() {
-  document.getElementById('mainNav').classList.toggle('active');
-}
-
-// Close menu when clicking a link
-document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener('click', () => {
-    document.getElementById('mainNav').classList.remove('active');
-  });
-});
-
-// Header scroll effect
-window.addEventListener('scroll', () => {
-  const header = document.querySelector('header');
-  if (window.scrollY > 50) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-});
-
-// Scroll reveal sections
-const sections = document.querySelectorAll('section');
-const revealSection = () => {
-  sections.forEach(section => {
-    if (section.getBoundingClientRect().top < window.innerHeight - 100) {
-      section.classList.add('visible');
-    }
-  });
-};
-
-window.addEventListener('scroll', revealSection);
-window.addEventListener('load', revealSection);
-
-// Scroll to top button
-const scrollTopBtn = document.querySelector('.scroll-top');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    scrollTopBtn.classList.add('visible');
-  } else {
-    scrollTopBtn.classList.remove('visible');
-  }
-});
-
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
-
-// Modal functions
-function openModal(type) {
-  const modalId = type + 'Modal';
-  const modal = document.getElementById(modalId);
-  if (modal) {
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-}
-
-function closeModal(type) {
-  const modalId = type + 'Modal';
-  const modal = document.getElementById(modalId);
-  if (modal) {
-    modal.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  }
-}
-
-// Close modal when clicking outside
-window.addEventListener('click', (e) => {
-  if (e.target.classList.contains('modal')) {
-    e.target.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  }
-});
-
-// Select service and scroll to contact
-function selectService(serviceName) {
-  const serviceSelect = document.getElementById('serviceSelect');
-  const messageField = document.querySelector('textarea[name="message"]');
-  
-  for (let option of serviceSelect.options) {
-    if (serviceName.includes(option.value) && option.value !== '') {
-      serviceSelect.value = option.value;
-      break;
-    }
-  }
-  
-  messageField.value = `I'm interested in the ${serviceName} plan. Please provide more information.`;
-  
-  document.querySelectorAll('.modal').forEach(modal => {
-    modal.classList.remove('active');
-  });
-  document.body.style.overflow = 'auto';
-  
-  scrollToContact();
-}
-
-function scrollToContact() {
-  const contactSection = document.getElementById('contact');
-  if (contactSection) {
-    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-}
-
-// Form submission handling
-const contactForm = document.getElementById('contactForm');
-const formStatus = document.getElementById('form-status');
-
-if (contactForm) {
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    formStatus.textContent = 'Sending...';
-    formStatus.className = '';
-    formStatus.style.display = 'block';
-    
-    try {
-      const response = await fetch(contactForm.action, {
-        method: 'POST',
-        body: new FormData(contactForm),
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-      
-      if (response.ok) {
-        formStatus.textContent = 'Thank you! Your message has been sent successfully. We\'ll get back to you soon!';
-        formStatus.className = 'success';
-        contactForm.reset();
-      } else {
-        throw new Error('Form submission failed');
-      }
-    } catch (error) {
-      formStatus.textContent = 'Oops! There was a problem sending your message. Please try again or email us directly.';
-      formStatus.className = 'error';
-    }
-  });
-}
-</script>
-
-<script>
-    // Add this if you want the footer links to work with your modals
-function openModal(type) {
-  const modalId = type + 'Modal';
-  const modal = document.getElementById(modalId);
-  if (modal) {
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-}
-</script>
-
-    <script>
-  // Delay Google Analytics to improve performance
-  window.addEventListener('load', function() {
-    setTimeout(function() {
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-0F6T20CQEB';
-      document.head.appendChild(script);
-      
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-0F6T20CQEB');
-    }, 3000); // Load after 3 seconds
-  });
-   <script>
-// ===== Particle Randomizer =====
+// Particle Randomizer
 const particles = document.querySelectorAll('.particle-layer .particle');
-
 particles.forEach(p => {
-  const size = Math.random() * 6 + 4; // 4px to 10px
+  const size = Math.random() * 6 + 4;
   p.style.width = size + 'px';
   p.style.height = size + 'px';
   p.style.left = Math.random() * window.innerWidth + 'px';
   p.style.top = Math.random() * window.innerHeight + 'px';
-  const duration = Math.random() * 15 + 10; // 10s to 25s
+  const duration = Math.random() * 15 + 10;
   p.style.animationDuration = duration + 's';
   const delay = Math.random() * 5;
   p.style.animationDelay = delay + 's';
 });
-
-const style = document.createElement('style');
-style.innerHTML = `
-@keyframes floatParticle {
-  0% { transform: translateY(0px); opacity: 0.4; }
-  50% { transform: translateY(-80px); opacity: 0.8; }
-  100% { transform: translateY(0px); opacity: 0.4; }
-}`;
-document.head.appendChild(style);
 </script>
-   
+
 </body>
 </html>
+
+
