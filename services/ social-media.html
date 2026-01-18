@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Media Management | KL Digital Polokwane</title>
+<meta name="description" content="Professional social media management in Polokwane. Grow your online presence and engage your audience. Starting at R800/month.">
+<link rel="icon" type="image/png" href="/favicon.png">
+<style>
+:root {
+  --primary: #ffffff;
+  --secondary: #e8e8e8;
+  --accent: #00d4ff;
+  --gold: #ffd700;
+  --purple: #b24bf3;
+  --dark: #0a0e27;
+}
+
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #ffffff;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+.bg-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #ffffff 100%);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 1.2rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: white;
+  box-shadow: 0 8px 24px rgba(0, 212, 255, 0.3);
+}
+
+.logo-text {
+  font-size: 1.6rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #1a1a1a, #4a4a4a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+}
+
+nav {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+nav a {
+  color: #2a2a2a;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+.btn-back {
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  color: white;
+  padding: 0.7rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 8px 24px rgba(0, 212, 255, 0.3);
+}
+
+.btn-back:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 212, 255, 0.5);
+}
+
+.service-hero {
+  position: relative;
+  z-index: 2;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10rem 5% 4rem;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(178, 75, 243, 0.05));
+}
+
+.service-icon-large {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.1); }
+}
+
+.service-hero h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #1a1a1a, #4a4a4a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -2px;
+}
+
+.service-hero p {
+  font-size: 1.3rem;
+  color: #5a5a5a;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.4s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  color: white;
+  box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0, 212, 255, 0.5);
+}
+
+.btn-secondary {
+  background: white;
+  border: 2px solid #e0e0e0;
+  color: #2a2a2a;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+section {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 5%;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #1a1a1a, #4a4a4a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.feature-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  padding: 2.5rem;
+  transition: all 0.4s;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent);
+  box-shadow: 0 20px 50px rgba(0, 212, 255, 0.15);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.feature-card p {
+  color: #6a6a6a;
+  line-height: 1.7;
+}
+
+.pricing-section {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(178, 75, 243, 0.05));
+  border-radius: 30px;
+  padding: 4rem 3rem;
+  margin: 4rem 0;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.pricing-card {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+  padding: 2.5rem;
+  transition: all 0.4s;
+  text-align: center;
+  position: relative;
+}
+
+.pricing-card.featured {
+  border-color: var(--accent);
+  transform: scale(1.05);
+  box-shadow: 0 20px 50px rgba(0, 212, 255, 0.2);
+}
+
+.pricing-card.featured::before {
+  content: '⭐ POPULAR';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-card.featured:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+.pricing-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.price {
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.price-note {
+  color: #6a6a6a;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.pricing-card ul {
+  list-style: none;
+  text-align: left;
+  margin: 2rem 0;
+}
+
+.pricing-card li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  color: #4a4a4a;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.pricing-card li::before {
+  content: '✓';
+  color: var(--accent);
+  font-weight: 900;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.process-step {
+  text-align: center;
+}
+
+.step-number {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 900;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+}
+
+.process-step h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.process-step p {
+  color: #6a6a6a;
+  line-height: 1.7;
+}
+
+.cta-section {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(178, 75, 243, 0.08));
+  border: 2px solid rgba(0, 212, 255, 0.2);
+  border-radius: 30px;
+  padding: 4rem 3rem;
+  text-align: center;
+  margin: 4rem 0;
+}
+
+.cta-section h2 {
+  margin-bottom: 1.5rem;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  color: #5a5a5a;
+  margin-bottom: 2rem;
+}
+
+footer {
+  background: #f8f8f8;
+  border-top: 1px solid #e0e0e0;
+  padding: 3rem 5%;
+  text-align: center;
+  color: #6a6a6a;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+
+  .service-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .pricing-card.featured {
+    transform: scale(1);
+  }
+
+  .pricing-card.featured:hover {
+    transform: translateY(-10px) scale(1);
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-gradient"></div>
+
+<header>
+  <a href="../index.html" class="logo-container">
+    <div class="logo-icon">KL</div>
+    <div class="logo-text">KL DIGITAL</div>
+  </a>
+  <nav>
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#portfolio">Portfolio</a>
+    <a href="../index.html#contact">Contact</a>
+    <a href="../index.html" class="btn-back">← Back to Home</a>
+  </nav>
+</header>
+
+<section class="service-hero">
+  <div class="service-icon-large">📱</div>
+  <h1>Social Media Management</h1>
+  <p>Professional social media management that builds your brand and engages your audience. Grow your online presence with strategic content and consistent posting.</p>
+  <div class="hero-buttons">
+    <a href="https://wa.me/27658772518" class="btn btn-primary">Get Started</a>
+    <a href="../index.html#portfolio" class="btn btn-secondary">View Examples</a>
+  </div>
+</section>
+
+<section>
+  <h2>What We Do</h2>
+  <p style="color: #6a6a6a; font-size: 1.1rem; margin-bottom: 2rem;">Complete social media management so you can focus on running your business:</p>
+  
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">✍️</div>
+      <h3>Content Creation</h3>
+      <p>Engaging posts, eye-catching graphics, and compelling captions designed to stop the scroll and drive engagement.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">📅</div>
+      <h3>Content Scheduling</h3>
+      <p>Strategic posting at optimal times when your audience is most active to maximize reach and engagement.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">💬</div>
+      <h3>Community Management</h3>
+      <p>We respond to comments, messages, and engage with your followers to build authentic relationships.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <h3>Analytics & Reporting</h3>
+      <p>Monthly reports showing growth, engagement, and insights to continuously improve your strategy.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🎯</div>
+      <h3>Strategy Development</h3>
+      <p>Tailored social media strategy aligned with your business goals and target audience.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🔍</div>
+      <h3>Hashtag Research</h3>
+      <p>Strategic hashtag selection to increase discoverability and reach new potential customers.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="pricing-section">
+    <h2 style="text-align: center;">Social Media Packages</h2>
+    <p style="text-align: center; color: #6a6a6a; font-size: 1.1rem;">Affordable monthly plans that grow your online presence</p>
+    
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Starter</h3>
+        <div class="price">R800</div>
+        <div class="price-note">Per month</div>
+        <ul>
+          <li>2 social media platforms</li>
+          <li>3 posts per week (12/month)</li>
+          <li>Basic content creation</li>
+          <li>Hashtag research</li>
+          <li>Monthly analytics report</li>
+        </ul>
+        <a href="https://wa.me/27658772518?text=I'm interested in the Starter Social Media package (R800/month)" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Choose Plan</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <h3>Growth</h3>
+        <div class="price">R1,200</div>
+        <div class="price-note">Per month</div>
+        <ul>
+          <li>3 social media platforms</li>
+          <li>5 posts per week (20/month)</li>
+          <li>Custom graphics & content</li>
+          <li>Daily engagement & replies</li>
+          <li>Story management</li>
+          <li>Competitor analysis</li>
+          <li>Weekly performance reports</li>
+        </ul>
+        <a href="https://wa.me/27658772518?text=I'm interested in the Growth Social Media package (R1,200/month)" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Choose Plan</a>
+      </div>
+
+      <div class="pricing-card">
+        <h3>Premium</h3>
+        <div class="price">R1,500</div>
+        <div class="price-note">Per month</div>
+        <ul>
+          <li>All platforms (IG, FB, Twitter, LinkedIn)</li>
+          <li>Daily posting (30+/month)</li>
+          <li>Video content creation</li>
+          <li>Influencer outreach</li>
+          <li>Paid ad management (ad spend extra)</li>
+          <li>Dedicated account manager</li>
+          <li>Real-time engagement</li>
+        </ul>
+        <a href="https://wa.me/27658772518?text=I'm interested in the Premium Social Media package (R1,500/month)" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Choose Plan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Our Process</h2>
+  <p style="color: #6a6a6a; font-size: 1.1rem; margin-bottom: 2rem;">How we grow your social media presence:</p>
+  
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-number">1</div>
+      <h3>Audit</h3>
+      <p>We analyze your current social media presence and identify opportunities for growth.</p>
+    </div>
+
+    <div class="process-step">
+      <div class="step-number">2</div>
+      <h3>Strategy</h3>
+      <p>We create a content strategy tailored to your brand, audience, and business goals.</p>
+    </div>
+
+    <div class="process-step">
+      <div class="step-number">3</div>
+      <h3>Create</h3>
+      <p>Our team produces high-quality content that engages and resonates with your audience.</p>
+    </div>
+
+    <div class="process-step">
+      <div class="step-number">4</div>
+      <h3>Grow</h3>
+      <p>We monitor performance, optimize based on data, and continuously improve results.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cta-section">
+    <h2>Ready to Grow Your Social Media?</h2>
+    <p>Let's turn your followers into loyal customers with strategic social media management.</p>
+    <div class="hero-buttons">
+      <a href="https://wa.me/27658772518" class="btn btn-primary">💬 Contact Us on WhatsApp</a>
+      <a href="mailto:kldigital.active@gmail.com" class="btn btn-secondary">📧 Email Us</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 KL Digital | Professional Digital Services in Polokwane</p>
+</footer>
+
+</body>
+</html>
