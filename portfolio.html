@@ -6,6 +6,9 @@
 <title>Our Portfolio | KL Digital Polokwane - Projects & Case Studies</title>
 <meta name="description" content="View our portfolio of web design, AI automation, branding, and digital projects in Polokwane. See how we've helped businesses grow.">
 <link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
   --primary: #ffffff;
@@ -23,7 +26,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: #ffffff;
   color: #1a1a1a;
   line-height: 1.6;
@@ -164,43 +167,7 @@ nav a:hover {
   margin: 0 auto 3rem;
 }
 
-/* Filter Tabs */
-.filter-tabs {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 4rem;
-}
-
-.filter-btn {
-  background: white;
-  border: 2px solid #e0e0e0;
-  padding: 0.8rem 2rem;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.3s;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #4a4a4a;
-}
-
-.filter-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: translateY(-3px);
-}
-
-.filter-btn.active {
-  background: linear-gradient(135deg, var(--accent), var(--purple));
-  color: white;
-  border-color: transparent;
-  box-shadow: 0 8px 24px rgba(0, 212, 255, 0.3);
-}
-
-/* Portfolio Grid */
+/* Portfolio Section */
 section {
   position: relative;
   z-index: 2;
@@ -234,14 +201,26 @@ section {
 .portfolio-image {
   width: 100%;
   height: 320px;
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(178, 75, 243, 0.1));
+  background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 6rem;
   position: relative;
   overflow: hidden;
   transition: all 0.5s;
+  padding: 2rem;
+}
+
+.portfolio-image img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: all 0.5s;
+}
+
+.portfolio-item:hover .portfolio-image img {
+  transform: scale(1.1);
 }
 
 .portfolio-image::before {
@@ -255,10 +234,6 @@ section {
 
 .portfolio-item:hover .portfolio-image::before {
   transform: translateX(100%);
-}
-
-.portfolio-item:hover .portfolio-image {
-  transform: scale(1.1);
 }
 
 .portfolio-info {
@@ -284,21 +259,6 @@ section {
   letter-spacing: 0.5px;
 }
 
-.portfolio-tag.design {
-  background: rgba(178, 75, 243, 0.1);
-  color: var(--purple);
-}
-
-.portfolio-tag.ai {
-  background: rgba(255, 215, 0, 0.15);
-  color: #d4a000;
-}
-
-.portfolio-tag.support {
-  background: rgba(255, 107, 53, 0.1);
-  color: #ff6b35;
-}
-
 .portfolio-info h3 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
@@ -311,6 +271,21 @@ section {
   font-size: 1rem;
   line-height: 1.7;
   margin-bottom: 1.5rem;
+}
+
+.portfolio-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+
+.portfolio-link:hover {
+  gap: 0.8rem;
+  color: var(--purple);
 }
 
 .portfolio-stats {
@@ -517,225 +492,41 @@ footer {
 
 <section class="portfolio-hero">
   <h1>Our Portfolio</h1>
-  <p>Take a look at some of the amazing projects we've delivered for businesses in Polokwane and beyond. Each project showcases our commitment to quality and results.</p>
+  <p>Real projects delivered for real clients. See how we've helped businesses in Polokwane succeed online with professional digital solutions.</p>
 </section>
 
 <section>
-  <div class="filter-tabs">
-    <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
-    <button class="filter-btn" onclick="filterProjects('web')">Web Design</button>
-    <button class="filter-btn" onclick="filterProjects('ai')">AI Automation</button>
-    <button class="filter-btn" onclick="filterProjects('design')">Branding</button>
-    <button class="filter-btn" onclick="filterProjects('dashboard')">Dashboards</button>
-  </div>
-
-  <div class="portfolio-grid" id="portfolioGrid">
-    <!-- Project 1 - REAL PROJECT -->
-    <div class="portfolio-item" data-category="web">
-      <div class="portfolio-image" style="background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%); font-size: 4rem; color: white; font-weight: 900; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <div style="font-size: 5rem;">❤️</div>
-        <div style="font-size: 1.5rem; margin-top: 1rem;">K&L Foundation</div>
+  <div class="portfolio-grid">
+    <!-- K&L Foundation - LIVE PROJECT -->
+    <div class="portfolio-item" onclick="window.open('https://kandlfoundation.com', '_blank')">
+      <div class="portfolio-image">
+        <!-- K&L Foundation logo will be fetched from their website -->
+        <img src="https://kandlfoundation.com/logo.png" alt="K&L Foundation Logo" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-size: 5rem; color: white; font-weight: 900;\'>❤️<\/div><div style=\'font-size: 1.5rem; margin-top: 1rem; color: white;\'>K&L Foundation<\/div>'">
       </div>
       <div class="portfolio-info">
         <div class="portfolio-tags">
           <span class="portfolio-tag">Web Design</span>
           <span class="portfolio-tag">Non-Profit</span>
           <span class="portfolio-tag">Live Site</span>
+          <span class="portfolio-tag">AI Chatbot</span>
         </div>
         <h3>K&L Foundation - Charity Website</h3>
-        <p>Full non-profit website for K&L Foundation in Polokwane. Features donation system, volunteer registration, AI chatbot assistant, and community impact tracking. Live at kandlfoundation.com</p>
+        <p>Complete non-profit website for K&L Foundation in Polokwane. Features donation system, volunteer registration, AI chatbot assistant, and community impact tracking dashboard.</p>
+        <a href="https://kandlfoundation.com" target="_blank" class="portfolio-link">
+          Visit Live Site →
+        </a>
         <div class="portfolio-stats">
           <div class="stat">
             <span class="stat-value">Live</span>
             <span class="stat-label">Active Website</span>
           </div>
           <div class="stat">
-            <span class="stat-value">AI Chat</span>
-            <span class="stat-label">Smart Assistant</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 2 -->
-    <div class="portfolio-item" data-category="ai">
-      <div class="portfolio-image">🤖</div>
-      <div class="portfolio-info">
-        <div class="portfolio-tags">
-          <span class="portfolio-tag ai">AI Automation</span>
-          <span class="portfolio-tag">Chatbot</span>
-        </div>
-        <h3>AI Customer Service Bot</h3>
-        <p>Intelligent chatbot that handles customer inquiries 24/7, reducing response time and freeing up staff for complex issues.</p>
-        <div class="portfolio-stats">
-          <div class="stat">
-            <span class="stat-value">70%</span>
-            <span class="stat-label">Queries Automated</span>
-          </div>
-          <div class="stat">
             <span class="stat-value">24/7</span>
-            <span class="stat-label">Availability</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 3 -->
-    <div class="portfolio-item" data-category="design">
-      <div class="portfolio-image">🎨</div>
-      <div class="portfolio-info">
-        <div class="portfolio-tags">
-          <span class="portfolio-tag design">Branding</span>
-          <span class="portfolio-tag design">Logo Design</span>
-        </div>
-        <h3>Complete Brand Identity</h3>
-        <p>Full rebranding project including logo, color palette, business cards, and marketing materials for a Polokwane-based retail company.</p>
-        <div class="portfolio-stats">
-          <div class="stat">
-            <span class="stat-value">5</span>
-            <span class="stat-label">Deliverables</span>
+            <span class="stat-label">AI Chatbot</span>
           </div>
           <div class="stat">
             <span class="stat-value">100%</span>
             <span class="stat-label">Client Satisfaction</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 4 -->
-    <div class="portfolio-item" data-category="dashboard">
-      <div class="portfolio-image">📊</div>
-      <div class="portfolio-info">
-        <div class="portfolio-tags">
-          <span class="portfolio-tag">Dashboard</span>
-          <span class="portfolio-tag">Analytics</span>
-        </div>
-        <h3>Business Analytics Dashboard</h3>
-        <p>Real-time analytics platform providing comprehensive insights into sales, inventory, and customer behavior with interactive visualizations.</p>
-        <div class="portfolio-stats">
-          <div class="stat">
-            <span class="stat-value">15+</span>
-            <span class="stat-label">Metrics Tracked</span>
-          </div>
-          <div class="stat">
-            <span class="stat-value">Live</span>
-            <span class="stat-label">Real-Time Data</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 5 -->
-    <div class="portfolio-item" data-category="web">
-      <div class="portfolio-image">💼</div>
-      <div class="portfolio-info">
-        <div class="portfolio-tags">
-          <span class="portfolio-tag">Web Design</span>
-          <span class="portfolio-tag">Corporate</span>
-        </div>
-        <h3>Professional Business Website</h3>
-        <p>Modern corporate website with service pages, client testimonials, and integrated contact forms. Fully responsive and SEO-optimized.</p>
-        <div class="portfolio-stats">
-          <div class="stat">
-            <span class="stat-value">200%</span>
-            <span class="stat-label">More Leads</span>
-          </div>
-          <div class="stat">
-            <span class="stat-value">#1</span>
-            <span class="stat-label">Google Ranking</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 6 -->
-    <div class="portfolio-item" data-category="ai">
-      <div class="portfolio-image">⚙️</div>
-      <div class="portfolio-info">
-        <div class="portfolio-tags">
-          <span class="portfolio-tag ai">AI Automation</span>
-          <span class="portfolio-tag ai">Workflow</span>
-        </div>
-        <h3>Automated Workflow System</h3>
-        <p>Custom automation that eliminated manual data entry, automated email responses, and streamlined operations saving 15 hours per week.</p>
-        <div class="portfolio-stats">
-          <div class="stat">
-            <span class="stat-value">15hrs</span>
-            <span class="stat-label">Time Saved Weekly</span>
-          </div>
-          <div class="stat">
-            <span class="stat-value">R50k</span>
-            <span class="stat-label">Annual Savings</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 7 -->
-    <div class="portfolio-item" data-category="design">
-      <div class="portfolio-image">📱</div>
-      <div class="portfolio-info">
-        <div class="portfolio-tags">
-          <span class="portfolio-tag design">Social Media</span>
-          <span class="portfolio-tag design">Graphics</span>
-        </div>
-        <h3>Social Media Branding Campaign</h3>
-        <p>Cohesive social media graphics, templates, and content strategy that increased engagement and grew follower base by 300%.</p>
-        <div class="portfolio-stats">
-          <div class="stat">
-            <span class="stat-value">300%</span>
-            <span class="stat-label">Follower Growth</span>
-          </div>
-          <div class="stat">
-            <span class="stat-value">500%</span>
-            <span class="stat-label">More Engagement</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 8 -->
-    <div class="portfolio-item" data-category="web">
-      <div class="portfolio-image">🍽️</div>
-      <div class="portfolio-info">
-        <div class="portfolio-tags">
-          <span class="portfolio-tag">Web Design</span>
-          <span class="portfolio-tag">Restaurant</span>
-        </div>
-        <h3>Restaurant Website & Ordering</h3>
-        <p>Beautiful restaurant website with online menu, reservation system, and integration with delivery platforms. Mobile-first design.</p>
-        <div class="portfolio-stats">
-          <div class="stat">
-            <span class="stat-value">45%</span>
-            <span class="stat-label">Online Orders</span>
-          </div>
-          <div class="stat">
-            <span class="stat-value">4.9★</span>
-            <span class="stat-label">User Rating</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 9 -->
-    <div class="portfolio-item" data-category="dashboard">
-      <div class="portfolio-image">💰</div>
-      <div class="portfolio-info">
-        <div class="portfolio-tags">
-          <span class="portfolio-tag">Dashboard</span>
-          <span class="portfolio-tag">Finance</span>
-        </div>
-        <h3>Financial Tracking Dashboard</h3>
-        <p>Custom financial dashboard tracking expenses, revenue, profit margins, and cash flow with predictive analytics and forecasting.</p>
-        <div class="portfolio-stats">
-          <div class="stat">
-            <span class="stat-value">10+</span>
-            <span class="stat-label">Financial KPIs</span>
-          </div>
-          <div class="stat">
-            <span class="stat-value">Auto</span>
-            <span class="stat-label">Daily Updates</span>
           </div>
         </div>
       </div>
@@ -745,7 +536,7 @@ footer {
 
 <section>
   <div class="cta-section">
-    <h2>Ready to Start Your Project?</h2>
+    <h2>Ready to Be Our Next Success Story?</h2>
     <p>Let's create something amazing together. Contact us today for a free consultation and quote.</p>
     <div class="cta-buttons">
       <a href="https://wa.me/27658772518" class="btn btn-primary">💬 WhatsApp Us</a>
@@ -761,32 +552,6 @@ footer {
 <script>
 function toggleMenu() {
   document.getElementById('mainNav').classList.toggle('active');
-}
-
-function filterProjects(category) {
-  const items = document.querySelectorAll('.portfolio-item');
-  const buttons = document.querySelectorAll('.filter-btn');
-  
-  // Update active button
-  buttons.forEach(btn => btn.classList.remove('active'));
-  event.target.classList.add('active');
-  
-  // Filter items
-  items.forEach(item => {
-    if (category === 'all' || item.dataset.category === category) {
-      item.style.display = 'block';
-      setTimeout(() => {
-        item.style.opacity = '1';
-        item.style.transform = 'scale(1)';
-      }, 10);
-    } else {
-      item.style.opacity = '0';
-      item.style.transform = 'scale(0.8)';
-      setTimeout(() => {
-        item.style.display = 'none';
-      }, 300);
-    }
-  });
 }
 
 // Close mobile menu when clicking outside
