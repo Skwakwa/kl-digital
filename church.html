@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Church AI Demo | KL Digital</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root { --brand: #f7971e; --brand2: #ffd200; --accent: #00d4ff; --purple: #b24bf3; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: #f7f7f7; min-height: 100vh; }
+header { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.08); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; }
+.logo-container { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+.logo-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent), var(--purple)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 900; color: white; font-family: 'Syne', sans-serif; }
+.logo-text { font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 800; color: #1a1a1a; }
+.nav-links { display: flex; gap: 1rem; align-items: center; }
+.btn-back { background: rgba(0,0,0,0.06); color: #1a1a1a; padding: 0.6rem 1.2rem; border-radius: 50px; font-weight: 600; text-decoration: none; font-size: 0.85rem; transition: all 0.3s; }
+.btn-back:hover { background: rgba(0,0,0,0.1); }
+.btn-all { background: linear-gradient(135deg, var(--accent), var(--purple)); color: white; padding: 0.6rem 1.2rem; border-radius: 50px; font-weight: 600; text-decoration: none; font-size: 0.85rem; transition: all 0.3s; }
+.btn-all:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,212,255,0.3); }
+.page-wrapper { max-width: 900px; margin: 0 auto; padding: 6rem 1.5rem 4rem; }
+.demo-header { background: linear-gradient(135deg, var(--brand), var(--brand2)); border-radius: 24px 24px 0 0; padding: 2rem; text-align: center; color: white; }
+.demo-header .business-emoji { font-size: 3rem; margin-bottom: 0.5rem; }
+.demo-header h1 { font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800; margin-bottom: 0.3rem; color: #1a1a1a; }
+.demo-header p { font-size: 0.95rem; opacity: 0.8; color: #1a1a1a; }
+.demo-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.15); padding: 0.3rem 0.9rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; margin-top: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #1a1a1a; }
+.demo-badge .dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse 1.5s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(1.3)} }
+.chat-window { background: white; border-left: 1px solid #e8e8e8; border-right: 1px solid #e8e8e8; min-height: 450px; max-height: 450px; overflow-y: auto; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; scroll-behavior: smooth; }
+.chat-window::-webkit-scrollbar { width: 4px; }
+.chat-window::-webkit-scrollbar-thumb { background: #ccc; border-radius: 2px; }
+.message { display: flex; gap: 0.8rem; max-width: 80%; }
+.message.bot { align-self: flex-start; }
+.message.user { align-self: flex-end; flex-direction: row-reverse; }
+.avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+.bot .avatar { background: linear-gradient(135deg, var(--brand), var(--brand2)); }
+.user .avatar { background: linear-gradient(135deg, var(--accent), var(--purple)); }
+.bubble { padding: 0.9rem 1.2rem; border-radius: 18px; font-size: 0.95rem; line-height: 1.6; }
+.bot .bubble { background: #f4f4f4; color: #1a1a1a; border-bottom-left-radius: 4px; }
+.user .bubble { background: linear-gradient(135deg, var(--brand), var(--brand2)); color: #1a1a1a; border-bottom-right-radius: 4px; }
+.typing-indicator { display: flex; gap: 0.8rem; max-width: 80%; align-self: flex-start; }
+.typing-bubble { background: #f4f4f4; padding: 1rem 1.2rem; border-radius: 18px; border-bottom-left-radius: 4px; display: flex; gap: 4px; align-items: center; }
+.typing-bubble span { width: 8px; height: 8px; background: #aaa; border-radius: 50%; animation: bounce 1.2s infinite; }
+.typing-bubble span:nth-child(2) { animation-delay: 0.2s; }
+.typing-bubble span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-8px)} }
+.quick-replies { background: white; border-left: 1px solid #e8e8e8; border-right: 1px solid #e8e8e8; padding: 1rem 1.5rem; display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.quick-reply-btn { background: rgba(247,151,30,0.08); border: 1px solid rgba(247,151,30,0.3); color: #c47a10; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.3s; font-family: 'DM Sans', sans-serif; }
+.quick-reply-btn:hover { background: var(--brand); color: white; transform: translateY(-2px); }
+.chat-input-area { background: white; border: 1px solid #e8e8e8; border-top: none; border-radius: 0 0 24px 24px; padding: 1rem 1.5rem; display: flex; gap: 0.8rem; align-items: center; }
+.chat-input { flex: 1; background: #f4f4f4; border: none; border-radius: 50px; padding: 0.9rem 1.5rem; font-size: 0.95rem; font-family: 'DM Sans', sans-serif; color: #1a1a1a; outline: none; transition: all 0.3s; }
+.chat-input:focus { background: #efefef; box-shadow: 0 0 0 2px rgba(247,151,30,0.2); }
+.send-btn { width: 44px; height: 44px; background: linear-gradient(135deg, var(--brand), var(--brand2)); border: none; border-radius: 50%; color: #1a1a1a; font-size: 1.2rem; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.send-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(247,151,30,0.4); }
+.demo-notice { text-align: center; margin-top: 1.5rem; padding: 1rem; background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.15); border-radius: 16px; color: #5a5a5a; font-size: 0.85rem; }
+.cta-box { margin-top: 2rem; background: linear-gradient(135deg, rgba(247,151,30,0.06), rgba(255,210,0,0.06)); border: 2px solid rgba(247,151,30,0.2); border-radius: 20px; padding: 2rem; text-align: center; }
+.cta-box h3 { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800; color: #1a1a1a; margin-bottom: 0.6rem; }
+.cta-box p { color: #6a6a6a; margin-bottom: 1.5rem; font-size: 0.95rem; }
+.cta-wa { display: inline-flex; align-items: center; gap: 0.6rem; padding: 1rem 2.5rem; border-radius: 50px; background: linear-gradient(135deg, var(--brand), var(--brand2)); color: #1a1a1a; text-decoration: none; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s; box-shadow: 0 8px 30px rgba(247,151,30,0.3); }
+.cta-wa:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(247,151,30,0.5); }
+footer { text-align: center; padding: 2rem; color: #8a8a8a; font-size: 0.85rem; margin-top: 3rem; border-top: 1px solid #e8e8e8; }
+@media (max-width: 600px) { .demo-header h1 { font-size: 1.4rem; } .message { max-width: 92%; } }
+</style>
+</head>
+<body>
+<header>
+  <a href="../index.html" class="logo-container">
+    <div class="logo-icon">KL</div>
+    <div class="logo-text">KL DIGITAL</div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html" class="btn-back">← All Demos</a>
+    <a href="https://wa.me/27658772518?text=Hi%2C%20I%20want%20this%20church%20AI%20for%20my%20church" class="btn-all">Get This →</a>
+  </div>
+</header>
+<div class="page-wrapper">
+  <div class="demo-header">
+    <div class="business-emoji">⛪</div>
+    <h1>Grace Community Church</h1>
+    <p>AI Welcome Assistant Demo</p>
+    <div class="demo-badge"><span class="dot"></span> AI Online — Try It Now</div>
+  </div>
+  <div class="chat-window" id="chatWindow"></div>
+  <div class="quick-replies">
+    <button class="quick-reply-btn" onclick="sendQuick('What time is the service?')">🕐 Service Times</button>
+    <button class="quick-reply-btn" onclick="sendQuick('Where are you located?')">📍 Location</button>
+    <button class="quick-reply-btn" onclick="sendQuick('How do I become a member?')">✝️ Membership</button>
+    <button class="quick-reply-btn" onclick="sendQuick('What events are coming up?')">📅 Events</button>
+    <button class="quick-reply-btn" onclick="sendQuick('I have a prayer request')">🙏 Prayer</button>
+    <button class="quick-reply-btn" onclick="sendQuick('Is there a youth group?')">👨‍👩‍👧 Youth</button>
+  </div>
+  <div class="chat-input-area">
+    <input type="text" class="chat-input" id="chatInput" placeholder="Type a message..." onkeypress="handleKey(event)">
+    <button class="send-btn" onclick="sendMessage()">➤</button>
+  </div>
+  <div class="demo-notice">🤖 This is a demo showing how AI works for a church. Your real church would have your own service times, events and information.</div>
+  <div class="cta-box">
+    <h3>Want This AI For Your Church?</h3>
+    <p>We set up AI assistants for churches in Polokwane. Welcome new members, share service times and handle prayer requests — automatically.</p>
+    <a href="https://wa.me/27658772518?text=Hi%2C%20I%20want%20an%20AI%20assistant%20for%20my%20church" class="cta-wa">💬 Get This For My Church</a>
+  </div>
+</div>
+<footer>© 2026 KL Digital | This is a demo — not a real church</footer>
+<script>
+const responses = {
+  greeting: "God bless you! 🙏 Welcome to Grace Community Church! I'm here to help you 24/7. I can share service times, location, upcoming events or help you connect with us. How can I help? ⛪",
+  times: "We'd love to see you! 🕐 Here are our service times:\n\n⛪ **SUNDAY SERVICES**\n• First Service: 7:00 AM – 9:00 AM\n• Second Service: 10:00 AM – 12:00 PM\n• Evening Service: 6:00 PM – 8:00 PM\n\n📖 **MIDWEEK**\n• Wednesday Bible Study: 6:00 PM – 8:00 PM\n• Friday Youth Service: 6:30 PM – 8:30 PM\n\nAll are welcome! Will we see you this Sunday? 😊",
+  location: "Find us here! 📍\n\n🏠 45 Rabe Street\nPolokwane Central, Limpopo\n\n🚗 We have free parking available\n🚌 Accessible by taxi from the rank\n\n📺 Can't make it in person? We also livestream our Sunday services on YouTube! Want the link?",
+  membership: "Welcome to the family! ✝️\n\nBecoming a member is simple:\n\n**STEP 1** — Attend 3 Sunday services\n**STEP 2** — Join our New Members class (every first Saturday)\n**STEP 3** — Meet with one of our pastors\n**STEP 4** — Official welcome ceremony\n\nThere are no fees to become a member. Everyone is welcome regardless of background. Want to know more?",
+  events: "Exciting things coming up! 📅\n\n🎉 **THIS MONTH**\n• Women's Conference — Saturday 26th, 9am\n• Youth Braai & Games Day — Sunday 27th, 1pm\n• Community Food Drive — Every Saturday 8am\n\n📖 **ONGOING**\n• New Members Class — First Saturday of each month\n• Wednesday Bible Study — Weekly\n• Prayer Morning — Tuesday 6am\n\nWant to register for any event?",
+  prayer: "We are honoured to pray with you! 🙏\n\nYou can submit a prayer request in two ways:\n\n1️⃣ **Share it here** — type your request and we will pray for you\n2️⃣ **WhatsApp our prayer team** — they pray over every request personally\n\nPlease know that your request is kept private and handled with love and care. 💛\n\nWould you like to share your prayer request?",
+  youth: "Our youth community is very active! 👨‍👩‍👧\n\n**GRACE YOUTH** (Ages 13–25)\n• Friday Youth Service: 6:30 PM – 8:30 PM\n• Monthly Youth Braai & fellowship\n• Annual youth camp\n• Community outreach projects\n\n**CHILDREN'S MINISTRY** (Ages 3–12)\n• Sunday during main service\n• Fun, Bible-based activities\n\nAll young people are welcome! Want to know about the next youth event?",
+  default: "God bless you! 🙏 I can help with service times, location, membership, upcoming events, prayer requests or youth activities. What would you like to know? ⛪"
+};
+
+function getResponse(input) {
+  const msg = input.toLowerCase();
+  if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey') || msg.includes('good')) return responses.greeting;
+  if (msg.includes('time') || msg.includes('service') || msg.includes('when') || msg.includes('sunday') || msg.includes('hour')) return responses.times;
+  if (msg.includes('where') || msg.includes('location') || msg.includes('address') || msg.includes('find') || msg.includes('directions')) return responses.location;
+  if (msg.includes('member') || msg.includes('join') || msg.includes('become') || msg.includes('register')) return responses.membership;
+  if (msg.includes('event') || msg.includes('coming') || msg.includes('programme') || msg.includes('conference') || msg.includes('camp')) return responses.events;
+  if (msg.includes('prayer') || msg.includes('pray') || msg.includes('request')) return responses.prayer;
+  if (msg.includes('youth') || msg.includes('young') || msg.includes('teen') || msg.includes('children') || msg.includes('kids')) return responses.youth;
+  return responses.default;
+}
+
+function addMessage(text, sender) {
+  const chatWindow = document.getElementById('chatWindow');
+  const msg = document.createElement('div');
+  msg.className = `message ${sender}`;
+  const avatar = sender === 'bot' ? '⛪' : '👤';
+  msg.innerHTML = `<div class="avatar">${avatar}</div><div class="bubble">${text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</div>`;
+  chatWindow.appendChild(msg);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+function showTyping() {
+  const chatWindow = document.getElementById('chatWindow');
+  const typing = document.createElement('div');
+  typing.className = 'typing-indicator'; typing.id = 'typingIndicator';
+  typing.innerHTML = `<div class="avatar">⛪</div><div class="typing-bubble"><span></span><span></span><span></span></div>`;
+  chatWindow.appendChild(typing);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+function removeTyping() { const t = document.getElementById('typingIndicator'); if (t) t.remove(); }
+
+function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if (!text) return;
+  addMessage(text, 'user'); input.value = '';
+  showTyping();
+  setTimeout(() => { removeTyping(); addMessage(getResponse(text), 'bot'); }, 1000 + Math.random() * 800);
+}
+
+function sendQuick(text) {
+  addMessage(text, 'user'); showTyping();
+  setTimeout(() => { removeTyping(); addMessage(getResponse(text), 'bot'); }, 1000 + Math.random() * 800);
+}
+
+function handleKey(e) { if (e.key === 'Enter') sendMessage(); }
+
+window.onload = () => {
+  setTimeout(() => {
+    showTyping();
+    setTimeout(() => { removeTyping(); addMessage("God bless you! 🙏 Welcome to Grace Community Church! I'm your AI assistant — available 24/7. Ask me about service times, location, events, membership or submit a prayer request! ⛪", 'bot'); }, 1200);
+  }, 500);
+};
+</script>
+</body>
+</html>
