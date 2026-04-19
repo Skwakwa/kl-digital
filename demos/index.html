@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Business Demos | KL Digital Polokwane</title>
+<meta name="description" content="See live AI demos for restaurants, spaza shops, schools, churches and salons. Interactive previews of what AI automation can do for your business.">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #00d4ff;
+  --purple: #b24bf3;
+  --dark: #0a0e27;
+  --white: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #ffffff;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  padding: 1.2rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: white;
+  font-family: 'Syne', sans-serif;
+}
+
+.logo-text {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+.btn-back {
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+.btn-back:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,212,255,0.4);
+}
+
+.hero {
+  padding: 10rem 5% 5rem;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(0,212,255,0.04), rgba(178,75,243,0.04));
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0,212,255,0.1);
+  border: 1px solid rgba(0,212,255,0.3);
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #1a1a1a, #4a4a4a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -2px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #5a5a5a;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.demos-section {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 4rem 5% 8rem;
+}
+
+.demos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.demo-card {
+  background: white;
+  border: 1px solid #e8e8e8;
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+}
+
+.demo-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+  border-color: var(--accent);
+}
+
+.demo-card-header {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.demo-card-header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1));
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.demo-card:hover .demo-card-header::after {
+  transform: translateX(100%);
+}
+
+.demo-emoji {
+  font-size: 4rem;
+  margin-bottom: 0.8rem;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s;
+}
+
+.demo-card:hover .demo-emoji {
+  transform: scale(1.2);
+}
+
+.demo-card-header h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.demo-card-body {
+  padding: 2rem;
+}
+
+.demo-tag {
+  display: inline-block;
+  background: rgba(0,212,255,0.1);
+  color: var(--accent);
+  padding: 0.3rem 0.9rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.demo-card-body p {
+  color: #6a6a6a;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.demo-features {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.demo-features li {
+  padding: 0.4rem 0;
+  color: #4a4a4a;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.demo-features li::before {
+  content: '✓';
+  color: var(--accent);
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.try-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+/* Card colors */
+.restaurant .demo-card-header { background: linear-gradient(135deg, #ff6b35, #f7931e); }
+.spaza .demo-card-header { background: linear-gradient(135deg, #11998e, #38ef7d); }
+.school .demo-card-header { background: linear-gradient(135deg, #4776e6, #8e54e9); }
+.church .demo-card-header { background: linear-gradient(135deg, #f7971e, #ffd200); }
+.salon .demo-card-header { background: linear-gradient(135deg, #d6336c, #f06595); }
+
+.restaurant .try-btn { background: linear-gradient(135deg, #ff6b35, #f7931e); color: white; }
+.spaza .try-btn { background: linear-gradient(135deg, #11998e, #38ef7d); color: white; }
+.school .try-btn { background: linear-gradient(135deg, #4776e6, #8e54e9); color: white; }
+.church .try-btn { background: linear-gradient(135deg, #f7971e, #ffd200); color: #1a1a1a; }
+.salon .try-btn { background: linear-gradient(135deg, #d6336c, #f06595); color: white; }
+
+.try-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* CTA */
+.cta-section {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 5% 6rem;
+}
+
+.cta-box {
+  background: linear-gradient(135deg, rgba(0,212,255,0.06), rgba(178,75,243,0.06));
+  border: 2px solid rgba(0,212,255,0.2);
+  border-radius: 30px;
+  padding: 4rem 3rem;
+  text-align: center;
+}
+
+.cta-box h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.cta-box p {
+  color: #5a5a5a;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+  box-shadow: 0 10px 40px rgba(0,212,255,0.3);
+}
+
+.cta-wa:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0,212,255,0.5);
+}
+
+footer {
+  background: #f8f8f8;
+  border-top: 1px solid #e0e0e0;
+  padding: 2rem 5%;
+  text-align: center;
+  color: #6a6a6a;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.5rem; }
+  .demos-grid { grid-template-columns: 1fr; }
+  .cta-box { padding: 2.5rem 1.5rem; }
+  .cta-box h2 { font-size: 1.8rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="../index.html" class="logo-container">
+    <div class="logo-icon">KL</div>
+    <div class="logo-text">KL DIGITAL</div>
+  </a>
+  <a href="../index.html" class="btn-back">← Back to Home</a>
+</header>
+
+<div class="hero">
+  <div class="hero-badge">⚡ Live AI Demos</div>
+  <h1>See AI In Action</h1>
+  <p>Pick a business type below and experience exactly what AI automation can do — running live, right here on this page.</p>
+</div>
+
+<div class="demos-section">
+  <div class="demos-grid">
+
+    <a href="restaurant.html" class="demo-card restaurant">
+      <div class="demo-card-header">
+        <div class="demo-emoji">🍔</div>
+        <h3>Kota King Polokwane</h3>
+      </div>
+      <div class="demo-card-body">
+        <span class="demo-tag">Restaurant & Takeaway</span>
+        <p>See how a restaurant AI handles menu questions, takes orders and manages customer queries — 24/7 without a single staff member.</p>
+        <ul class="demo-features">
+          <li>Answers menu & price questions</li>
+          <li>Takes customer orders</li>
+          <li>Handles opening hours & location</li>
+          <li>Manages specials & promotions</li>
+        </ul>
+        <button class="try-btn">Try This Demo →</button>
+      </div>
+    </a>
+
+    <a href="spaza.html" class="demo-card spaza">
+      <div class="demo-card-header">
+        <div class="demo-emoji">🛒</div>
+        <h3>Thabo's General Store</h3>
+      </div>
+      <div class="demo-card-body">
+        <span class="demo-tag">Spaza Shop & Retail</span>
+        <p>Watch how a spaza shop AI handles stock questions, delivery requests and customer service — making every customer feel attended to.</p>
+        <ul class="demo-features">
+          <li>Checks stock availability</li>
+          <li>Handles delivery requests</li>
+          <li>Shares daily deals & pricing</li>
+          <li>Answers customer questions</li>
+        </ul>
+        <button class="try-btn">Try This Demo →</button>
+      </div>
+    </a>
+
+    <a href="school.html" class="demo-card school">
+      <div class="demo-card-header">
+        <div class="demo-emoji">📚</div>
+        <h3>Limpopo Tutoring Centre</h3>
+      </div>
+      <div class="demo-card-body">
+        <span class="demo-tag">Schools & Tutoring</span>
+        <p>Experience how a tutoring centre AI handles enrolment questions, subject inquiries and booking sessions — even after hours.</p>
+        <ul class="demo-features">
+          <li>Answers subject & grade questions</li>
+          <li>Books tutoring sessions</li>
+          <li>Shares fees & timetables</li>
+          <li>Handles parent inquiries</li>
+        </ul>
+        <button class="try-btn">Try This Demo →</button>
+      </div>
+    </a>
+
+    <a href="church.html" class="demo-card church">
+      <div class="demo-card-header">
+        <div class="demo-emoji">⛪</div>
+        <h3>Grace Community Church</h3>
+      </div>
+      <div class="demo-card-body">
+        <span class="demo-tag">Churches & Events</span>
+        <p>See how a church AI handles service times, event registration and new member inquiries — welcoming everyone automatically.</p>
+        <ul class="demo-features">
+          <li>Shares service times & location</li>
+          <li>Registers for events</li>
+          <li>Answers new member questions</li>
+          <li>Prayer request handling</li>
+        </ul>
+        <button class="try-btn">Try This Demo →</button>
+      </div>
+    </a>
+
+    <a href="salon.html" class="demo-card salon">
+      <div class="demo-card-header">
+        <div class="demo-emoji">💇</div>
+        <h3>Glam Studio Polokwane</h3>
+      </div>
+      <div class="demo-card-body">
+        <span class="demo-tag">Hair Salon & Barbershop</span>
+        <p>Try the salon AI that books appointments, shares pricing and handles client questions — so staff can focus on doing hair, not answering phones.</p>
+        <ul class="demo-features">
+          <li>Books appointments automatically</li>
+          <li>Shares services & pricing</li>
+          <li>Handles cancellations & changes</li>
+          <li>Sends reminders to clients</li>
+        </ul>
+        <button class="try-btn">Try This Demo →</button>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<div class="cta-section">
+  <div class="cta-box">
+    <h2>Want This For Your Business?</h2>
+    <p>We build and set up AI automation for businesses in Polokwane. WhatsApp us and let's talk about what's possible for you.</p>
+    <a href="https://wa.me/27658772518?text=Hi%2C%20I%20saw%20the%20AI%20demos%20and%20want%20this%20for%20my%20business" class="cta-wa">💬 Get AI For My Business</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 KL Digital | Professional Digital Services in Polokwane</p>
+</footer>
+
+</body>
+</html>
