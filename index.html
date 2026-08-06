@@ -1447,7 +1447,7 @@ Common questions:
     <p>Let's create something amazing together. Get in touch today for a free consultation.</p>
     <div class="cta-buttons">
       <a href="https://wa.me/27658772518" class="btn btn-primary"><span>💬 WhatsApp Us</span></a>
-      <a href="mailto:kldigital.active@gmail.com" class="btn btn-secondary"><span>📧 Email Us</span></a>
+    <a href="mailto:kldigital.active@gmail.com" class="btn btn-secondary" onclick="copyEmailFallback(event)"><span>📧 Email Us</span></a>
     </div>
   </div>
 </section>
@@ -1488,7 +1488,7 @@ Common questions:
 <div class="footer-section">
   <h3>Contact</h3>
   <ul class="footer-links">
-    <li><a href="mailto:kldigital.active@gmail.com">kldigital.active@gmail.com</a></li>
+    <li><a href="mailto:kldigital.active@gmail.com" onclick="copyEmailFallback(event)">kldigital.active@gmail.com</a></li>
     <li><a href="https://wa.me/27658772518">+27 65 877 2518</a></li>
     <li><a href="#contact">Polokwane, Limpopo, SA</a></li>
   </ul>
@@ -1551,6 +1551,16 @@ document.addEventListener('click', (e) => {
     nav.classList.remove('active');
   }
 });
+
+  function copyEmailFallback(e) {
+  setTimeout(() => {
+    navigator.clipboard.writeText('kldigital.active@gmail.com').then(() => {
+      alert("If your email app didn't open, we've copied kldigital.active@gmail.com to your clipboard so you can paste it into Gmail, Outlook, or wherever you check mail.");
+    }).catch(() => {
+      // clipboard API blocked (rare, e.g. non-HTTPS or old browser) — no-op, mailto: still had its shot
+    });
+  }, 300);
+}
 </script>
 </body>
 </html></parameter>
