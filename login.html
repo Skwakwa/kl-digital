@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - KL Digital Members</title>
+<meta name="description" content="Login to your KL Digital membership account">
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+<link rel="stylesheet" href="style.css">
+<style>
+:root {
+  --primary: #0066ff;
+  --secondary: #00d4ff;
+  --accent: #ff6b35;
+  --gold: #ffd700;
+  --purple: #b24bf3;
+  --dark: #0a0e27;
+  --text: #ffffff;
+}
+
+.bg-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: 
+    linear-gradient(0deg, transparent 24%, rgba(0, 212, 255, 0.05) 25%, rgba(0, 212, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 212, 255, 0.05) 75%, rgba(0, 212, 255, 0.05) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(0, 212, 255, 0.05) 25%, rgba(0, 212, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 212, 255, 0.05) 75%, rgba(0, 212, 255, 0.05) 76%, transparent 77%, transparent),
+    #0a0e27;
+  background-size: 50px 50px;
+}
+
+.login-container {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(135deg, rgba(10, 14, 39, 0.98), rgba(26, 31, 58, 0.98));
+  border: 3px solid rgba(0, 212, 255, 0.5);
+  border-radius: 35px;
+  max-width: 500px;
+  width: 100%;
+  padding: 3rem 2.5rem;
+  box-shadow: 
+    0 30px 80px rgba(0, 212, 255, 0.4),
+    0 0 100px rgba(180, 75, 243, 0.3),
+    inset 0 0 60px rgba(0, 212, 255, 0.1);
+}
+
+.logo-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, var(--secondary), var(--purple));
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: white;
+  box-shadow: 0 10px 40px rgba(0, 212, 255, 0.6);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -0.5rem;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.checkbox-group label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin: 0;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.forgot-link {
+  color: var(--secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.forgot-link:hover {
+  color: var(--accent);
+}
+
+.btn {
+  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--purple));
+  background-size: 200% 200%;
+  color: white;
+  padding: 1.3rem 3rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.5s ease;
+  box-shadow: 0 10px 40px rgba(0, 102, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.register-link {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.register-link a {
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.register-link a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  .login-container {
+    padding: 2rem 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .back-home {
+    top: 1rem;
+    left: 1rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .remember-forgot {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-gradient"></div>
+
+<a href="index.html" class="back-home">← Back to Home</a>
+
+<div class="login-container">
+  <div class="logo-section">
+    <div class="logo-icon">KL</div>
+    <h1>Welcome Back</h1>
+    <p class="subtitle">Sign in to your member account</p>
+  </div>
+
+  <div id="alertBox" class="alert"></div>
+  
+  <div id="loadingBox" class="loading">
+    <div class="spinner"></div>
+    <p>Signing you in...</p>
+  </div>
+
+  <form id="loginForm" class="login-form">
+    <div class="form-group">
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="email" required placeholder="your@email.com">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password *</label>
+      <input type="password" id="password" name="password" required placeholder="Enter your password">
+    </div>
+
+    <div class="remember-forgot">
+      <div class="checkbox-group">
+        <input type="checkbox" id="rememberMe" name="rememberMe">
+        <label for="rememberMe">Remember me</label>
+      </div>
+      <a href="#" class="forgot-link" onclick="forgotPassword(); return false;">Forgot password?</a>
+    </div>
+
+    <button type="submit" class="btn" id="submitBtn">
+      Sign In →
+    </button>
+  </form>
+
+  <div class="divider">OR</div>
+
+  <div class="register-link">
+    Not a member yet? <a href="register.html">Join Now for R100</a>
+  </div>
+</div>
+
+<script>
+// ========================================
+// FIREBASE CONFIG - REPLACE WITH YOUR KEYS
+// ========================================
+const firebaseConfig = {
+  apiKey: "YOUR_FIREBASE_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+// Check if user is already logged in
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    // User is signed in, redirect to dashboard
+    window.location.href = 'dashboard.html';
+  }
+});
+
+// Form submission
+const loginForm = document.getElementById('loginForm');
+const alertBox = document.getElementById('alertBox');
+const loadingBox = document.getElementById('loadingBox');
+
+loginForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  const rememberMe = document.getElementById('rememberMe').checked;
+  
+  // Show loading
+  loginForm.style.display = 'none';
+  loadingBox.style.display = 'block';
+  
+  try {
+    // Set persistence based on "Remember Me"
+    const persistence = rememberMe 
+      ? firebase.auth.Auth.Persistence.LOCAL 
+      : firebase.auth.Auth.Persistence.SESSION;
+    
+    await auth.setPersistence(persistence);
+    
+    // Sign in user
+    const userCredential = await auth.signInWithEmailAndPassword(email, password);
+    const user = userCredential.user;
+    
+    // Update last login time
+    await db.collection('members').doc(user.uid).update({
+      lastLogin: firebase.firestore.FieldValue.serverTimestamp()
+    });
+    
+    // Success!
+    showAlert('Login successful! Redirecting...', 'success');
+    
+    setTimeout(() => {
+      window.location.href = 'dashboard.html';
+    }, 1500);
+    
+  } catch (error) {
+    console.error('Login error:', error);
+    let errorMessage = 'Login failed. Please try again.';
+    
+    if (error.code === 'auth/user-not-found') {
+      errorMessage = 'No account found with this email. Please register first.';
+    } else if (error.code === 'auth/wrong-password') {
+      errorMessage = 'Incorrect password. Please try again.';
+    } else if (error.code === 'auth/invalid-email') {
+      errorMessage = 'Invalid email address.';
+    } else if (error.code === 'auth/user-disabled') {
+      errorMessage = 'This account has been disabled. Contact support.';
+    } else if (error.message) {
+      errorMessage = error.message;
+    }
+    
+    showAlert(errorMessage, 'error');
+    loginForm.style.display = 'flex';
+    loadingBox.style.display = 'none';
+  }
+});
+
+// Forgot password
+async function forgotPassword() {
+  const email = document.getElementById('email').value.trim();
+  
+  if (!email) {
+    showAlert('Please enter your email address first.', 'error');
+    return;
+  }
+  
+  try {
+    await auth.sendPasswordResetEmail(email);
+    showAlert('Password reset email sent! Check your inbox.', 'success');
+  } catch (error) {
+    console.error('Password reset error:', error);
+    let errorMessage = 'Failed to send reset email.';
+    
+    if (error.code === 'auth/user-not-found') {
+      errorMessage = 'No account found with this email.';
+    } else if (error.code === 'auth/invalid-email') {
+      errorMessage = 'Invalid email address.';
+    }
+    
+    showAlert(errorMessage, 'error');
+  }
+}
+
+function showAlert(message, type) {
+  alertBox.textContent = message;
+  alertBox.className = `alert ${type}`;
+  alertBox.style.display = 'block';
+  
+  setTimeout(() => {
+    alertBox.style.display = 'none';
+  }, 5000);
+}
+</script>
+
+</body>
+</html>
