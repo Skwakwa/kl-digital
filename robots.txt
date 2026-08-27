@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://kldigital.co.za/sitemap.xml
-
-# Block specific paths if needed
-# Disallow: /private/
