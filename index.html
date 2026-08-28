@@ -614,6 +614,129 @@ h2 {
   z-index: 1;
 }
 
+/* ===== Service Tier Hierarchy ===== */
+.service-tier {
+  margin-bottom: 3.5rem;
+}
+
+.service-tier:last-child {
+  margin-bottom: 0;
+}
+
+.tier-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent, #00d4ff);
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+/* CORE — bigger, featured cards */
+.services-grid-core {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.service-card-core {
+  padding: 2.5rem;
+  border: 2px solid var(--accent, #00d4ff);
+}
+
+.service-card-core h3 {
+  font-size: 1.4rem;
+}
+
+/* SUPPORTING — smaller, more compact grid */
+.services-grid-supporting {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.service-card-support {
+  padding: 1.5rem;
+}
+
+.service-card-support .service-icon {
+  font-size: 1.75rem;
+}
+
+.service-card-support h3 {
+  font-size: 1.05rem;
+}
+
+.service-card-support p {
+  font-size: 0.88rem;
+}
+
+/* SECONDARY — slim horizontal strip, visually de-emphasized */
+.service-tier-secondary {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.service-card-secondary {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border: 1px dashed #ccc;
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  background: #fafafa;
+  transition: border-color 0.2s ease;
+}
+
+.service-card-secondary:hover {
+  border-color: var(--accent, #00d4ff);
+}
+
+.secondary-icon {
+  font-size: 1.5rem;
+}
+
+.secondary-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.secondary-text strong {
+  font-size: 0.95rem;
+}
+
+.secondary-text span:last-child {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.secondary-arrow {
+  color: var(--accent, #00d4ff);
+  font-weight: 700;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .services-grid-core {
+    grid-template-columns: 1fr;
+  }
+  .services-grid-supporting {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .services-grid-supporting {
+    grid-template-columns: 1fr;
+  }
+}
+
 .service-link {
   display: inline-flex;
   align-items: center;
@@ -1287,47 +1410,62 @@ We help small South African businesses get online and automate customer interact
     <h2>What We Offer</h2>
     <p class="section-description">Comprehensive digital solutions designed to help your business thrive in the modern marketplace/internet.</p>
   </div>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-icon">💻</div>
-      <h3>Web Development</h3>
-      <p>Modern, responsive websites that shows the whole internet your business. Built with the latest technologies for optimal performance and SEO.</p>
-      <a href="/services/web-development.html" class="service-link">Learn More</a>
+
+  <!-- CORE -->
+  <div class="service-tier">
+    <p class="tier-label">Core</p>
+    <div class="services-grid services-grid-core">
+      <div class="service-card service-card-core">
+        <div class="service-icon">💻</div>
+        <h3>Web Development</h3>
+        <p>Modern, responsive websites that show the whole internet your business. Built with the latest technologies for optimal performance and SEO.</p>
+        <a href="/services/web-development.html" class="service-link">Learn More</a>
+      </div>
+      <div class="service-card service-card-core">
+        <div class="service-icon">🤖</div>
+        <h3>AI & Digital Automation</h3>
+        <p>Chatbots, booking assistants and predictive analytics that automate customer interactions and save you time — try it live in our demos.</p>
+        <a href="/services/ai-automation.html" class="service-link">Learn More</a>
+      </div>
     </div>
-<div class="service-card">
-  <div class="service-icon">🤖</div>
-  <h3>AI Automation</h3>
-  <p>Intelligent automation solutions from chatbots to predictive analytics time saving tools.</p>
-  <a href="/services/ai-automation.html" class="service-link">Learn More</a>
-</div>
+  </div>
 
-<div class="service-card">
-  <div class="service-icon">🎨</div>
-  <h3>Graphic Design</h3>
-  <p>Professional branding and visual identity from logos,flyers, business cards and posters.</p>
-  <a href="/services/graphic-design.html" class="service-link">Learn More</a>
-</div>
+  <!-- SUPPORTING -->
+  <div class="service-tier">
+    <p class="tier-label">Supporting</p>
+    <div class="services-grid services-grid-supporting">
+      <div class="service-card service-card-support">
+        <div class="service-icon">📊</div>
+        <h3>Dashboard Analytics</h3>
+        <p>Custom dashboards that turn your data into actionable insights.</p>
+        <a href="/services/dashboard-analytics.html" class="service-link">Learn More</a>
+      </div>
+      <div class="service-card service-card-support">
+        <div class="service-icon">📱</div>
+        <h3>Custom QR Codes</h3>
+        <p>Branded QR codes linking customers to your site, WhatsApp, menu or payment.</p>
+        <a href="/services/qr-code.html" class="service-link">Learn More</a>
+      </div>
+      <div class="service-card service-card-support">
+        <div class="service-icon">🎨</div>
+        <h3>Graphic Design</h3>
+        <p>Logos, flyers, business cards and posters for your brand identity.</p>
+        <a href="/services/graphic-design.html" class="service-link">Learn More</a>
+      </div>
+    </div>
+  </div>
 
-<div class="service-card">
-  <div class="service-icon">📊</div>
-  <h3>Dashboard Analytics</h3>
-  <p>Custom dashboards that turn your data into actionable insights for smarter business decisions.</p>
-  <a href="/services/dashboard-analytics.html" class="service-link">Learn More</a>
-</div>
-
-<div class="service-card">
-  <div class="service-icon">🛠️</div>
-  <h3>Tech Support</h3>
-  <p>Reliable IT support that keeps your systems running, upto date, reliable your laptop/computer deserves quality servicing .</p>
-  <a href="/services/tech-support.html" class="service-link">Learn More</a>
-</div>
-
-<div class="service-card">
-  <div class="service-icon">📱</div>
-  <h3>Custom QR Codes</h3>
-  <p>Professional branded QR codes for your business — connect customers to your website, WhatsApp, menu or payment link instantly.</p>
-  <a href="/services/qr-code.html" class="service-link">Learn More</a>
-</div>
+  <!-- SECONDARY -->
+  <div class="service-tier service-tier-secondary">
+    <p class="tier-label">Also Available</p>
+    <a href="/services/tech-support.html" class="service-card-secondary">
+      <span class="secondary-icon">🛠️</span>
+      <span class="secondary-text">
+        <strong>Computer & Laptop Repairs</strong>
+        <span>Reliable IT support to keep your systems running.</span>
+      </span>
+      <span class="secondary-arrow">→</span>
+    </a>
   </div>
 </section>
 <section id="portfolio">
