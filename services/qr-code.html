@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom QR Code Services | KL Digital Polokwane</title>
+<meta name="description" content="Professional custom QR code services in Polokwane. Connect your business to customers instantly with branded, print-ready QR codes. Starting at R299.">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="stylesheet" href="../style.css">
+<style>
+/* Features Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+/* Use Cases */
+.use-cases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.use-case-card {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(178, 75, 243, 0.05));
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.4s;
+}
+
+.use-case-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent);
+  box-shadow: 0 15px 40px rgba(0, 212, 255, 0.15);
+}
+
+.use-case-card .use-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.use-case-card h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.use-case-card p {
+  font-size: 0.9rem;
+  color: #6a6a6a;
+}
+
+.pricing-card.featured::before {
+  content: '⭐ MOST POPULAR';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.pricing-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #1a1a1a;
+}
+
+.pricing-card .plan-tagline {
+  color: #8a8a8a;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.pricing-card li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  color: #4a4a4a;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  font-size: 0.95rem;
+}
+
+/* FAQ */
+.faq-list {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-item {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s;
+}
+
+.faq-item:hover {
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+}
+
+.faq-item h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.8rem;
+}
+
+.faq-item p {
+  color: #6a6a6a;
+  line-height: 1.7;
+}
+
+/* Guarantee Badge */
+.guarantee-badge {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(178, 75, 243, 0.08));
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 700px;
+  position: relative;
+  z-index: 2;
+}
+
+.guarantee-badge h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 0.8rem;
+}
+
+.guarantee-badge p {
+  color: #5a5a5a;
+  font-size: 1rem;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mobile-menu {
+    display: flex;
+  }
+
+  nav {
+    position: fixed;
+    top: 75px;
+    left: -100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+    transition: left 0.4s;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    align-items: flex-start;
+  }
+
+  nav.active {
+    left: 0;
+  }
+
+  .btn-back {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .service-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .service-hero p {
+    font-size: 1.1rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .pricing-card.featured {
+    transform: scale(1);
+  }
+
+  .pricing-card.featured:hover {
+    transform: translateY(-10px) scale(1);
+  }
+
+  .pricing-section {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .cta-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-gradient"></div>
+
+<header>
+  <a href="../index.html" class="logo-container">
+    <div class="logo-icon">KL</div>
+    <div class="logo-text">KL DIGITAL</div>
+  </a>
+  <nav id="mainNav">
+    <a href="../index.html#services">Services</a>
+    <a href="../portfolio.html">Portfolio</a>
+    <a href="../index.html#contact">Contact</a>
+    <a href="../index.html" class="btn-back">← Back to Home</a>
+  </nav>
+  <div class="mobile-menu" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="service-hero">
+  <div class="service-icon-large">📱</div>
+  <h1>Custom QR Codes</h1>
+  <p>Connect your business to customers instantly. Professional, branded QR codes designed for flyers, business cards, menus, posters and more — print-ready and delivered fast.</p>
+  <div class="hero-buttons">
+    <a href="https://wa.me/27658772518?text=Hi%2C%20I%27m%20interested%20in%20a%20Custom%20QR%20Code%20for%20my%20business" class="btn btn-primary">💬 Order on WhatsApp</a>
+    <a href="../portfolio.html" class="btn btn-secondary">View Our Work</a>
+  </div>
+</section>
+
+<!-- What We Offer -->
+<section>
+  <h2>What's Included</h2>
+  <p style="color: #6a6a6a; font-size: 1.1rem; margin-bottom: 2rem;">Every QR code we create is professionally designed and ready to use immediately.</p>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🖨️</div>
+      <h3>Print-Ready Files</h3>
+      <p>Receive high-resolution PNG and SVG files that look sharp on any print material — from a small business card to a large billboard poster.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🎨</div>
+      <h3>Branded Colors</h3>
+      <p>Your QR code can match your business colors and include your logo, making it look professional and consistent with your brand identity.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">📐</div>
+      <h3>Custom Sizing</h3>
+      <p>Need it small for a business card or large for a poster? We size your QR code perfectly so it scans correctly every time, on any material.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">💬</div>
+      <h3>WhatsApp Direct Chat</h3>
+      <p>Customers scan your QR code and land directly in your WhatsApp chat — no searching for your number, no typing. Instant connection.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">💳</div>
+      <h3>Payment Links</h3>
+      <p>Generate QR codes linked to your payment gateway so customers can pay you instantly by scanning — perfect for markets and events.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🌐</div>
+      <h3>Mini Website (Premium)</h3>
+      <p>We build a custom online page for your business — menus, products, services — and link it to your QR code for the ultimate customer experience.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Use Cases -->
+<section>
+  <h2>Perfect For</h2>
+  <p style="color: #6a6a6a; font-size: 1.1rem; margin-bottom: 2rem;">QR codes are one of the most powerful tools a small business can use in 2026.</p>
+
+  <div class="use-cases-grid">
+    <div class="use-case-card">
+      <div class="use-icon">🍽️</div>
+      <h4>Restaurants & Cafés</h4>
+      <p>Replace printed menus with a scannable digital menu — easy to update anytime</p>
+    </div>
+
+    <div class="use-case-card">
+      <div class="use-icon">🏪</div>
+      <h4>Shops & Spaza Shops</h4>
+      <p>Display your product catalogue or WhatsApp ordering link at your counter</p>
+    </div>
+
+    <div class="use-case-card">
+      <div class="use-icon">📄</div>
+      <h4>Flyers & Posters</h4>
+      <p>Turn any offline flyer into an interactive experience that drives online action</p>
+    </div>
+
+    <div class="use-case-card">
+      <div class="use-icon">💼</div>
+      <h4>Business Cards</h4>
+      <p>Let people scan your card to instantly save your contact details or visit your website</p>
+    </div>
+
+    <div class="use-case-card">
+      <div class="use-icon">⭐</div>
+      <h4>Google Reviews</h4>
+      <p>Make it easy for happy customers to leave you a Google review with one scan</p>
+    </div>
+
+    <div class="use-case-card">
+      <div class="use-icon">📱</div>
+      <h4>Social Media</h4>
+      <p>Drive followers to your Instagram, Facebook or TikTok page instantly</p>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section>
+  <div class="pricing-section">
+    <h2 style="text-align: center;">Pricing Plans</h2>
+    <p style="text-align: center; color: #6a6a6a; font-size: 1.1rem;">Simple, transparent pricing — no hidden fees. Order via WhatsApp and we deliver fast.</p>
+
+    <div class="pricing-grid">
+
+      <!-- Basic -->
+      <div class="pricing-card">
+        <h3>Basic</h3>
+        <p class="plan-tagline">Perfect for getting started</p>
+        <div class="price">R500</div>
+        <div class="price-note">one-time payment • delivered within 24hrs</div>
+        <ul>
+          <li>1 QR Code</li>
+          <li>Links to website, store, or social media</li>
+          <li>WhatsApp direct chat QR option</li>
+          <li>Black & white or single color</li>
+          <li>Print-ready PNG file</li>
+          <li>Fits business cards, flyers & posters</li>
+        </ul>
+        <a href="https://wa.me/27658772518?text=Hi%2C%20I%27d%20like%20to%20order%20the%20Basic%20QR%20Code%20package%20(R299)" class="btn btn-primary" style="width: 100%; margin-top: 1rem; justify-content: center;">Order Basic →</a>
+      </div>
+
+      <!-- Standard - Featured -->
+      <div class="pricing-card featured">
+        <h3>Standard</h3>
+        <p class="plan-tagline">Best for growing businesses</p>
+        <div class="price">R1,299</div>
+        <div class="price-note">one-time payment • delivered within 24hrs</div>
+        <ul>
+          <li>Up to 3 QR Codes</li>
+          <li>Branded colors matching your business</li>
+          <li>Custom sizing for any print material</li>
+          <li>Print-ready PNG + SVG files</li>
+          <li>WhatsApp direct chat QR included</li>
+          <li>Payment link QR included</li>
+          <li>Social media QR included</li>
+        </ul>
+        <a href="https://wa.me/27658772518?text=Hi%2C%20I%27d%20like%20to%20order%20the%20Standard%20QR%20Code%20package%20(R599)" class="btn btn-primary" style="width: 100%; margin-top: 1rem; justify-content: center;">Order Standard →</a>
+      </div>
+
+      <!-- Premium -->
+      <div class="pricing-card">
+        <h3>Premium</h3>
+        <p class="plan-tagline">For restaurants, shops & big brands</p>
+        <div class="price">R2,499</div>
+        <div class="price-note">one-time payment • delivered within 3–5 days</div>
+        <ul>
+          <li>Up to 6 QR Codes</li>
+          <li>Custom mini website / online page built for you</li>
+          <li>Menu, products or services listed online</li>
+          <li>Welcome text & animations on opening</li>
+          <li>Mobile optimized layout</li>
+          <li>Social media integration</li>
+          <li>Branded colors + custom sizing</li>
+          <li>Print-ready PNG + SVG files</li>
+          <li>Revisions included — we fix what you dislike</li>
+          <li>Ongoing support for changes</li>
+        </ul>
+        <a href="https://wa.me/27658772518?text=Hi%2C%20I%27d%20like%20to%20order%20the%20Premium%20QR%20Code%20package%20(R1%2C499)" class="btn btn-primary" style="width: 100%; margin-top: 1rem; justify-content: center;">Order Premium →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section>
+  <h2>How It Works</h2>
+  <p style="color: #6a6a6a; font-size: 1.1rem; margin-bottom: 2rem;">Simple and fast — from order to delivery in as little as 24 hours.</p>
+
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-number">1</div>
+      <h3>Contact Us</h3>
+      <p>WhatsApp us your order. Tell us what the QR code should link to and what plan you want.</p>
+    </div>
+
+    <div class="process-step">
+      <div class="step-number">2</div>
+      <h3>Share Your Details</h3>
+      <p>Send us your business colors, logo if you have one, and any sizing or design preferences.</p>
+    </div>
+
+    <div class="process-step">
+      <div class="step-number">3</div>
+      <h3>We Create It</h3>
+      <p>We professionally design and generate your QR code, test it thoroughly, and prepare your files.</p>
+    </div>
+
+    <div class="process-step">
+      <div class="step-number">4</div>
+      <h3>You Receive & Print</h3>
+      <p>We send your print-ready files directly to you. Ready to use on any material immediately.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <h3>How long does it take to receive my QR code?</h3>
+      <p>Basic and Standard orders are delivered within 24 hours. Premium orders with a mini website take 3–5 business days depending on complexity.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What format will I receive my files in?</h3>
+      <p>You will receive a high-resolution PNG file (perfect for digital use and most printing). Standard and Premium orders also include an SVG file which is ideal for large-format printing like banners and billboards.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Can I change what the QR code links to later?</h3>
+      <p>Standard static QR codes link to a fixed URL — if you change your website link you may need a new QR code. Premium mini website clients can request changes and we will update it for you.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Will the QR code work on all phones?</h3>
+      <p>Yes. All QR codes we create are tested and compatible with all modern smartphones — Android and iPhone — using the default camera app, no extra apps required.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do I pay?</h3>
+      <p>Payment is made before delivery. We accept EFT bank transfer and other payment options discussed on WhatsApp. Once payment is confirmed we begin immediately.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Guarantee -->
+<div class="guarantee-badge">
+  <h3>✅ 100% Satisfaction Guarantee</h3>
+  <p>If you are not happy with the design we will revise it until you love it — or we will refund you in full. No risk, no stress.</p>
+</div>
+
+<!-- CTA -->
+<section>
+  <div class="cta-section">
+    <h2>Ready to Connect Your Business?</h2>
+    <p>WhatsApp us now and get your professional QR code delivered within 24 hours.</p>
+    <div class="hero-buttons">
+      <a href="https://wa.me/27658772518?text=Hi%2C%20I%27m%20interested%20in%20a%20Custom%20QR%20Code%20for%20my%20business" class="btn btn-primary">💬 Order on WhatsApp</a>
+      <a href="mailto:kldigital.active@gmail.com" class="btn btn-secondary">📧 Email Us</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 KL Digital | Professional Digital Services in Polokwane</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('mainNav').classList.toggle('active');
+}
+
+document.addEventListener('click', (e) => {
+  const nav = document.getElementById('mainNav');
+  const menuBtn = document.querySelector('.mobile-menu');
+  if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
+    nav.classList.remove('active');
+  }
+});
+
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('mainNav').classList.remove('active');
+  });
+});
+</script>
+
+</body>
+</html>

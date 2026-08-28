@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurant AI Demo | KL Digital</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+:root {
+  --brand: #ff6b35;
+  --brand2: #f7931e;
+  --accent: #00d4ff;
+  --purple: #b24bf3;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #f7f7f7;
+  min-height: 100vh;
+}
+
+.logo-icon {
+  width: 40px; height: 40px;
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; font-weight: 900; color: white;
+  font-family: 'Syne', sans-serif;
+}
+.logo-text { font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 800; color: #1a1a1a; }
+
+.btn-back {
+  background: rgba(0,0,0,0.06); color: #1a1a1a;
+  padding: 0.6rem 1.2rem; border-radius: 50px;
+  font-weight: 600; text-decoration: none; font-size: 0.85rem; transition: all 0.3s;
+}
+.btn-back:hover { background: rgba(0,0,0,0.1); }
+
+.chat-window::-webkit-scrollbar-track { background: #f0f0f0; }
+
+.quick-reply-btn {
+  background: rgba(255,107,53,0.08);
+  border: 1px solid rgba(255,107,53,0.3);
+  color: var(--brand);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.chat-input:focus { background: #efefef; box-shadow: 0 0 0 2px rgba(255,107,53,0.2); }
+
+.send-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(255,107,53,0.4); }
+
+.cta-box {
+  margin-top: 2rem;
+  background: linear-gradient(135deg, rgba(255,107,53,0.06), rgba(247,147,30,0.06));
+  border: 2px solid rgba(255,107,53,0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.cta-wa {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 1rem 2.5rem; border-radius: 50px;
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  color: white; text-decoration: none;
+  font-weight: 700; font-size: 0.95rem;
+  text-transform: uppercase; letter-spacing: 1px;
+  transition: all 0.3s;
+  box-shadow: 0 8px 30px rgba(255,107,53,0.3);
+}
+.cta-wa:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(255,107,53,0.5); }
+
+footer {
+  text-align: center; padding: 2rem; color: #8a8a8a; font-size: 0.85rem;
+  margin-top: 3rem; border-top: 1px solid #e8e8e8;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="../index.html" class="logo-container">
+    <div class="logo-icon">KL</div>
+    <div class="logo-text">KL DIGITAL</div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html" class="btn-back">← All Demos</a>
+    <a href="https://wa.me/27658772518?text=Hi%2C%20I%20want%20this%20restaurant%20AI%20for%20my%20business" class="btn-all">Get This →</a>
+  </div>
+</header>
+
+<div class="page-wrapper">
+  <div class="demo-header">
+    <div class="business-emoji">🍔</div>
+    <h1>Kota King Polokwane</h1>
+    <p>AI Customer Assistant Demo</p>
+    <div class="demo-badge"><span class="dot"></span> AI Online — Try It Now</div>
+  </div>
+
+  <div class="chat-window" id="chatWindow"></div>
+
+  <div class="quick-replies" id="quickReplies">
+    <button class="quick-reply-btn" onclick="sendQuick('What\'s on the menu?')">🍽️ Menu</button>
+    <button class="quick-reply-btn" onclick="sendQuick('What are your prices?')">💰 Prices</button>
+    <button class="quick-reply-btn" onclick="sendQuick('I want to place an order')">🛒 Order</button>
+    <button class="quick-reply-btn" onclick="sendQuick('What are your opening hours?')">🕐 Hours</button>
+    <button class="quick-reply-btn" onclick="sendQuick('Where are you located?')">📍 Location</button>
+    <button class="quick-reply-btn" onclick="sendQuick('Any specials today?')">⭐ Specials</button>
+  </div>
+
+  <div class="chat-input-area">
+    <input type="text" class="chat-input" id="chatInput" placeholder="Type a message..." onkeypress="handleKey(event)">
+    <button class="send-btn" onclick="sendMessage()">➤</button>
+  </div>
+
+  <div class="demo-notice">
+    🤖 This is a demo showing how AI works for a restaurant. Your real business would have your own menu, prices and branding.
+  </div>
+
+  <div class="cta-box">
+    <h3>Want This AI For Your Restaurant?</h3>
+    <p>We set up and run AI assistants for restaurants in Polokwane. Your customers get instant answers — even at midnight.</p>
+    <a href="https://wa.me/27658772518?text=Hi%2C%20I%20want%20an%20AI%20assistant%20for%20my%20restaurant" class="cta-wa">💬 Get This For My Restaurant</a>
+  </div>
+</div>
+
+<footer>© 2026 KL Digital | This is a demo — not a real restaurant</footer>
+
+<script>
+const responses = {
+  greeting: ["Hi there! 👋 Welcome to Kota King Polokwane! I'm your AI assistant. How can I help you today? You can ask me about our menu, prices, specials or place an order! 🍔"],
+  menu: ["Here's what we offer at Kota King! 🍔\n\n🥪 **KOTAS**\n• Small Kota — R35\n• Large Kota — R55\n• King Special Kota — R75\n\n🍟 **SIDES**\n• Chips — R20\n• Pap — R15\n• Coleslaw — R10\n\n🥤 **DRINKS**\n• Cooldrink (500ml) — R15\n• Water — R10\n• Juice — R18\n\nWould you like to place an order? 😊"],
+  prices: ["Our prices are very affordable! 💰\n\n• Small Kota — R35\n• Large Kota — R55\n• King Special — R75\n• Chips — R20\n• Pap — R15\n• Drinks from R10\n\nAll kotas come with chips included! Want to order something?"],
+  order: ["Great choice! 🛒 To place your order please tell me:\n\n1️⃣ What would you like? (e.g. Large Kota + Chips)\n2️⃣ Your name\n3️⃣ Collection or delivery?\n\nWe'll confirm your order and have it ready! 🍔"],
+  hours: ["We are open every day! 🕐\n\n📅 Monday – Friday: 7:00 AM – 9:00 PM\n📅 Saturday: 7:00 AM – 10:00 PM\n📅 Sunday: 8:00 AM – 8:00 PM\n\nWe're here to serve you! Anything else you'd like to know?"],
+  location: ["Find us here! 📍\n\n🏠 123 Landdros Mare Street\nPolokwane, Limpopo\n\n🚗 We're next to the Checkers in town\n🚶 5 min walk from the taxi rank\n\nWe also do delivery within 5km! Want to order?"],
+  specials: ["Today's specials are 🔥\n\n⭐ LUNCH SPECIAL (12pm–3pm)\n• Large Kota + Chips + Drink — R75 (save R15!)\n\n⭐ DAILY SPECIAL\n• 2 Small Kotas for R60\n\n⭐ WEEKEND SPECIAL\n• King Special + 2 Drinks — R90\n\nThese deals won't last! Want to grab one? 😋"],
+  default: ["Thanks for your message! 😊 I can help you with our menu, prices, specials, opening hours, location or taking your order. What would you like to know? 🍔"]
+};
+
+function getResponse(input) {
+  const msg = input.toLowerCase();
+  if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey') || msg.includes('good')) return responses.greeting[0];
+  if (msg.includes('menu') || msg.includes('food') || msg.includes('eat') || msg.includes('sell') || msg.includes('offer')) return responses.menu[0];
+  if (msg.includes('price') || msg.includes('cost') || msg.includes('how much') || msg.includes('rand') || msg.includes('cheap')) return responses.prices[0];
+  if (msg.includes('order') || msg.includes('buy') || msg.includes('want') || msg.includes('get') || msg.includes('i\'ll have')) return responses.order[0];
+  if (msg.includes('hour') || msg.includes('open') || msg.includes('close') || msg.includes('time') || msg.includes('when')) return responses.hours[0];
+  if (msg.includes('where') || msg.includes('location') || msg.includes('address') || msg.includes('find') || msg.includes('directions')) return responses.location[0];
+  if (msg.includes('special') || msg.includes('deal') || msg.includes('discount') || msg.includes('promo')) return responses.specials[0];
+  return responses.default[0];
+}
+
+function addMessage(text, sender) {
+  const chatWindow = document.getElementById('chatWindow');
+  const msg = document.createElement('div');
+  msg.className = `message ${sender}`;
+  const avatar = sender === 'bot' ? '🍔' : '👤';
+  msg.innerHTML = `
+    <div class="avatar">${avatar}</div>
+    <div class="bubble">${text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</div>
+  `;
+  chatWindow.appendChild(msg);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+function showTyping() {
+  const chatWindow = document.getElementById('chatWindow');
+  const typing = document.createElement('div');
+  typing.className = 'typing-indicator';
+  typing.id = 'typingIndicator';
+  typing.innerHTML = `
+    <div class="avatar">🍔</div>
+    <div class="typing-bubble"><span></span><span></span><span></span></div>
+  `;
+  chatWindow.appendChild(typing);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+function removeTyping() {
+  const t = document.getElementById('typingIndicator');
+  if (t) t.remove();
+}
+
+function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if (!text) return;
+  addMessage(text, 'user');
+  input.value = '';
+  showTyping();
+  setTimeout(() => {
+    removeTyping();
+    addMessage(getResponse(text), 'bot');
+  }, 1000 + Math.random() * 800);
+}
+
+function sendQuick(text) {
+  addMessage(text, 'user');
+  showTyping();
+  setTimeout(() => {
+    removeTyping();
+    addMessage(getResponse(text), 'bot');
+  }, 1000 + Math.random() * 800);
+}
+
+function handleKey(e) {
+  if (e.key === 'Enter') sendMessage();
+}
+
+// Opening greeting
+window.onload = () => {
+  setTimeout(() => {
+    showTyping();
+    setTimeout(() => {
+      removeTyping();
+      addMessage("Sawubona! 👋 Welcome to Kota King Polokwane! I'm your AI assistant, available 24/7. Ask me about our menu, prices, specials or place an order right now! 🍔🔥", 'bot');
+    }, 1200);
+  }, 500);
+};
+</script>
+</body>
+</html>
