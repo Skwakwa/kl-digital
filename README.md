@@ -36,7 +36,7 @@ Check out some of our featured projects:
 ---
 
 ### 🌐 Live Site
-[https://kldigital.co.za](kldigital.co.za)
+[https://www.kldigital.co.za](https://www.kldigital.co.za)
 
 ---
 
